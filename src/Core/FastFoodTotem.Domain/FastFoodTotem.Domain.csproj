@@ -7,10 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\Payments\" />
     <Folder Include="Contracts\Services\" />
     <Folder Include="Contracts\Repositories\" />
     <Folder Include="Entities\" />
+    <Folder Include="Validations\" />
+    <Folder Include="Services\" />
     <Folder Include="ValueObjects\" />
   </ItemGroup>
 

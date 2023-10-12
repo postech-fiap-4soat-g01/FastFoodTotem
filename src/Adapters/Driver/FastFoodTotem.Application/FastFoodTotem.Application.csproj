@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ApplicationServices\" />
+    <Folder Include="Dtos\Responses\" />
+    <Folder Include="Dtos\Requests\" />
+    <Folder Include="ApplicationServicesInterfaces\" />
+    <Folder Include="DtosEntitiesMappers\" />
+    <Folder Include="DtoValidators\" />
+  </ItemGroup>
+
+</Project>

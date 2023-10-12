@@ -1,47 +1,65 @@
-﻿using MercadoPago.Client.Payment;
-using MercadoPago.Config;
-using MercadoPago.Resource.Payment;
+﻿using FastFoodTotem.Domain.Contracts.Payments;
+using FastFoodTotem.MercadoPago.Dtos.Request;
+using FastFoodTotem.MercadoPago.Dtos.Response;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace FastFoodTotem.MercadoPago;
 
-public class MercadoPagoIntegracao
+public class MercadoPagoPayment : IOrderPayment
 {
     private readonly string _accessToken;
-    private readonly string _payerType;
-    private readonly string _payerEmail;
-    private readonly string _paymentType;
+    private readonly string _baseUrl;
+    private readonly string _userId;
+    private readonly string _externalPosId;
 
-    public MercadoPagoIntegracao(IConfiguration config)
+    public MercadoPagoPayment(IConfiguration config)
     {
-        _accessToken = config.GetSection("MercadoPago:AccessToken").Value;
-        _payerType = config.GetSection("MercadoPago:TipoPagador").Value;
-        _payerEmail = config.GetSection("MercadoPago:EmailPagador").Value;
-        _paymentType = config.GetSection("MercadoPago:TipoPagamento").Value;
+        _accessToken = config.GetSection("MercadoPago:AccessToken").Value ?? throw new ArgumentNullException("Null Access token");
+        _baseUrl = config.GetSection("MercadoPago:BaseUrl").Value ?? throw new ArgumentNullException("Null Base Url");
+        _userId = config.GetSection("MercadoPago:UserId").Value ?? throw new ArgumentNullException("Null User Id");
+        _externalPosId = config.GetSection("MercadoPago:ExternalPosId").Value ?? throw new ArgumentNullException("Null External Pos Id");
     }
 
-    public async Task<Payment> CriarPagamentoQRCode()
+    public async Task<string> GerarQRCodeParaPagamentoDePedido()
     {
-        MercadoPagoConfig.AccessToken = _accessToken;
-
-        var request = new PaymentCreateRequest
+        var request = new GerarQRCodeRequest()
         {
-            Description = "Teste",
-            Installments = 1,
-            Payer = new PaymentPayerRequest
+            TotalAmount = 12,
+            ExternalReference = "pedido1",
+            Title = "Pedido1",
+            Description = "Pedido1",
+            Items = new List<Item>()
             {
-                Type = _payerType,
-                Email = _payerEmail,
-            },
-            PaymentMethodId = _paymentType,
-            TransactionAmount = 100,
+                new Item()
+                {
+                    Title = "Hamburguer",
+                    UnitMeasure = "unit",
+                    Quantity = 1,
+                    UnitPrice = 12,
+                    TotalAmount = 12,
+                }
+            }
         };
 
-        var client = new PaymentClient();
-        request.PaymentMethodId = "Debin_transfer";
-        Payment payment = await client.CreateAsync(request);
+        using (var httpRequest = new HttpClient())
+        {
+            httpRequest.BaseAddress = new Uri(_baseUrl);
+            httpRequest.DefaultRequestHeaders.Clear();
+            httpRequest.DefaultRequestHeaders.Add("Authorization", $"Bearer {_accessToken}");
 
-        return payment;
+            var content = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
+            var result = await httpRequest.PostAsync($"/instore/orders/qr/seller/collectors/{_userId}/pos/{_externalPosId}/qrs", content);
+
+            if (result.IsSuccessStatusCode)
+            {
+                var resultString = await result.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<GerarQRCodeResponse>(resultString).QrData;
+            }
+
+            return null;
+        }
     }
 }
 

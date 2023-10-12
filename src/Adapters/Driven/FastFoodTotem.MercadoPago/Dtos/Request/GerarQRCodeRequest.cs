@@ -1,32 +1,41 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace FastFoodTotem.MercadoPago.Dtos.Request;
 
 public class GerarQRCodeRequest
 {
-    [JsonPropertyName("description")]
+    [JsonProperty("total_amount")]
+    public decimal TotalAmount { get; set; }
+
+    [JsonProperty("external_reference")]
+    public string ExternalReference { get; set; }
+
+    [JsonProperty("title")]
+    public string Title { get; set; }
+
+    [JsonProperty("description")]
     public string Description { get; set; }
 
-    [JsonPropertyName("installments")]
-    public int Installments { get; set; }
-
-    [JsonPropertyName("issuer_id")]
-    public string IssuerId { get; set; }
-
-    [JsonPropertyName("payer")]
-    public Payer Payer { get; set; }
-
-    [JsonPropertyName("payment_method_id")]
-    public string PaymentMethodId { get; set; }
-
-    [JsonPropertyName("token")]
-    public string Token { get; set; }
-
-    [JsonPropertyName("transaction_amount")]
-    public decimal TransactionAmount { get; set; }
+    [JsonProperty("items")]
+    public List<Item> Items { get; set; }
 }
 
-public class Payer
+public class Item
 {
+    [JsonProperty("title")]
+    public string Title { get; set; }
 
+    [JsonProperty("unit_measure")]
+    public string UnitMeasure { get; set; }
+
+    [JsonProperty("quantity")]
+    public int Quantity { get; set; }
+
+    [JsonProperty("unit_price")]
+    public decimal UnitPrice { get; set; }
+
+    [JsonProperty("total_amount")]
+    public decimal TotalAmount { get; set; }
 }
+
