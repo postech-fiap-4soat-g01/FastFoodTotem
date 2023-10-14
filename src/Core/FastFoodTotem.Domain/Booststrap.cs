@@ -9,6 +9,7 @@ namespace FastFoodTotem.Domain
         public static IServiceCollection AddDomain(this IServiceCollection services)
         {
             services.AddSingleton<IOrderService, OrderService>();
+            services.AddSingleton<IProductService, ProductService>();
 
             return services;
         }
