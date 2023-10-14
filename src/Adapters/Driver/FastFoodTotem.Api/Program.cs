@@ -1,25 +1,79 @@
+using FastFoodTotem.Domain;
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Host.ConfigureAppConfiguration((hostContext, config) =>
+{
+    const string fileSettingsName = "appsettings";
+    config
+        .AddUserSecrets<Program>(optional: true)
+        .AddJsonFile($"{fileSettingsName}.json", optional: false, reloadOnChange: true)
+        .AddJsonFile($"{fileSettingsName}.{hostContext.HostingEnvironment.EnvironmentName}.json")
+        .AddEnvironmentVariables();
+});
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Host.ConfigureLogging(logging =>
+{
+    logging
+        .ClearProviders()
+        .AddConsole();
+});
+
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
+});
+
+builder.Services
+    .AddEndpointsApiExplorer()
+    .AddSwaggerGen(setup =>
+    {
+        setup.SwaggerDoc("v1",
+            new Microsoft.OpenApi.Models.OpenApiInfo
+            {
+                Title = "Fast Food Totem Api",
+                Version = "v1",
+                Contact = new Microsoft.OpenApi.Models.OpenApiContact()
+                {
+                    //TODO - Add e-mail and name
+                    Email = "",
+                    Name = "",
+                }
+            });
+
+        var filePath = Path.Combine(AppContext.BaseDirectory, $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
+        setup.IncludeXmlComments(filePath);
+    })
+    .AddApiVersioning(options =>
+    {
+        options.ReportApiVersions = true;
+        options.AssumeDefaultVersionWhenUnspecified = true;
+        options.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+    })
+    .AddHealthChecks();
+
+builder.Services.AddDomain();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    app.UseSwagger().UseSwaggerUI();
 
-app.UseHttpsRedirection();
+app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.UseEndpoints(endpoints =>
+{
+    //TODO healthcheck
+
+    endpoints.MapControllers();
+});
+
+app.UseHttpsRedirection();
+
+app.MapControllerRoute(name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
