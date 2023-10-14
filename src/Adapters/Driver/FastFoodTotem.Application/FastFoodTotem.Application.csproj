@@ -8,11 +8,8 @@
 
   <ItemGroup>
     <Folder Include="ApplicationServices\" />
-    <Folder Include="Dtos\Responses\" />
-    <Folder Include="Dtos\Requests\" />
     <Folder Include="ApplicationServicesInterfaces\" />
     <Folder Include="DtosEntitiesMappers\" />
-    <Folder Include="DtoValidators\" />
   </ItemGroup>
 
 </Project>
