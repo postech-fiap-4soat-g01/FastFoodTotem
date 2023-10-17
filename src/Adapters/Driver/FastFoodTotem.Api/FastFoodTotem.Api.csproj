@@ -20,6 +20,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Core\FastFoodTotem.Domain\FastFoodTotem.Domain.csproj" />
+		<ProjectReference Include="..\..\Driven\FastFoodTotem.Infra.SqlServer\FastFoodTotem.Infra.SqlServer.csproj" />
 		<ProjectReference Include="..\FastFoodTotem.Application\FastFoodTotem.Application.csproj" />
 	</ItemGroup>
 
