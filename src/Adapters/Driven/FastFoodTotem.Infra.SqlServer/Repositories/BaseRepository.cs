@@ -5,49 +5,55 @@ using System.Linq.Expressions;
 
 namespace FastFoodTotem.Infra.SqlServer.Repositories
 {
-    internal abstract class BaseRepository<TId, TEntity> : IBaseRepository<TId,TEntity> where TEntity: class
+    internal abstract class BaseRepository<TId, TEntity> : IBaseRepository<TId, TEntity> where TEntity : class
     {
         protected DbSet<TEntity> Data { get; }
         protected FastFoodContext _context;
+
+        public BaseRepository(FastFoodContext fastFoodContext)
+        {
+            this._context = fastFoodContext;
+            this.Data = _context.Set<TEntity>();
+        }
 
         public async Task CreateAsync(TEntity entity)
         {
             await Data.AddAsync(entity);
         }
 
-        public void DeleteAsync(TEntity entity)
+        public void Delete(TEntity entity)
         {
             Data.Remove(entity);
         }
 
-        public Task<IEnumerable<TEntity>> FindAllAsync()
+        public async Task<IEnumerable<TEntity>> FindAllAsync()
         {
-            throw new NotImplementedException();
+            return Data.ToList();
         }
 
-        public Task<IEnumerable<TEntity>> FindByConditionAsync(Expression<Func<TEntity, bool>> expression)
+        public async Task<IEnumerable<TEntity>> FindByConditionAsync(Expression<Func<TEntity, bool>> expression)
         {
-            throw new NotImplementedException();
+            return Data.Where(expression).ToList();
         }
 
-        public Task<TEntity> FindByIdAsync(TId id)
+        public TEntity FindById(TId id)
         {
-            throw new NotImplementedException();
+            return Data.Find(id);
         }
 
         public Task<bool> HasAnyAsync(Expression<Func<TEntity, bool>> expression)
         {
-            throw new NotImplementedException();
+            return Data.AnyAsync(expression);
         }
 
-        public Task UpdateAsync(TEntity entity)
+        public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            Data.Update(entity);
         }
 
         public Task<int> SaveChangesAsync()
         {
-           return _context.SaveChangesAsync();
+            return _context.SaveChangesAsync();
         }
     }
 }

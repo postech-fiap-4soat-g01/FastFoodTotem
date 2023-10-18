@@ -16,5 +16,6 @@ namespace FastFoodTotem.Infra.SqlServer.Database
         public DbSet<OrderEntity> Orders { get; set; }
 
         public DbSet<ProductEntity> Products { get; set; }
+        public DbSet<OrderedItemEntity> OrderedItems { get; set; }
     }
 }
