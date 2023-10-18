@@ -2,6 +2,8 @@
 {
     public class ProductEntity
     {
+        protected ProductEntity() { }
+
         public ProductEntity(Guid id, Guid name, Guid categoryId, CategoryEntity category)
         {
             Id = id;
