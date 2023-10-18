@@ -1,5 +1,6 @@
 using FastFoodTotem.Domain;
 using System.Reflection;
+using FastFoodTotem.Infra.SqlServer.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,6 +55,8 @@ builder.Services
     .AddHealthChecks();
 
 builder.Services.AddDomain();
+builder.Services.AddConfigureDatabase(builder.Configuration);
+builder.Services.AddConfigureServices();
 
 var app = builder.Build();
 
