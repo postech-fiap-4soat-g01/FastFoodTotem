@@ -14,12 +14,17 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.12">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.4" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Core\FastFoodTotem.Domain\FastFoodTotem.Domain.csproj" />
+		<ProjectReference Include="..\..\Driven\FastFoodTotem.Infra.SqlServer\FastFoodTotem.Infra.SqlServer.csproj" />
 		<ProjectReference Include="..\FastFoodTotem.Application\FastFoodTotem.Application.csproj" />
 	</ItemGroup>
 

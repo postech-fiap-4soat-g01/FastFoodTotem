@@ -1,6 +1,6 @@
 ﻿namespace FastFoodTotem.Domain.Contracts.Repositories
 {
-    public interface ICategoryEntityRepository
+    public interface IProductRepository
     {
     }
 }

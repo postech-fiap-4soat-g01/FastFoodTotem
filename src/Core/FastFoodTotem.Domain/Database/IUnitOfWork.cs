@@ -4,6 +4,6 @@ namespace FastFoodTotem.Domain.Database
 {
     public interface IUnitOfWork
     {
-        ICategoryEntityRepository Categories { get; }
+        ICategoryRepository Categories { get; }
     }
 }
