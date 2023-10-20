@@ -11,7 +11,8 @@ namespace FastFoodTotem.Domain
         {
             services.AddSingleton<IOrderService, OrderService>();
             services.AddSingleton<IProductService, ProductService>();
-            services.AddSingleton<ICustomerService, CustomerService>();
+            
+            services.AddTransient<ICustomerService, CustomerService>();
 
             return services;
         }

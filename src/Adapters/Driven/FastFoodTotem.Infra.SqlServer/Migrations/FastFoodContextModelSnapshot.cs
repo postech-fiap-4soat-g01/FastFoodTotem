@@ -40,7 +40,7 @@ namespace FastFoodTotem.Infra.SqlServer.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("FastFoodTotem.Domain.Entities.ClientEntity", b =>
+            modelBuilder.Entity("FastFoodTotem.Domain.Entities.CustomerEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -48,7 +48,7 @@ namespace FastFoodTotem.Infra.SqlServer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Clients");
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("FastFoodTotem.Domain.Entities.OrderEntity", b =>
@@ -57,7 +57,7 @@ namespace FastFoodTotem.Infra.SqlServer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ClientId")
+                    b.Property<Guid>("CustomerId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Status")
@@ -65,7 +65,7 @@ namespace FastFoodTotem.Infra.SqlServer.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClientId");
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("Orders");
                 });
@@ -115,13 +115,13 @@ namespace FastFoodTotem.Infra.SqlServer.Migrations
 
             modelBuilder.Entity("FastFoodTotem.Domain.Entities.OrderEntity", b =>
                 {
-                    b.HasOne("FastFoodTotem.Domain.Entities.ClientEntity", "Client")
+                    b.HasOne("FastFoodTotem.Domain.Entities.CustomerEntity", "Customer")
                         .WithMany()
-                        .HasForeignKey("ClientId")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Client");
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("FastFoodTotem.Domain.Entities.OrderedItemEntity", b =>

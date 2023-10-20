@@ -31,7 +31,7 @@ namespace FastFoodTotem.Domain.Services
 
             if(customerByCpf != null)
             {
-                var customerByCpfDto = new CustomerGetByCPFResponseDto(customerByCpf.Id, customerByCpf.CustomerName, customerByCpf.CustomerEmail);
+                var customerByCpfDto = new CustomerGetByCPFResponseDto(customerByCpf.Id, customerByCpf.Name, customerByCpf.Email);
 
                 return customerByCpfDto;
             }
@@ -45,9 +45,9 @@ namespace FastFoodTotem.Domain.Services
 
             var customerGetResponseDto = customers.Select(customer => new CustomerGetResponseDto(
                 customer.Id,
-                customer.CustomerName,
-                customer.CustomerEmail,
-                customer.CustomerIdentification
+                customer.Name,
+                customer.Email,
+                customer.Identification
                 ));
 
             return customerGetResponseDto;
