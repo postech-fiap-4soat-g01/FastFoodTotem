@@ -1,4 +1,6 @@
 using FastFoodTotem.Domain;
+using FastFoodTotem.Domain.Contracts.Repositories;
+using FastFoodTotem.Infra.SqlServer.Repositories;
 using System.Reflection;
 using FastFoodTotem.Infra.SqlServer.IoC;
 
@@ -57,6 +59,9 @@ builder.Services
 builder.Services.AddDomain();
 builder.Services.AddConfigureDatabase(builder.Configuration);
 builder.Services.AddConfigureServices();
+
+//Mock Test
+builder.Services.AddSingleton<ICustomerRepository, CustomerRepository>();
 
 var app = builder.Build();
 

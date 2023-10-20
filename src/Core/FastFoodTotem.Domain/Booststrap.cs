@@ -1,4 +1,5 @@
-﻿using FastFoodTotem.Domain.Contracts.Services;
+﻿using FastFoodTotem.Domain.Contracts.Repositories;
+using FastFoodTotem.Domain.Contracts.Services;
 using FastFoodTotem.Domain.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +11,8 @@ namespace FastFoodTotem.Domain
         {
             services.AddSingleton<IOrderService, OrderService>();
             services.AddSingleton<IProductService, ProductService>();
+
+            services.AddSingleton<ICustomerService, CustomerService>();
 
             return services;
         }
