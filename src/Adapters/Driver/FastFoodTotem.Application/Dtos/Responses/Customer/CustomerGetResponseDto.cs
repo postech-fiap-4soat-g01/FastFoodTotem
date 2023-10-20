@@ -2,17 +2,17 @@
 {
     public struct CustomerGetResponseDto
     {
-        public CustomerGetResponseDto(Guid id, string customerName, string customerEmail, string customerIdentification)
+        public CustomerGetResponseDto(Guid id, string name, string email, string identification)
         {
             Id = id;
-            CustomerName = customerName;
-            CustomerEmail = customerEmail;
-            CustomerIdentification = customerIdentification;
+            Name = name;
+            Email = email;
+            Identification = identification;
         }
 
         public Guid Id { get; private set; }
-        public string CustomerName { get; private set; }
-        public string CustomerEmail { get; private set; }
-        public string CustomerIdentification { get; private set; }
+        public string Name { get; private set; }
+        public string Email { get; private set; }
+        public string Identification { get; private set; }
     }
 }

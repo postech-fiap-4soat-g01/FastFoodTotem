@@ -10,14 +10,14 @@ namespace FastFoodTotem.Application.Dtos.Requests.Customer
         /// </summary>
         /// <example>Fulano de Tal</example>
         [Required]
-        public string CustomerName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Customer email
         /// </summary>
         /// <example>fulano@tal.com</example>
         [Required]
-        public string CustomerEmail { get; set; }
+        public string Email { get; set; }
 
         /// <summary>
         /// Customer identification
@@ -25,6 +25,6 @@ namespace FastFoodTotem.Application.Dtos.Requests.Customer
         /// <example>12345678909</example>
         [Required]
         [Identificationvalidation(ErrorMessage = "Identification must be valid!")]
-        public string CustomerIdentification { get; set; }
+        public string Identification { get; set; }
     }
 }

@@ -15,9 +15,9 @@ namespace FastFoodTotem.Domain.Entities
         public CustomerEntity(CustomerCreateRequestDto customerCreateRequestDto) 
         { 
             Id = Guid.NewGuid();
-            Name = customerCreateRequestDto.CustomerName;
-            Email = customerCreateRequestDto.CustomerEmail;
-            Identification = customerCreateRequestDto.CustomerIdentification;
+            Name = customerCreateRequestDto.Name;
+            Email = customerCreateRequestDto.Email;
+            Identification = customerCreateRequestDto.Identification;
         }
 
         [Key]

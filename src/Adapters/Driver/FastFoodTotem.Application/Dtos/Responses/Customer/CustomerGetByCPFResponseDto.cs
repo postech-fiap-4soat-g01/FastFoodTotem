@@ -2,15 +2,15 @@
 {
     public struct CustomerGetByCPFResponseDto
     {
-        public CustomerGetByCPFResponseDto(Guid id, string customerName, string customerEmail)
+        public CustomerGetByCPFResponseDto(Guid id, string name, string email)
         {
             Id = id;
-            CustomerName = customerName;
-            CustomerEmail = customerEmail;
+            Name = name;
+            Email = email;
         }
 
         public Guid Id { get; private set; }
-        public string CustomerName { get; private set; }
-        public string CustomerEmail { get; private set; }
+        public string Name { get; private set; }
+        public string Email { get; private set; }
     }
 }

@@ -17,7 +17,7 @@ namespace FastFoodTotem.Domain.Services
 
         public async Task AddCustomerAsync(CustomerCreateRequestDto customer, CancellationToken cancellationToken)
         {
-            var existingCustomer = await _customerRepository.GetCustomerByCPFAsync(customer.CustomerIdentification, cancellationToken);
+            var existingCustomer = await _customerRepository.GetCustomerByCPFAsync(customer.Identification, cancellationToken);
 
             if (existingCustomer != null)
                 throw new DomainException("Customer already exists");
@@ -27,16 +27,10 @@ namespace FastFoodTotem.Domain.Services
 
         public async Task<CustomerGetByCPFResponseDto> GetCustomerByCPFAsync(string cpf, CancellationToken cancellationToken)
         {
-            var customerByCpf = await _customerRepository.GetCustomerByCPFAsync(cpf, cancellationToken);
-
-            if(customerByCpf != null)
-            {
-                var customerByCpfDto = new CustomerGetByCPFResponseDto(customerByCpf.Id, customerByCpf.Name, customerByCpf.Email);
-
-                return customerByCpfDto;
-            }
-
-            throw new DomainException("No customer found for this CPF");
+            var customerByCpf = await _customerRepository.GetCustomerByCPFAsync(cpf, cancellationToken) 
+                ?? throw new DomainException("No customer found for this CPF");
+            var customerByCpfDto = new CustomerGetByCPFResponseDto(customerByCpf.Id, customerByCpf.Name, customerByCpf.Email);
+            return customerByCpfDto;
         }
 
         public async Task<IEnumerable<CustomerGetResponseDto>> GetCustomersAsync(CancellationToken cancellationToken)
