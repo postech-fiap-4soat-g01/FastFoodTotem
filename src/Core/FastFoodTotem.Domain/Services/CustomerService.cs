@@ -2,6 +2,7 @@
 using FastFoodTotem.Application.Dtos.Responses.Customer;
 using FastFoodTotem.Domain.Contracts.Repositories;
 using FastFoodTotem.Domain.Contracts.Services;
+using FastFoodTotem.Domain.Exceptions;
 
 namespace FastFoodTotem.Domain.Services
 {
@@ -14,15 +15,42 @@ namespace FastFoodTotem.Domain.Services
             _customerRepository = customerRepository;
         }
 
-        //TODO: Customer exists validation
-        public async Task<CustomerCreateResponseDto> AddCustomer(CustomerCreateRequestDto customer, CancellationToken cancellationToken)
-            => await _customerRepository.AddCustomer(customer, cancellationToken);
+        public async Task AddCustomerAsync(CustomerCreateRequestDto customer, CancellationToken cancellationToken)
+        {
+            var existingCustomer = await _customerRepository.GetCustomerByCPFAsync(customer.CustomerIdentification, cancellationToken);
 
-        //TODO: Null validation
-        public async Task<CustomerGetByCPFResponseDto> GetCustomerByCPF(string cpf, CancellationToken cancellationToken)
-            => await _customerRepository.GetCustomerByCPF(cpf, cancellationToken);
+            if (existingCustomer != null)
+                throw new DomainException("Customer already exists");
 
-        public async Task<IEnumerable<CustomerGetResponseDto>> GetCustomers(CancellationToken cancellationToken)
-            => await _customerRepository.GetCustomers(cancellationToken);
+            await _customerRepository.AddCustomerAsync(new(customer), cancellationToken);
+        }
+
+        public async Task<CustomerGetByCPFResponseDto> GetCustomerByCPFAsync(string cpf, CancellationToken cancellationToken)
+        {
+            var customerByCpf = await _customerRepository.GetCustomerByCPFAsync(cpf, cancellationToken);
+
+            if(customerByCpf != null)
+            {
+                var customerByCpfDto = new CustomerGetByCPFResponseDto(customerByCpf.Id, customerByCpf.CustomerName, customerByCpf.CustomerEmail);
+
+                return customerByCpfDto;
+            }
+
+            throw new DomainException("No customer found for this CPF");
+        }
+
+        public async Task<IEnumerable<CustomerGetResponseDto>> GetCustomersAsync(CancellationToken cancellationToken)
+        {
+            var customers = await _customerRepository.GetCustomersAsync(cancellationToken);
+
+            var customerGetResponseDto = customers.Select(customer => new CustomerGetResponseDto(
+                customer.Id,
+                customer.CustomerName,
+                customer.CustomerEmail,
+                customer.CustomerIdentification
+                ));
+
+            return customerGetResponseDto;
+        }
     }
 }

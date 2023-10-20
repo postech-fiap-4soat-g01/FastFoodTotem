@@ -1,4 +1,5 @@
 ﻿using FastFoodTotem.Application.DtoValidators;
+using System.ComponentModel.DataAnnotations;
 
 namespace FastFoodTotem.Application.Dtos.Requests.Customer
 {
@@ -8,18 +9,21 @@ namespace FastFoodTotem.Application.Dtos.Requests.Customer
         /// Customer name.
         /// </summary>
         /// <example>Fulano de Tal</example>
+        [Required]
         public string CustomerName { get; set; }
 
         /// <summary>
         /// Customer email
         /// </summary>
         /// <example>fulano@tal.com</example>
+        [Required]
         public string CustomerEmail { get; set; }
 
         /// <summary>
         /// Customer identification
         /// </summary>
         /// <example>12345678909</example>
+        [Required]
         [Identificationvalidation(ErrorMessage = "Identification must be valid!")]
         public string CustomerIdentification { get; set; }
     }

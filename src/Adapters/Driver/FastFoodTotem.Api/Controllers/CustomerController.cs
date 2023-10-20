@@ -3,6 +3,7 @@ using FastFoodTotem.Application.Dtos.Requests.Customer;
 using FastFoodTotem.Application.Dtos.Requests.Product;
 using FastFoodTotem.Application.Dtos.Responses.Customer;
 using FastFoodTotem.Domain.Contracts.Services;
+using FastFoodTotem.Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FastFoodTotem.Api.Controllers
@@ -39,16 +40,20 @@ namespace FastFoodTotem.Api.Controllers
         /// <response code="400">Body in the request was wrong.</response>
         /// <response code="500">Internal server error</response>
         [HttpPost]
-        [ProducesResponseType(statusCode: StatusCodes.Status201Created, type: typeof(CustomerCreateResponseDto))]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Create(CustomerCreateRequestDto customerCreateRequestDto, CancellationToken cancellationToken)
         {
             try
             {
-                var customer = await _customerService.AddCustomer(customerCreateRequestDto, cancellationToken);
+                await _customerService.AddCustomerAsync(customerCreateRequestDto, cancellationToken);
 
-                return Ok(customer);
+                return StatusCode(StatusCodes.Status201Created);
+            }
+            catch (Exception ex) when (ex is DomainException)
+            {
+                return BadRequest(ex.Message);
             }
             catch
             {
@@ -71,11 +76,15 @@ namespace FastFoodTotem.Api.Controllers
         {
             try
             {
-                return Ok(await _customerService.GetCustomerByCPF(cpf, cancellationToken));
+                return Ok(await _customerService.GetCustomerByCPFAsync(cpf, cancellationToken));
+            }
+            catch (Exception ex) when (ex is DomainException)
+            {
+                return BadRequest(ex.Message);
             }
             catch
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Something wrong occurred while trying to retrieve customer.");
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while adding customer");
             }
         }
 
@@ -92,14 +101,21 @@ namespace FastFoodTotem.Api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetCustomers(CancellationToken cancellationToken)
         {
-            var customers = await _customerService.GetCustomers(cancellationToken);
-
-            if (customers is null || !customers.Any())
+            try
             {
-                return NoContent();
-            }
+                var customers = await _customerService.GetCustomersAsync(cancellationToken);
 
-            return Ok(customers);
+                if (customers is null || !customers.Any())
+                {
+                    return NoContent();
+                }
+
+                return Ok(customers);
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while adding customer");
+            }
         }
     }
 }

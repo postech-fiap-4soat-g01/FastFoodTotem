@@ -28,7 +28,7 @@ namespace FastFoodTotem.Api.Controllers
         ///
         ///     POST
         ///     {
-        ///        "clientId": "8322d708-507a-41d2-901d-620fe97948f6",
+        ///        "customerId": "8322d708-507a-41d2-901d-620fe97948f6",
         ///        "items": [
         ///             {
         ///                 "id": "f2f73569-6760-4c25-a8f4-96effc5419f5"

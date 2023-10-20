@@ -9,8 +9,8 @@ namespace FastFoodTotem.Domain.Entities
 
         [Key]
         public Guid Id { get; private set; }
-        public ClientEntity Client { get; set; }
-        public Guid ClientId { get; private set; }
+        public CustomerEntity Customer { get; set; }
+        public Guid CustomerId { get; private set; }
         public OrderStatus Status { get; private set; }
         public IEnumerable<OrderedItemEntity> OrderedItems { get; private set; } = Enumerable.Empty<OrderedItemEntity>();
     }

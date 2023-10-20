@@ -16,9 +16,9 @@ namespace FastFoodTotem.Infra.SqlServer.Repositories
             this.Data = _context.Set<TEntity>();
         }
 
-        public async Task CreateAsync(TEntity entity)
+        public async Task CreateAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
-            await Data.AddAsync(entity);
+            await Data.AddAsync(entity, cancellationToken);
         }
 
         public void Delete(TEntity entity)
@@ -26,14 +26,14 @@ namespace FastFoodTotem.Infra.SqlServer.Repositories
             Data.Remove(entity);
         }
 
-        public async Task<IEnumerable<TEntity>> FindAllAsync()
+        public async Task<IEnumerable<TEntity>> FindAllAsync(CancellationToken cancellationToken = default)
         {
-            return Data.ToList();
+            return await Data.ToListAsync(cancellationToken);
         }
 
-        public async Task<IEnumerable<TEntity>> FindByConditionAsync(Expression<Func<TEntity, bool>> expression)
+        public async Task<IEnumerable<TEntity>> FindByConditionAsync(Expression<Func<TEntity, bool>> expression, CancellationToken cancellationToken = default)
         {
-            return Data.Where(expression).ToList();
+            return await Data.Where(expression).ToListAsync(cancellationToken);
         }
 
         public TEntity FindById(TId id)
@@ -51,9 +51,9 @@ namespace FastFoodTotem.Infra.SqlServer.Repositories
             Data.Update(entity);
         }
 
-        public Task<int> SaveChangesAsync()
+        public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            return _context.SaveChangesAsync();
+            return _context.SaveChangesAsync(cancellationToken);
         }
     }
 }

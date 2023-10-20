@@ -60,9 +60,6 @@ builder.Services.AddDomain();
 builder.Services.AddConfigureDatabase(builder.Configuration);
 builder.Services.AddConfigureServices();
 
-//Mock Test
-builder.Services.AddSingleton<ICustomerRepository, CustomerRepository>();
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

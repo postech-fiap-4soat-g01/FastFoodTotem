@@ -5,8 +5,8 @@ namespace FastFoodTotem.Domain.Contracts.Services
 {
     public interface ICustomerService
     {
-        Task<CustomerCreateResponseDto> AddCustomer(CustomerCreateRequestDto customer, CancellationToken cancellationToken);
-        Task<CustomerGetByCPFResponseDto> GetCustomerByCPF(string cpf, CancellationToken cancellationToken);
-        Task<IEnumerable<CustomerGetResponseDto>> GetCustomers(CancellationToken cancellationToken);
+        Task AddCustomerAsync(CustomerCreateRequestDto customer, CancellationToken cancellationToken);
+        Task<CustomerGetByCPFResponseDto> GetCustomerByCPFAsync(string cpf, CancellationToken cancellationToken);
+        Task<IEnumerable<CustomerGetResponseDto>> GetCustomersAsync(CancellationToken cancellationToken);
     }
 }
