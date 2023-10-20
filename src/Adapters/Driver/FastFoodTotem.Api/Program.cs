@@ -1,4 +1,6 @@
 using FastFoodTotem.Domain;
+using FastFoodTotem.Domain.Contracts.Repositories;
+using FastFoodTotem.Infra.SqlServer.Repositories;
 using System.Reflection;
 using FastFoodTotem.Infra.SqlServer.IoC;
 
