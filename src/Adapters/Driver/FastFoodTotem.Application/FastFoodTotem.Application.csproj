@@ -20,4 +20,6 @@
 	  <ProjectReference Include="..\..\..\Core\FastFoodTotem.Domain\FastFoodTotem.Domain.csproj" />
 	</ItemGroup>
 
+
+
 </Project>
