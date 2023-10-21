@@ -4,7 +4,7 @@ using FastFoodTotem.Domain.Contracts.Services;
 
 namespace FastFoodTotem.Domain.Services
 {
-    internal class OrderService : IOrderService
+    public class OrderService : IOrderService
     {
         public Task<OrderCreateResponseDto> CreateAsync(OrderCreateRequestDto orderCreateRequestDto, CancellationToken cancellationToken)
         => Task.FromResult(new OrderCreateResponseDto(Guid.NewGuid()));

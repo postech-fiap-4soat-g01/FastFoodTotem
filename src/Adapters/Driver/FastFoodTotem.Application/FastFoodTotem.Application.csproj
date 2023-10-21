@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ApplicationServices\" />
-    <Folder Include="ApplicationServicesInterfaces\" />
     <Folder Include="DtosEntitiesMappers\" />
   </ItemGroup>
 

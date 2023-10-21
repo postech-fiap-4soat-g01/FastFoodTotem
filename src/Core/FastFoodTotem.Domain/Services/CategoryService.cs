@@ -1,6 +1,8 @@
-﻿namespace FastFoodTotem.Domain.Services
+﻿using FastFoodTotem.Domain.Contracts.Services;
+
+namespace FastFoodTotem.Domain.Services
 {
-    internal class CategoryService
+    public class CategoryService : ICategoryService
     {
     }
 }

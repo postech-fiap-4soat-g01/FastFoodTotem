@@ -2,7 +2,7 @@ using FastFoodTotem.Domain;
 using FastFoodTotem.Domain.Contracts.Repositories;
 using FastFoodTotem.Infra.SqlServer.Repositories;
 using System.Reflection;
-using FastFoodTotem.Infra.SqlServer.IoC;
+using FastFoodTotem.Infra.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,9 +56,7 @@ builder.Services
     })
     .AddHealthChecks();
 
-builder.Services.AddDomain();
-builder.Services.AddConfigureDatabase(builder.Configuration);
-builder.Services.AddConfigureServices();
+builder.Services.ConfigureServices(builder.Configuration);
 
 var app = builder.Build();
 

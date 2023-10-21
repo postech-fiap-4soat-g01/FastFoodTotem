@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace FastFoodTotem.Infra.SqlServer.Repositories
 {
-    internal class CustomerRepository : BaseRepository<Guid, CustomerEntity>, ICustomerRepository
+    public class CustomerRepository : BaseRepository<Guid, CustomerEntity>, ICustomerRepository
     {
         public CustomerRepository(FastFoodContext fastFoodContext) : base(fastFoodContext)
         {
@@ -24,7 +24,7 @@ namespace FastFoodTotem.Infra.SqlServer.Repositories
             await SaveChangesAsync(cancellationToken);
         }
 
-        public async Task<CustomerEntity> GetCustomerByCPFAsync(string cpf, CancellationToken cancellationToken)
+        public async Task<CustomerEntity?> GetCustomerByCPFAsync(string cpf, CancellationToken cancellationToken)
             => await Data.FirstOrDefaultAsync(c => c.Identification == cpf, cancellationToken);
 
         public async Task<IEnumerable<CustomerEntity>> GetCustomersAsync(CancellationToken cancellationToken) => await FindAllAsync(cancellationToken);

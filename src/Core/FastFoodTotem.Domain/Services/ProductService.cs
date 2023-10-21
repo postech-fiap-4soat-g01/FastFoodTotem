@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FastFoodTotem.Domain.Services
 {
-    internal class ProductService : IProductService
+    public class ProductService : IProductService
     {
         public Task<ProductCreateResponseDto> CreateAsync(ProductCreateRequestDto productCreateRequestDto, CancellationToken cancellationToken)
         {
