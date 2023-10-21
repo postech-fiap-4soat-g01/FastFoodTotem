@@ -38,18 +38,18 @@ public static class DependencyInjection
 
     private static void ConfigureServices(IServiceCollection services)
     {
-        services.AddSingleton<IOrderService, OrderService>();
-        services.AddSingleton<ICategoryService, CategoryService>();
-        services.AddSingleton<IProductService, ProductService>();
+        services.AddScoped<IOrderService, OrderService>();
+        services.AddScoped<ICategoryService, CategoryService>();
+        services.AddScoped<IProductService, ProductService>();
         services.AddTransient<ICustomerService, CustomerService>();
     }
 
     private static void ConfigureApplicationServices(IServiceCollection services)
     {
-        services.AddSingleton<ICustomerApplicationService, CustomerApplicationService>();
-        services.AddSingleton<ICategoryApplicationService, CategoryApplicationService>();
-        services.AddSingleton<IOrderApplicationService, OrderApplicationService>();
-        services.AddSingleton<IProductApplicationService, ProductApplicationService>();
+        services.AddScoped<ICustomerApplicationService, CustomerApplicationService>();
+        services.AddScoped<ICategoryApplicationService, CategoryApplicationService>();
+        services.AddScoped<IOrderApplicationService, OrderApplicationService>();
+        services.AddScoped<IProductApplicationService, ProductApplicationService>();
     }
 
     private static void ConfigureNotificationServices(IServiceCollection services)
