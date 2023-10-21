@@ -2,7 +2,7 @@
 
 namespace FastFoodTotem.Application.Dtos.Requests.Order
 {
-    public struct OrderCreateRequestDto
+    public class OrderCreateRequestDto : ApiBaseRequest
     {
         public Guid CustomerId { get; set; }
 

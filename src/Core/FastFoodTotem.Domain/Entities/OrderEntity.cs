@@ -5,7 +5,7 @@ namespace FastFoodTotem.Domain.Entities
 {
     public class OrderEntity
     {
-        protected OrderEntity() { }
+        public OrderEntity() { }
 
         [Key]
         public Guid Id { get; private set; }

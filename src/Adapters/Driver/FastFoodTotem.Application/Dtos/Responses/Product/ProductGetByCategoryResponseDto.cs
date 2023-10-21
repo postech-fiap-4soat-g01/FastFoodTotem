@@ -1,6 +1,6 @@
 ﻿namespace FastFoodTotem.Application.Dtos.Responses.Product
 {
-    public struct ProductGetByCategoryResponseDto
+    public class ProductGetByCategoryResponseDto : ApiBaseResponse
     {
     }
 }

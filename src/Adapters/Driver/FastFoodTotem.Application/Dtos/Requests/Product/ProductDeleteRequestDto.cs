@@ -1,6 +1,6 @@
 ﻿namespace FastFoodTotem.Application.Dtos.Requests.Product
 {
-    public struct ProductDeleteRequestDto
+    public class ProductDeleteRequestDto: ApiBaseRequest
     {
     }
 }

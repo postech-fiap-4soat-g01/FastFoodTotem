@@ -1,14 +1,7 @@
-﻿using FastFoodTotem.Application.Dtos.Requests.Customer;
-using FastFoodTotem.Application.Dtos.Responses.Customer;
-using FastFoodTotem.Domain.Contracts.Repositories;
+﻿using FastFoodTotem.Domain.Contracts.Repositories;
 using FastFoodTotem.Domain.Entities;
 using FastFoodTotem.Infra.SqlServer.Database;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FastFoodTotem.Infra.SqlServer.Repositories
 {

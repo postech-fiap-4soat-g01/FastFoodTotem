@@ -3,6 +3,7 @@ using FastFoodTotem.Application.ApplicationServicesInterfaces;
 using FastFoodTotem.Domain.Contracts.Repositories;
 using FastFoodTotem.Domain.Contracts.Services;
 using FastFoodTotem.Domain.Services;
+using FastFoodTotem.Domain.Validations;
 using FastFoodTotem.Infra.SqlServer.Database;
 using FastFoodTotem.Infra.SqlServer.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,7 @@ public static class DependencyInjection
         ConfigureDatabase(services, configuration);
         ConfigureServices(services);
         ConfigureApplicationServices(services);
+        ConfigureNotificationServices(services);
     }
 
     private static void ConfigureDatabase(IServiceCollection services, IConfiguration configuration)
@@ -48,6 +50,12 @@ public static class DependencyInjection
         services.AddSingleton<ICategoryApplicationService, CategoryApplicationService>();
         services.AddSingleton<IOrderApplicationService, OrderApplicationService>();
         services.AddSingleton<IProductApplicationService, ProductApplicationService>();
+    }
+
+    private static void ConfigureNotificationServices(IServiceCollection services)
+    {
+        // Must be scoped
+        services.AddScoped<IValidationNotifications, ValidationNotifications>();
     }
 }
 

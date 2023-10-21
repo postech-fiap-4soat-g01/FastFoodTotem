@@ -1,6 +1,11 @@
-﻿namespace FastFoodTotem.Application.Dtos.Requests.Product
+﻿namespace FastFoodTotem.Application.Dtos.Requests.Product;
+
+public class ProductGetByCategoryRequestDto : ApiBaseRequest
 {
-    public struct ProductGetByCategoryRequestDto
-    {
-    }
+    public IEnumerable<ProductRequestData> Products { get; set; }
+}
+
+public class ProductRequestData
+{
+
 }

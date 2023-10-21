@@ -2,7 +2,7 @@
 
 namespace FastFoodTotem.Application.Dtos.Requests.Order
 {
-    public struct OrderItemAddRequestDto
+    public class OrderItemAddRequestDto : ApiBaseRequest
     {
         [GuidNotEmpty(ErrorMessage = "Invalid product Id!")]
         public Guid Id { get; set; }

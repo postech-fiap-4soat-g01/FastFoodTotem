@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FastFoodTotem.Application.Dtos.Requests.Customer
 {
-    public struct CustomerCreateRequestDto
+    public class CustomerCreateRequestDto : ApiBaseRequest
     {
         /// <summary>
         /// Customer name.

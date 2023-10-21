@@ -1,23 +1,12 @@
-﻿using FastFoodTotem.Application.Dtos.Requests.Customer;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace FastFoodTotem.Domain.Entities
 {
     public class CustomerEntity
     {
-        protected CustomerEntity() { }
-
-        public CustomerEntity(CustomerCreateRequestDto customerCreateRequestDto) 
+        public CustomerEntity() 
         { 
-            Id = Guid.NewGuid();
-            Name = customerCreateRequestDto.Name;
-            Email = customerCreateRequestDto.Email;
-            Identification = customerCreateRequestDto.Identification;
+
         }
 
         [Key]

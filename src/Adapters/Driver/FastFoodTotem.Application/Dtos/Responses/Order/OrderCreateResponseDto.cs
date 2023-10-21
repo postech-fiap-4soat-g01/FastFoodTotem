@@ -1,6 +1,6 @@
 ﻿namespace FastFoodTotem.Application.Dtos.Responses
 {
-    public struct OrderCreateResponseDto
+    public class OrderCreateResponseDto : ApiBaseResponse
     {
         public OrderCreateResponseDto(Guid id)
         {

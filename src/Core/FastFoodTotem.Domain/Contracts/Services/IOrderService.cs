@@ -1,10 +1,9 @@
-﻿using FastFoodTotem.Application.Dtos.Requests.Order;
-using FastFoodTotem.Application.Dtos.Responses;
+﻿using FastFoodTotem.Domain.Entities;
 
 namespace FastFoodTotem.Domain.Contracts.Services
 {
     public interface IOrderService
     {
-        public Task<OrderCreateResponseDto> CreateAsync(OrderCreateRequestDto orderCreateRequestDto, CancellationToken cancellationToken);
+        public Task<OrderEntity> CreateAsync(OrderEntity orderCreateRequestDto, CancellationToken cancellationToken);
     }
 }
