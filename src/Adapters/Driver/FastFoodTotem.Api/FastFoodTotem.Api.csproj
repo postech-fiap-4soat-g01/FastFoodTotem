@@ -24,10 +24,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\..\Core\FastFoodTotem.Application\FastFoodTotem.Application.csproj" />
 		<ProjectReference Include="..\..\..\Core\FastFoodTotem.Domain\FastFoodTotem.Domain.csproj" />
 		<ProjectReference Include="..\..\Driven\FastFoodTotem.Infra.IoC\FastFoodTotem.Infra.IoC.csproj" />
 		<ProjectReference Include="..\..\Driven\FastFoodTotem.Infra.SqlServer\FastFoodTotem.Infra.SqlServer.csproj" />
-		<ProjectReference Include="..\FastFoodTotem.Application\FastFoodTotem.Application.csproj" />
 	</ItemGroup>
 
 </Project>

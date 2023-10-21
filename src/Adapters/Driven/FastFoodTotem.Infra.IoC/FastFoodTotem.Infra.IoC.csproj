@@ -7,8 +7,8 @@
   </PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\..\Core\FastFoodTotem.Application\FastFoodTotem.Application.csproj" />
 		<ProjectReference Include="..\..\..\Core\FastFoodTotem.Domain\FastFoodTotem.Domain.csproj" />
-		<ProjectReference Include="..\..\Driver\FastFoodTotem.Application\FastFoodTotem.Application.csproj" />
 		<ProjectReference Include="..\FastFoodTotem.Infra.SqlServer\FastFoodTotem.Infra.SqlServer.csproj" />
 		<ProjectReference Include="..\FastFoodTotem.MercadoPago\FastFoodTotem.MercadoPago.csproj" />
 	</ItemGroup>

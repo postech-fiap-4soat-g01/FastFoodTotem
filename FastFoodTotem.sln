@@ -25,11 +25,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jobs de teste", "jobs de te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteMercadoPago", "src\jobs de teste\TesteMercadoPago\TesteMercadoPago.csproj", "{57B5457D-5E3F-45F0-AC75-F78016628C14}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodTotem.Application", "src\Adapters\Driver\FastFoodTotem.Application\FastFoodTotem.Application.csproj", "{2459A33D-3610-4077-9185-8F78A229CC56}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F5FC397E-787F-4845-BA0F-9E7BF90FCEF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastFoodTotem.Infra.IoC", "src\Adapters\Driven\FastFoodTotem.Infra.IoC\FastFoodTotem.Infra.IoC.csproj", "{C98EB58B-62D1-4E14-BA32-A6B0207651BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodTotem.Infra.IoC", "src\Adapters\Driven\FastFoodTotem.Infra.IoC\FastFoodTotem.Infra.IoC.csproj", "{C98EB58B-62D1-4E14-BA32-A6B0207651BF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodTotem.Application", "src\Core\FastFoodTotem.Application\FastFoodTotem.Application.csproj", "{F4D54797-35CB-4CD2-A653-39152AE3365D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,14 +57,14 @@ Global
 		{57B5457D-5E3F-45F0-AC75-F78016628C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57B5457D-5E3F-45F0-AC75-F78016628C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57B5457D-5E3F-45F0-AC75-F78016628C14}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2459A33D-3610-4077-9185-8F78A229CC56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2459A33D-3610-4077-9185-8F78A229CC56}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2459A33D-3610-4077-9185-8F78A229CC56}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2459A33D-3610-4077-9185-8F78A229CC56}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C98EB58B-62D1-4E14-BA32-A6B0207651BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C98EB58B-62D1-4E14-BA32-A6B0207651BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C98EB58B-62D1-4E14-BA32-A6B0207651BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C98EB58B-62D1-4E14-BA32-A6B0207651BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4D54797-35CB-4CD2-A653-39152AE3365D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4D54797-35CB-4CD2-A653-39152AE3365D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4D54797-35CB-4CD2-A653-39152AE3365D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4D54797-35CB-4CD2-A653-39152AE3365D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,9 +80,9 @@ Global
 		{9F44A6C4-8A07-4588-9B1A-33F2E2C3BE51} = {597BF64B-4771-4FF8-96CC-9D035D450304}
 		{878DFD02-D10D-4761-AD82-9C7FB0775777} = {3CD775B4-2A89-497F-940D-7F532A6AF272}
 		{57B5457D-5E3F-45F0-AC75-F78016628C14} = {878DFD02-D10D-4761-AD82-9C7FB0775777}
-		{2459A33D-3610-4077-9185-8F78A229CC56} = {A52D1D10-32F0-4F17-BA2B-E3F137E79743}
 		{F5FC397E-787F-4845-BA0F-9E7BF90FCEF1} = {3CD775B4-2A89-497F-940D-7F532A6AF272}
 		{C98EB58B-62D1-4E14-BA32-A6B0207651BF} = {597BF64B-4771-4FF8-96CC-9D035D450304}
+		{F4D54797-35CB-4CD2-A653-39152AE3365D} = {A52D1D10-32F0-4F17-BA2B-E3F137E79743}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1C58FD1C-5110-476B-88E7-DDD8B08DCE17}
