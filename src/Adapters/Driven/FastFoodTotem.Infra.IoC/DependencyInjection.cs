@@ -1,5 +1,11 @@
 ﻿using FastFoodTotem.Application.ApplicationServices;
 using FastFoodTotem.Application.ApplicationServicesInterfaces;
+using FastFoodTotem.Application.Dtos.Requests.Customer;
+using FastFoodTotem.Application.Dtos.Requests.Order;
+using FastFoodTotem.Application.Dtos.Requests.Product;
+using FastFoodTotem.Application.Dtos.Validators.Customer;
+using FastFoodTotem.Application.Dtos.Validators.Order;
+using FastFoodTotem.Application.Dtos.Validators.Product;
 using FastFoodTotem.Domain.Contracts.Repositories;
 using FastFoodTotem.Domain.Contracts.Services;
 using FastFoodTotem.Domain.Services;
@@ -65,7 +71,11 @@ public static class DependencyInjection
 
     private static void ConfigureValidators(IServiceCollection services)
     {
-        //services.AddScoped<IValidator<PostUserRequestDTO>, PostUserRequestValidator>();
+        services.AddScoped<IValidator<CustomerCreateRequestDto>, CustomerCreateRequestDtoValidator>();
+        services.AddScoped<IValidator<ProductCreateRequestDto>, ProductCreateRequestDtoValidator>();
+        services.AddScoped<IValidator<ProductEditRequestDto>, ProductEditRequestDtoValidator>();
+        services.AddScoped<IValidator<OrderCreateRequestDto>, OrderCreateRequestDtoValidator>();
+        services.AddScoped<IValidator<OrderItemAddRequestDto>, OrderItemAddRequestDtoValidator>();
     }
 }
 

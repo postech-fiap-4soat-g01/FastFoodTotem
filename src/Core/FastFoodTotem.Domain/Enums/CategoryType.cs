@@ -2,9 +2,9 @@
 {
     public enum CategoryType
     {
-        Burguer,
-        Accompaniment,
-        Drink,
-        Dessert
+        Burguer = 1,
+        Accompaniment = 2,
+        Drink = 3,
+        Dessert = 4
     }
 }
