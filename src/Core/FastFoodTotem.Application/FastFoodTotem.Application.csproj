@@ -7,7 +7,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Folder Include="Dtos\Mappers\" />
 		<Folder Include="Dtos\Validators\" />
 	</ItemGroup>
 

@@ -13,6 +13,7 @@ namespace FastFoodTotem.Domain.Services
 
         public CustomerService(ICustomerRepository customerRepository, IValidationNotifications validationNotifications)
         {
+            _customerRepository = customerRepository;
             _validationNotifications = validationNotifications;
         }
 

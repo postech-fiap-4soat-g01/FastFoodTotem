@@ -4,6 +4,7 @@ using FastFoodTotem.Application.Dtos.Requests.Customer;
 using FastFoodTotem.Application.Dtos.Responses.Customer;
 using FastFoodTotem.Domain.Contracts.Services;
 using FastFoodTotem.Domain.Entities;
+using FastFoodTotem.Domain.Validations;
 
 namespace FastFoodTotem.Application.ApplicationServices;
 
@@ -11,11 +12,13 @@ public class CustomerApplicationService : ICustomerApplicationService
 {
     private readonly IMapper _mapper;
     private readonly ICustomerService _customerService;
+    private readonly IValidationNotifications _validationNotifications;
 
-    public CustomerApplicationService(ICustomerService customerService, IMapper mapper)
+    public CustomerApplicationService(ICustomerService customerService, IMapper mapper, IValidationNotifications validationNotifications)
     {
         _customerService = customerService;
         _mapper = mapper;
+        _validationNotifications = validationNotifications;
     }
 
     public async Task<CustomerCreateResponseDto> AddCustomerAsync(CustomerCreateRequestDto customerCreateRequestDto, CancellationToken cancellationToken)

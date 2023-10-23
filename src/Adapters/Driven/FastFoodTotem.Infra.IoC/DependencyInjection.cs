@@ -6,6 +6,7 @@ using FastFoodTotem.Domain.Services;
 using FastFoodTotem.Domain.Validations;
 using FastFoodTotem.Infra.SqlServer.Database;
 using FastFoodTotem.Infra.SqlServer.Repositories;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +22,9 @@ public static class DependencyInjection
         ConfigureServices(services);
         ConfigureApplicationServices(services);
         ConfigureNotificationServices(services);
+        ConfigureValidators(services);
+
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
     }
 
     private static void ConfigureDatabase(IServiceCollection services, IConfiguration configuration)
@@ -57,6 +61,11 @@ public static class DependencyInjection
     {
         // Must be scoped
         services.AddScoped<IValidationNotifications, ValidationNotifications>();
+    }
+
+    private static void ConfigureValidators(IServiceCollection services)
+    {
+        //services.AddScoped<IValidator<PostUserRequestDTO>, PostUserRequestValidator>();
     }
 }
 

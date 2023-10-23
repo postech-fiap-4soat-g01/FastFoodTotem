@@ -14,6 +14,8 @@ namespace FastFoodTotem.Application.DtoValidators
     {
         public override bool IsValid(object? value)
         {
+            return true;
+
             if (value is not string cpf) return false;
 
             var newCpf = RemoveNONumeric(cpf);
