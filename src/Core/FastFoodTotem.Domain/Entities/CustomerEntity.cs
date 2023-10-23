@@ -14,5 +14,7 @@ namespace FastFoodTotem.Domain.Entities
         public string Name { get; private set; }
         public string Email { get; private set; }
         public string Identification { get; private set; }
+
+        public IEnumerable<OrderEntity> Orders { get; private set; } = Enumerable.Empty<OrderEntity>();
     }
 }

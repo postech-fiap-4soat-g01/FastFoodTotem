@@ -25,7 +25,8 @@ public static class DependencyInjection
 
     private static void ConfigureDatabase(IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<FastFoodContext>(options => options.UseSqlServer(configuration.GetConnectionString("SqlServerConnection")));
+        services.AddDbContext<FastFoodContext>(options => options.UseSqlServer(configuration.GetConnectionString("SqlServerConnection"),
+                                                     b => b.MigrationsAssembly("FastFoodTotem.Infra.SqlServer")));
     }
 
     private static void ConfigureRepositories(IServiceCollection services)

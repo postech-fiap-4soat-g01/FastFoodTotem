@@ -6,56 +6,67 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FastFoodTotem.Infra.SqlServer.Migrations
 {
     /// <inheritdoc />
-    public partial class InicializeTables : Migration
+    public partial class MapeandoEntidades : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "FastFoodTotem");
+
             migrationBuilder.CreateTable(
-                name: "Categories",
+                name: "Category",
+                schema: "FastFoodTotem",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
+                    table.PrimaryKey("CategoryId", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Customers",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Customer", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Products",
+                name: "Customer",
+                schema: "FastFoodTotem",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Identification = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("CustomerId", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Product",
+                schema: "FastFoodTotem",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<Guid>(type: "uniqueidentifier", maxLength: 255, nullable: false),
                     CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.Id);
+                    table.PrimaryKey("ProductId", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Products_Categories_CategoryId",
+                        name: "FK_Product_Category_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "Categories",
+                        principalSchema: "FastFoodTotem",
+                        principalTable: "Category",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Orders",
+                name: "Order",
+                schema: "FastFoodTotem",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -64,17 +75,19 @@ namespace FastFoodTotem.Infra.SqlServer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Orders", x => x.Id);
+                    table.PrimaryKey("OrderId", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Orders_Customer_CustomerId",
+                        name: "FK_Order_Customer_CustomerId",
                         column: x => x.CustomerId,
-                        principalTable: "Customers",
+                        principalSchema: "FastFoodTotem",
+                        principalTable: "Customer",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "OrderedItems",
+                name: "OrderedItem",
+                schema: "FastFoodTotem",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -84,39 +97,45 @@ namespace FastFoodTotem.Infra.SqlServer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderedItems", x => x.Id);
+                    table.PrimaryKey("OrderedItemId", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_OrderedItems_Orders_OrderId",
+                        name: "FK_OrderedItem_Order_OrderId",
                         column: x => x.OrderId,
-                        principalTable: "Orders",
+                        principalSchema: "FastFoodTotem",
+                        principalTable: "Order",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OrderedItems_Products_ProductId",
+                        name: "FK_OrderedItem_Product_ProductId",
                         column: x => x.ProductId,
-                        principalTable: "Products",
+                        principalSchema: "FastFoodTotem",
+                        principalTable: "Product",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderedItems_OrderId",
-                table: "OrderedItems",
-                column: "OrderId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OrderedItems_ProductId",
-                table: "OrderedItems",
-                column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Orders_CustomerId",
-                table: "Orders",
+                name: "IX_Order_CustomerId",
+                schema: "FastFoodTotem",
+                table: "Order",
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_CategoryId",
-                table: "Products",
+                name: "IX_OrderedItem_OrderId",
+                schema: "FastFoodTotem",
+                table: "OrderedItem",
+                column: "OrderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderedItem_ProductId",
+                schema: "FastFoodTotem",
+                table: "OrderedItem",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Product_CategoryId",
+                schema: "FastFoodTotem",
+                table: "Product",
                 column: "CategoryId");
         }
 
@@ -124,19 +143,24 @@ namespace FastFoodTotem.Infra.SqlServer.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "OrderedItems");
+                name: "OrderedItem",
+                schema: "FastFoodTotem");
 
             migrationBuilder.DropTable(
-                name: "Orders");
+                name: "Order",
+                schema: "FastFoodTotem");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Product",
+                schema: "FastFoodTotem");
 
             migrationBuilder.DropTable(
-                name: "Customers");
+                name: "Customer",
+                schema: "FastFoodTotem");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Category",
+                schema: "FastFoodTotem");
         }
     }
 }

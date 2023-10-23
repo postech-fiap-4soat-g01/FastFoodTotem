@@ -17,6 +17,7 @@ namespace FastFoodTotem.Infra.SqlServer.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasDefaultSchema("FastFoodTotem")
                 .HasAnnotation("ProductVersion", "7.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
@@ -26,97 +27,134 @@ namespace FastFoodTotem.Infra.SqlServer.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("Id");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Name");
 
                     b.Property<int>("Type")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Type");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("CategoryId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category", "FastFoodTotem");
                 });
 
             modelBuilder.Entity("FastFoodTotem.Domain.Entities.CustomerEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("Id");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Email");
 
-                    b.ToTable("Customers");
+                    b.Property<string>("Identification")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Identification");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Name");
+
+                    b.HasKey("Id")
+                        .HasName("CustomerId");
+
+                    b.ToTable("Customer", "FastFoodTotem");
                 });
 
             modelBuilder.Entity("FastFoodTotem.Domain.Entities.OrderEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("Id");
 
                     b.Property<Guid>("CustomerId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("CustomerId");
 
                     b.Property<int>("Status")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Status");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("OrderId");
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Order", "FastFoodTotem");
                 });
 
             modelBuilder.Entity("FastFoodTotem.Domain.Entities.OrderedItemEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("Id");
 
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
                     b.Property<Guid>("OrderId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("OrderId");
 
                     b.Property<Guid>("ProductId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("ProductId");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("OrderedItemId");
 
                     b.HasIndex("OrderId");
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderedItems");
+                    b.ToTable("OrderedItem", "FastFoodTotem");
                 });
 
             modelBuilder.Entity("FastFoodTotem.Domain.Entities.ProductEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("Id");
 
                     b.Property<Guid>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("CategoryId");
 
                     b.Property<Guid>("Name")
-                        .HasColumnType("uniqueidentifier");
+                        .HasMaxLength(255)
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("Name");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id")
+                        .HasName("ProductId");
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Product", "FastFoodTotem");
                 });
 
             modelBuilder.Entity("FastFoodTotem.Domain.Entities.OrderEntity", b =>
                 {
                     b.HasOne("FastFoodTotem.Domain.Entities.CustomerEntity", "Customer")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -133,7 +171,7 @@ namespace FastFoodTotem.Infra.SqlServer.Migrations
                         .IsRequired();
 
                     b.HasOne("FastFoodTotem.Domain.Entities.ProductEntity", "Product")
-                        .WithMany()
+                        .WithMany("OrderedItems")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -146,7 +184,7 @@ namespace FastFoodTotem.Infra.SqlServer.Migrations
             modelBuilder.Entity("FastFoodTotem.Domain.Entities.ProductEntity", b =>
                 {
                     b.HasOne("FastFoodTotem.Domain.Entities.CategoryEntity", "Category")
-                        .WithMany()
+                        .WithMany("Products")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -154,7 +192,22 @@ namespace FastFoodTotem.Infra.SqlServer.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("FastFoodTotem.Domain.Entities.CategoryEntity", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("FastFoodTotem.Domain.Entities.CustomerEntity", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
             modelBuilder.Entity("FastFoodTotem.Domain.Entities.OrderEntity", b =>
+                {
+                    b.Navigation("OrderedItems");
+                });
+
+            modelBuilder.Entity("FastFoodTotem.Domain.Entities.ProductEntity", b =>
                 {
                     b.Navigation("OrderedItems");
                 });

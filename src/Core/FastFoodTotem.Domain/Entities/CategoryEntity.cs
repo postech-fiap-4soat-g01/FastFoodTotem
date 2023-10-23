@@ -18,5 +18,7 @@ namespace FastFoodTotem.Domain.Entities
         public Guid Id { get; private set; }
         public string Name { get; private set; }
         public CategoryType Type { get; private set; }
+
+        public IEnumerable<ProductEntity> Products { get; private set; } = Enumerable.Empty<ProductEntity>();
     }
 }

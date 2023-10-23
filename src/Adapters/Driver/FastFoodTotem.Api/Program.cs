@@ -1,5 +1,7 @@
 using FastFoodTotem.Api.Middlewares;
 using FastFoodTotem.Infra.IoC;
+using FastFoodTotem.Infra.SqlServer.Database;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -58,6 +60,12 @@ builder.Services.ConfigureServices(builder.Configuration);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<FastFoodContext>();
+    db.Database.Migrate();
+}
 
 if (app.Environment.IsDevelopment())
     app.UseSwagger().UseSwaggerUI();

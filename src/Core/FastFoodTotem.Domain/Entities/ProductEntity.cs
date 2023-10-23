@@ -16,5 +16,7 @@
         public Guid Name { get; set; }
         public Guid CategoryId { get; set; }
         public CategoryEntity Category { get; set; }
+
+        public IEnumerable<OrderedItemEntity> OrderedItems { get; private set; } = Enumerable.Empty<OrderedItemEntity>();
     }
 }
