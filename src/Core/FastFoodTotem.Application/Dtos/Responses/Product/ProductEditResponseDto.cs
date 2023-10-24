@@ -1,6 +1,6 @@
 ﻿namespace FastFoodTotem.Application.Dtos.Responses.Product
 {
-    public class ProductEditResponseDto : ApiBaseResponse
+    public class ProductEditResponseDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

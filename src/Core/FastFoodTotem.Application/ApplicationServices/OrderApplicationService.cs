@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using FastFoodTotem.Application.ApplicationServicesInterfaces;
-using FastFoodTotem.Application.Dtos.Requests.Customer;
 using FastFoodTotem.Application.Dtos.Requests.Order;
 using FastFoodTotem.Application.Dtos.Responses;
 using FastFoodTotem.Domain.Contracts.Services;
@@ -17,26 +16,26 @@ public class OrderApplicationService : BaseApplicationService, IOrderApplication
     private readonly IValidator<OrderCreateRequestDto> _orderCreateRequestDtoValidator;
 
     public OrderApplicationService(
-        IMapper mapper, 
-        IOrderService orderService, 
+        IMapper mapper,
+        IOrderService orderService,
         IValidationNotifications validationNotifications,
         IValidator<OrderCreateRequestDto> orderCreateRequestDtoValidator)
-        :base(validationNotifications)
+        : base(validationNotifications)
     {
         _mapper = mapper;
         _orderService = orderService;
         _orderCreateRequestDtoValidator = orderCreateRequestDtoValidator;
     }
 
-    public async Task<OrderCreateResponseDto> CreateAsync(OrderCreateRequestDto orderCreateRequestDto, CancellationToken cancellationToken)
+    public async Task<ApiBaseResponse<OrderCreateResponseDto>> CreateAsync(OrderCreateRequestDto orderCreateRequestDto, CancellationToken cancellationToken)
     {
-        var response = new OrderCreateResponseDto();
+        var response = new ApiBaseResponse<OrderCreateResponseDto>();
 
         if (!await IsDtoValid(_orderCreateRequestDtoValidator, orderCreateRequestDto))
             return response;
 
         var result = await _orderService.CreateAsync(_mapper.Map<OrderEntity>(orderCreateRequestDto), cancellationToken);
-        response.Id = result.Id;
+        response.Data = new OrderCreateResponseDto() { Id = result.Id };
 
         return response;
     }

@@ -1,12 +1,13 @@
 ﻿using FastFoodTotem.Application.Dtos.Requests.Customer;
+using FastFoodTotem.Application.Dtos.Responses;
 using FastFoodTotem.Application.Dtos.Responses.Customer;
 
 namespace FastFoodTotem.Application.ApplicationServicesInterfaces;
 
 public interface ICustomerApplicationService
 {
-    Task<CustomerCreateResponseDto> AddCustomerAsync(CustomerCreateRequestDto customerCreateRequestDto, CancellationToken cancellationToken);
-    Task<CustomerGetByCPFResponseDto> GetCustomerByCPFAsync(string cpf, CancellationToken cancellationToken);
-    Task<CustomerGetResponseDto> GetCustomersAsync(CancellationToken cancellationToken);
+    Task<ApiBaseResponse<CustomerCreateResponseDto>> AddCustomerAsync(CustomerCreateRequestDto customerCreateRequestDto, CancellationToken cancellationToken);
+    Task<ApiBaseResponse<CustomerGetByCPFResponseDto>> GetCustomerByCPFAsync(string cpf, CancellationToken cancellationToken);
+    Task<ApiBaseResponse<CustomerGetResponseDto>> GetCustomersAsync(CancellationToken cancellationToken);
 }
 

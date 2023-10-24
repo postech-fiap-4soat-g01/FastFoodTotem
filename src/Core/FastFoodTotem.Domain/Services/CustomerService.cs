@@ -22,7 +22,7 @@ namespace FastFoodTotem.Domain.Services
             var existingCustomer = await _customerRepository.GetCustomerByCPFAsync(customer.Identification, cancellationToken);
 
             if (existingCustomer != null)
-                _validationNotifications.AddError("Identification", "User already exists with this identification");
+                _validationNotifications.AddError("Identification", "Já existe um usuário cadastrado com esse CPF.");
             else
                 await _customerRepository.AddCustomerAsync(customer, cancellationToken);
 

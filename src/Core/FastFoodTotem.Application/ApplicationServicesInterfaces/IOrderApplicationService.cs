@@ -5,6 +5,6 @@ namespace FastFoodTotem.Application.ApplicationServicesInterfaces
 {
     public interface IOrderApplicationService
     {
-        Task<OrderCreateResponseDto> CreateAsync(OrderCreateRequestDto orderCreateRequestDto, CancellationToken cancellationToken);
+        Task<ApiBaseResponse<OrderCreateResponseDto>> CreateAsync(OrderCreateRequestDto orderCreateRequestDto, CancellationToken cancellationToken);
     }
 }

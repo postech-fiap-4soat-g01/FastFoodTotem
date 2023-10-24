@@ -1,6 +1,6 @@
 ﻿namespace FastFoodTotem.Application.Dtos.Responses.Customer
 {
-    public class CustomerGetByCPFResponseDto : ApiBaseResponse
+    public class CustomerGetByCPFResponseDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

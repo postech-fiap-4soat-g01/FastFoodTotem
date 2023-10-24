@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using FastFoodTotem.Application.ApplicationServicesInterfaces;
 using FastFoodTotem.Application.Dtos.Requests.Customer;
+using FastFoodTotem.Application.Dtos.Responses;
 using FastFoodTotem.Application.Dtos.Responses.Customer;
 using FastFoodTotem.Domain.Contracts.Services;
 using FastFoodTotem.Domain.Entities;
@@ -13,7 +14,6 @@ public class CustomerApplicationService : BaseApplicationService, ICustomerAppli
 {
     private readonly IMapper _mapper;
     private readonly ICustomerService _customerService;
-    private readonly IValidationNotifications _validationNotifications;
     private readonly IValidator<CustomerCreateRequestDto> _customerCreateRequestDtoValidation;
 
     public CustomerApplicationService(
@@ -25,13 +25,12 @@ public class CustomerApplicationService : BaseApplicationService, ICustomerAppli
     {
         _customerService = customerService;
         _mapper = mapper;
-        _validationNotifications = validationNotifications;
         _customerCreateRequestDtoValidation = customerCreateRequestDtoValidation;
     }
 
-    public async Task<CustomerCreateResponseDto> AddCustomerAsync(CustomerCreateRequestDto customerCreateRequestDto, CancellationToken cancellationToken)
+    public async Task<ApiBaseResponse<CustomerCreateResponseDto>> AddCustomerAsync(CustomerCreateRequestDto customerCreateRequestDto, CancellationToken cancellationToken)
     {
-        var response = new CustomerCreateResponseDto();
+        var response = new ApiBaseResponse<CustomerCreateResponseDto>();
 
         if (!await IsDtoValid(_customerCreateRequestDtoValidation, customerCreateRequestDto))
             return response;
@@ -40,9 +39,9 @@ public class CustomerApplicationService : BaseApplicationService, ICustomerAppli
         return response;
     }
 
-    public async Task<CustomerGetByCPFResponseDto> GetCustomerByCPFAsync(string cpf, CancellationToken cancellationToken)
+    public async Task<ApiBaseResponse<CustomerGetByCPFResponseDto>> GetCustomerByCPFAsync(string cpf, CancellationToken cancellationToken)
     {
-        var response = new CustomerGetByCPFResponseDto();
+        var response = new ApiBaseResponse<CustomerGetByCPFResponseDto>();
 
         if (string.IsNullOrWhiteSpace(cpf))
         {
@@ -52,20 +51,26 @@ public class CustomerApplicationService : BaseApplicationService, ICustomerAppli
 
         var customer = await _customerService.GetCustomerByCPFAsync(cpf, cancellationToken);
 
-        response.Id = customer.Id;
-        response.Name = customer.Name;
-        response.Email = customer.Email;
+        response.Data = new CustomerGetByCPFResponseDto()
+        {
+            Id = customer.Id,
+            Name = customer.Name,
+            Email = customer.Email
+        };
 
         return response;
     }
 
-    public async Task<CustomerGetResponseDto> GetCustomersAsync(CancellationToken cancellationToken)
+    public async Task<ApiBaseResponse<CustomerGetResponseDto>> GetCustomersAsync(CancellationToken cancellationToken)
     {
         var customers = await _customerService.GetCustomersAsync(cancellationToken);
 
-        var customerGetResponseDto = new CustomerGetResponseDto()
+        var customerGetResponseDto = new ApiBaseResponse<CustomerGetResponseDto>()
         {
-            Customers = _mapper.Map<List<CustomerGetResponseData>>(customers)
+            Data = new CustomerGetResponseDto()
+            {
+                Customers = _mapper.Map<List<CustomerGetResponseData>>(customers)
+            }
         };
 
         return customerGetResponseDto;

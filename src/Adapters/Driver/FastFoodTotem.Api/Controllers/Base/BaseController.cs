@@ -20,20 +20,7 @@ public class BaseController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    protected async virtual Task<IActionResult> Return(int statusCode)
-    {
-        var apiBaseResponse = new ApiBaseResponse();
-        apiBaseResponse.StatusCode = (HttpStatusCode)statusCode;
-
-        return await Return(apiBaseResponse, statusCode);
-    }
-
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
-    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    protected async virtual Task<IActionResult> Return(ApiBaseResponse apiBaseResponse, int? statusCode = null)
+    protected async virtual Task<IActionResult> Return<T>(ApiBaseResponse<T> apiBaseResponse, int? statusCode = null)
     {
         if (!_validationNotifications.HasErrors())
         {
@@ -43,6 +30,7 @@ public class BaseController : ControllerBase
 
         var errors = _validationNotifications.GetErrors();
         apiBaseResponse.Errors = new List<KeyValuePair<string, List<string>>>();
+
         foreach (var error in errors)
             apiBaseResponse.Errors.Add(error);
 
@@ -51,7 +39,7 @@ public class BaseController : ControllerBase
         return await Return(apiBaseResponse, (int)apiBaseResponse.StatusCode);
     }
 
-    private async Task<IActionResult> Return(ApiBaseResponse apiBaseResponse, int statusCode)
+    private async Task<IActionResult> Return<T>(ApiBaseResponse<T> apiBaseResponse, int statusCode)
     {
         switch (statusCode)
         {

@@ -2,7 +2,7 @@
 
 namespace FastFoodTotem.Application.Dtos.Responses.Customer;
 
-public class CustomerGetResponseDto : ApiBaseResponse
+public class CustomerGetResponseDto
 {
     public IEnumerable<CustomerGetResponseData> Customers { get; set; }
 }

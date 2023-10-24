@@ -2,6 +2,7 @@
 using Azure;
 using FastFoodTotem.Application.ApplicationServicesInterfaces;
 using FastFoodTotem.Application.Dtos.Requests.Product;
+using FastFoodTotem.Application.Dtos.Responses;
 using FastFoodTotem.Application.Dtos.Responses.Product;
 using FastFoodTotem.Domain.Contracts.Services;
 using FastFoodTotem.Domain.Entities;
@@ -31,20 +32,21 @@ public class ProductApplicationService : BaseApplicationService, IProductApplica
         _productEditRequestDtoValidator = productEditRequestDtoValidator;
     }
 
-    public async Task<ProductCreateResponseDto> CreateAsync(ProductCreateRequestDto productCreateRequestDto, CancellationToken cancellationToken)
+    public async Task<ApiBaseResponse<ProductCreateResponseDto>> CreateAsync(ProductCreateRequestDto productCreateRequestDto, CancellationToken cancellationToken)
     {
-        var response = new ProductCreateResponseDto();
-
+        var response = new ApiBaseResponse<ProductCreateResponseDto>();
         if (!await IsDtoValid(_productCreateRequestDtoValidator, productCreateRequestDto))
             return response;
 
         var productCreated = await _productService.CreateAsync(_mapper.Map<ProductEntity>(productCreateRequestDto), cancellationToken);
-        return _mapper.Map<ProductCreateResponseDto>(productCreated);
+        response.Data = _mapper.Map<ProductCreateResponseDto>(productCreated);
+
+        return response;
     }
 
-    public async Task<ProductDeleteResponseDto> DeleteAsync(int productId, CancellationToken cancellationToken)
+    public async Task<ApiBaseResponse<ProductDeleteResponseDto>> DeleteAsync(int productId, CancellationToken cancellationToken)
     {
-        var response = new ProductDeleteResponseDto();
+        var response = new ApiBaseResponse<ProductDeleteResponseDto>();
 
         if (productId <= 0)
         {
@@ -56,20 +58,22 @@ public class ProductApplicationService : BaseApplicationService, IProductApplica
         return response;
     }
 
-    public async Task<ProductEditResponseDto> EditAsync(ProductEditRequestDto productEditRequestDto, CancellationToken cancellationToken)
+    public async Task<ApiBaseResponse<ProductEditResponseDto>> EditAsync(ProductEditRequestDto productEditRequestDto, CancellationToken cancellationToken)
     {
-        var response = new ProductEditResponseDto();
+        var response = new ApiBaseResponse<ProductEditResponseDto>();
 
         if (!await IsDtoValid(_productEditRequestDtoValidator, productEditRequestDto))
             return response;
 
         var productEdited = await _productService.CreateAsync(_mapper.Map<ProductEntity>(productEditRequestDto), cancellationToken);
-        return _mapper.Map<ProductEditResponseDto>(productEdited);
+        response.Data = _mapper.Map<ProductEditResponseDto>(productEdited);
+
+        return response;
     }
 
-    public async Task<ProductGetByCategoryResponseDto> GetByCategoryAsync(int categoryId, CancellationToken cancellationToken)
+    public async Task<ApiBaseResponse<ProductGetByCategoryResponseDto>> GetByCategoryAsync(int categoryId, CancellationToken cancellationToken)
     {
-        var response = new ProductGetByCategoryResponseDto();
+        var response = new ApiBaseResponse<ProductGetByCategoryResponseDto>();
 
         if (categoryId <= 0)
         {
@@ -78,6 +82,6 @@ public class ProductApplicationService : BaseApplicationService, IProductApplica
         }
 
         await _productService.GetByCategoryAsync(cancellationToken);
-        return new ProductGetByCategoryResponseDto();
+        return response;
     }
 }
