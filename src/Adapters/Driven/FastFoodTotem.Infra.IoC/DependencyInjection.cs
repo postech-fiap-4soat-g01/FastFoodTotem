@@ -6,12 +6,14 @@ using FastFoodTotem.Application.Dtos.Requests.Product;
 using FastFoodTotem.Application.Dtos.Validators.Customer;
 using FastFoodTotem.Application.Dtos.Validators.Order;
 using FastFoodTotem.Application.Dtos.Validators.Product;
+using FastFoodTotem.Domain.Contracts.Payments;
 using FastFoodTotem.Domain.Contracts.Repositories;
 using FastFoodTotem.Domain.Contracts.Services;
 using FastFoodTotem.Domain.Services;
 using FastFoodTotem.Domain.Validations;
 using FastFoodTotem.Infra.SqlServer.Database;
 using FastFoodTotem.Infra.SqlServer.Repositories;
+using FastFoodTotem.MercadoPago;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,6 +31,7 @@ public static class DependencyInjection
         ConfigureApplicationServices(services);
         ConfigureNotificationServices(services);
         ConfigureValidators(services);
+        ConfigureOrderPaymentServices(services);
 
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
     }
@@ -76,6 +79,11 @@ public static class DependencyInjection
         services.AddScoped<IValidator<ProductEditRequestDto>, ProductEditRequestDtoValidator>();
         services.AddScoped<IValidator<OrderCreateRequestDto>, OrderCreateRequestDtoValidator>();
         services.AddScoped<IValidator<OrderItemAddRequestDto>, OrderItemAddRequestDtoValidator>();
+    }
+
+    private static void ConfigureOrderPaymentServices(IServiceCollection services)
+    {
+        services.AddScoped<IOrderPayment, MercadoPagoPayment>();
     }
 }
 

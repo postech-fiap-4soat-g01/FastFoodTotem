@@ -6,7 +6,7 @@ namespace FastFoodTotem.Domain.Entities
     public class CategoryEntity
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public CategoryType Type { get; set; }
 

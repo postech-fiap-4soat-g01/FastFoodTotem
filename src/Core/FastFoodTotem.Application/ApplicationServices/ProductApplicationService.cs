@@ -42,11 +42,11 @@ public class ProductApplicationService : BaseApplicationService, IProductApplica
         return _mapper.Map<ProductCreateResponseDto>(productCreated);
     }
 
-    public async Task<ProductDeleteResponseDto> DeleteAsync(Guid productId, CancellationToken cancellationToken)
+    public async Task<ProductDeleteResponseDto> DeleteAsync(int productId, CancellationToken cancellationToken)
     {
         var response = new ProductDeleteResponseDto();
 
-        if (productId == (Guid.Empty))
+        if (productId <= 0)
         {
             _validationNotifications.AddError("ProductId", "O id deve estar especificado");
             return response;
@@ -67,11 +67,11 @@ public class ProductApplicationService : BaseApplicationService, IProductApplica
         return _mapper.Map<ProductEditResponseDto>(productEdited);
     }
 
-    public async Task<ProductGetByCategoryResponseDto> GetByCategoryAsync(Guid categoryId, CancellationToken cancellationToken)
+    public async Task<ProductGetByCategoryResponseDto> GetByCategoryAsync(int categoryId, CancellationToken cancellationToken)
     {
         var response = new ProductGetByCategoryResponseDto();
 
-        if (categoryId == (Guid.Empty))
+        if (categoryId <= 0)
         {
             _validationNotifications.AddError("CategoryId", "O id deve estar especificado");
             return response;

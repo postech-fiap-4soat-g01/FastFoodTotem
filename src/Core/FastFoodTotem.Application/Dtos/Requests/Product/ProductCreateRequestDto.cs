@@ -3,6 +3,6 @@
     public class ProductCreateRequestDto : ApiBaseRequest
     {
         public string Name { get; set; }
-        public Guid CategoryId { get; set; }
+        public int CategoryId { get; set; }
     }
 }

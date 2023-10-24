@@ -1,9 +1,7 @@
-﻿using FastFoodTotem.Application.DtoValidators;
-
-namespace FastFoodTotem.Application.Dtos.Requests.Order
+﻿namespace FastFoodTotem.Application.Dtos.Requests.Order
 {
     public class OrderItemAddRequestDto : ApiBaseRequest
     {
-        public Guid OrderItemId { get; set; }
+        public int OrderItemId { get; set; }
     }
 }

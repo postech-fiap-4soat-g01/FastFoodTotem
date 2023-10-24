@@ -5,10 +5,10 @@ namespace FastFoodTotem.Domain.Entities
     public class OrderedItemEntity
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
-        public Guid ProductId { get; set; }
-        public Guid OrderId { get; set; }
+        public int ProductId { get; set; }
+        public int OrderId { get; set; }
         public int Amount { get; set; }
 
         public ProductEntity Product { get; set; }

@@ -17,3 +17,6 @@ var host = CreateHostBuilder(args).Build();
 var mercadoPago = host.Services.GetRequiredService<IOrderPayment>();
 
 var qr = await mercadoPago.GerarQRCodeParaPagamentoDePedido();
+
+
+Console.WriteLine(qr);

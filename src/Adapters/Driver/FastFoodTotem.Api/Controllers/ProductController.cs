@@ -51,7 +51,7 @@ namespace FastFoodTotem.Api.Controllers
         /// <param name="productId"></param>
         /// <param name="cancellationToken"></param>
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromBody] Guid productId, CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete([FromBody] int productId, CancellationToken cancellationToken)
         {
             var productDeleteResponseDto = await _productApplicationService.DeleteAsync(productId, cancellationToken);
             return await Return(productDeleteResponseDto);
@@ -63,7 +63,7 @@ namespace FastFoodTotem.Api.Controllers
         /// <param name="categoryId"></param>
         /// <param name="cancellationToken"></param>
         [HttpGet("category/{categoryId}")]
-        public async Task<IActionResult> GetByCategory([FromRoute] Guid categoryId, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetByCategory([FromRoute] int categoryId, CancellationToken cancellationToken)
         {
             var productGetByCategoryResponseDto = await _productApplicationService.GetByCategoryAsync(categoryId, cancellationToken);
             return await Return(productGetByCategoryResponseDto);

@@ -6,7 +6,7 @@ namespace FastFoodTotem.Domain.Contracts.Services
     {
         public Task<ProductEntity> CreateAsync(ProductEntity productCreateRequestDto, CancellationToken cancellationToken);
         public Task<ProductEntity> EditAsync(ProductEntity productCreateRequestDto, CancellationToken cancellationToken);
-        public Task DeleteAsync(Guid productId, CancellationToken cancellationToken);
+        public Task DeleteAsync(int productId, CancellationToken cancellationToken);
         public Task<IEnumerable<ProductEntity>> GetByCategoryAsync(CancellationToken cancellationToken);
     }
 }

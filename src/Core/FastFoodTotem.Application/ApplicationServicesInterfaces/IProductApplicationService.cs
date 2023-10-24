@@ -8,7 +8,7 @@ public interface IProductApplicationService
 {
     public Task<ProductCreateResponseDto> CreateAsync(ProductCreateRequestDto productCreateRequestDto, CancellationToken cancellationToken);
     public Task<ProductEditResponseDto> EditAsync(ProductEditRequestDto productCreateRequestDto, CancellationToken cancellationToken);
-    public Task<ProductDeleteResponseDto> DeleteAsync(Guid productId, CancellationToken cancellationToken);
-    public Task<ProductGetByCategoryResponseDto> GetByCategoryAsync(Guid categoryId, CancellationToken cancellationToken);
+    public Task<ProductDeleteResponseDto> DeleteAsync(int productId, CancellationToken cancellationToken);
+    public Task<ProductGetByCategoryResponseDto> GetByCategoryAsync(int categoryId, CancellationToken cancellationToken);
 }
 

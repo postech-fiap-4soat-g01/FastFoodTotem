@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FastFoodTotem.Infra.SqlServer.Repositories
 {
-    public class CustomerRepository : BaseRepository<Guid, CustomerEntity>, ICustomerRepository
+    public class CustomerRepository : BaseRepository<int, CustomerEntity>, ICustomerRepository
     {
         public CustomerRepository(FastFoodContext fastFoodContext) : base(fastFoodContext)
         {

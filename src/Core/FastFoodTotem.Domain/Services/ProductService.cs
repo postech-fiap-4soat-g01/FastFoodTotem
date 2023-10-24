@@ -10,7 +10,7 @@ namespace FastFoodTotem.Domain.Services
             throw new NotImplementedException();
         }
 
-        public Task DeleteAsync(Guid productId, CancellationToken cancellationToken)
+        public Task DeleteAsync(int productId, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

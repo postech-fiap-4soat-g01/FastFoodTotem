@@ -4,7 +4,7 @@ using FastFoodTotem.Infra.SqlServer.Database;
 
 namespace FastFoodTotem.Infra.SqlServer.Repositories
 {
-    public class OrderRepository : BaseRepository<Guid, OrderEntity>, IOrderRepository
+    public class OrderRepository : BaseRepository<int, OrderEntity>, IOrderRepository
     {
         public OrderRepository(FastFoodContext fastFoodContext) : base(fastFoodContext)
         {
