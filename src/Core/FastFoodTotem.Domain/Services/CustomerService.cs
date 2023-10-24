@@ -24,7 +24,10 @@ namespace FastFoodTotem.Domain.Services
             if (existingCustomer != null)
                 _validationNotifications.AddError("Identification", "Já existe um usuário cadastrado com esse CPF.");
             else
+            {
+                customer.Identification.Replace(".", string.Empty).Replace("-", string.Empty);
                 await _customerRepository.AddCustomerAsync(customer, cancellationToken);
+            }
 
         }
 
