@@ -13,6 +13,7 @@ public class ProductMapper : Profile
         CreateMap<ProductEntity, ProductCreateResponseDto>();
         CreateMap<ProductEditRequestDto, ProductEntity>();
         CreateMap<ProductEntity, ProductEditResponseDto>();
+        CreateMap<ProductEntity, ProductData>();
     }
 }
 

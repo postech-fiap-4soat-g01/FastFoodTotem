@@ -6,6 +6,7 @@ using FastFoodTotem.Application.Dtos.Responses;
 using FastFoodTotem.Application.Dtos.Responses.Product;
 using FastFoodTotem.Domain.Contracts.Services;
 using FastFoodTotem.Domain.Entities;
+using FastFoodTotem.Domain.Enums;
 using FastFoodTotem.Domain.Validations;
 using FluentValidation;
 
@@ -65,23 +66,19 @@ public class ProductApplicationService : BaseApplicationService, IProductApplica
         if (!await IsDtoValid(_productEditRequestDtoValidator, productEditRequestDto))
             return response;
 
-        var productEdited = await _productService.CreateAsync(_mapper.Map<ProductEntity>(productEditRequestDto), cancellationToken);
+        var productEdited = await _productService.EditAsync(_mapper.Map<ProductEntity>(productEditRequestDto), cancellationToken);
         response.Data = _mapper.Map<ProductEditResponseDto>(productEdited);
 
         return response;
     }
 
-    public async Task<ApiBaseResponse<ProductGetByCategoryResponseDto>> GetByCategoryAsync(int categoryId, CancellationToken cancellationToken)
+    public async Task<ApiBaseResponse<ProductGetByCategoryResponseDto>> GetByCategoryAsync(CategoryType type, CancellationToken cancellationToken)
     {
         var response = new ApiBaseResponse<ProductGetByCategoryResponseDto>();
 
-        if (categoryId <= 0)
-        {
-            _validationNotifications.AddError("CategoryId", "O id deve estar especificado");
-            return response;
-        }
-
-        await _productService.GetByCategoryAsync(cancellationToken);
+        var products = await _productService.GetByCategoryAsync(type, cancellationToken);
+        response.Data = new ProductGetByCategoryResponseDto();
+        response.Data.Products = _mapper.Map<List<ProductData>>(products);
         return response;
     }
 }

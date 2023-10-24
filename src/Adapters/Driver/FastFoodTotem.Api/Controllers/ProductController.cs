@@ -2,6 +2,7 @@
 using FastFoodTotem.Application.ApplicationServicesInterfaces;
 using FastFoodTotem.Application.Dtos.Requests.Product;
 using FastFoodTotem.Domain.Contracts.Services;
+using FastFoodTotem.Domain.Enums;
 using FastFoodTotem.Domain.Validations;
 using Microsoft.AspNetCore.Mvc;
 
@@ -50,8 +51,8 @@ namespace FastFoodTotem.Api.Controllers
         /// </summary>
         /// <param name="productId"></param>
         /// <param name="cancellationToken"></param>
-        [HttpDelete]
-        public async Task<IActionResult> Delete([FromBody] int productId, CancellationToken cancellationToken)
+        [HttpDelete("{productId}")]
+        public async Task<IActionResult> Delete([FromRoute] int productId, CancellationToken cancellationToken)
         {
             var productDeleteResponseDto = await _productApplicationService.DeleteAsync(productId, cancellationToken);
             return await Return(productDeleteResponseDto);
@@ -60,12 +61,12 @@ namespace FastFoodTotem.Api.Controllers
         /// <summary>
         /// Retrieve a list of products by category.
         /// </summary>
-        /// <param name="categoryId"></param>
+        /// <param name="type"></param>
         /// <param name="cancellationToken"></param>
-        [HttpGet("category/{categoryId}")]
-        public async Task<IActionResult> GetByCategory([FromRoute] int categoryId, CancellationToken cancellationToken)
+        [HttpGet("category/{type}")]
+        public async Task<IActionResult> GetByCategory([FromRoute] CategoryType type, CancellationToken cancellationToken)
         {
-            var productGetByCategoryResponseDto = await _productApplicationService.GetByCategoryAsync(categoryId, cancellationToken);
+            var productGetByCategoryResponseDto = await _productApplicationService.GetByCategoryAsync(type, cancellationToken);
             return await Return(productGetByCategoryResponseDto);
         }
     }

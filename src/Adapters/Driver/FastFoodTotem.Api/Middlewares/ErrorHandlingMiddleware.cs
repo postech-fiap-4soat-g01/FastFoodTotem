@@ -30,12 +30,12 @@ public class ErrorHandlingMiddleware
             result.StatusCode = HttpStatusCode.NotFound;
             result.Errors = new List<KeyValuePair<string, List<string>>>()
             {
-                new KeyValuePair<string, List<string>>("ObjectNotFoundException", new List<string>() { "Requested item has not been found" })
+                new KeyValuePair<string, List<string>>("ObjectNotFoundException", new List<string>() { "O item solicitado não foi encontrado" })
             };
 
             await response.WriteAsync(JsonSerializer.Serialize(result));
         }
-        catch (Exception)
+        catch (Exception ex)
         {
             response.StatusCode = (int)HttpStatusCode.InternalServerError;
             result.StatusCode = HttpStatusCode.InternalServerError;
