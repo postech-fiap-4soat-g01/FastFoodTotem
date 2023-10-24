@@ -14,7 +14,7 @@ public class OrderEntityMapper
             x.ToTable("Order");
             x.HasKey(c => c.Id).HasName("OrderId");
             x.Property(c => c.Id).HasColumnName("Id").ValueGeneratedOnAdd();
-            x.Property(c => c.CustomerId).HasColumnName("CustomerId");
+            x.Property(c => c.CustomerId).HasDefaultValue(null).HasColumnName("CustomerId").IsRequired(false);
             x.Property(c => c.Status).HasColumnName("Status");
 
             x.HasMany(c => c.OrderedItems)

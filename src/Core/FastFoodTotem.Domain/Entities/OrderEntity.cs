@@ -7,7 +7,7 @@ namespace FastFoodTotem.Domain.Entities
     {
         [Key]
         public int Id { get; set; }
-        public int CustomerId { get; set; }
+        public int? CustomerId { get; set; }
         public OrderStatus Status { get; set; }
 
         public IEnumerable<OrderedItemEntity> OrderedItems { get; set; } = Enumerable.Empty<OrderedItemEntity>();
