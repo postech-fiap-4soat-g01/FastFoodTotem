@@ -33,6 +33,8 @@ namespace FastFoodTotem.Domain.Services
 
         public async Task<CustomerEntity> GetCustomerByCPFAsync(string cpf, CancellationToken cancellationToken)
         {
+            cpf = cpf.Replace(".", string.Empty).Replace("-", string.Empty);
+
             var customerByCpf = await _customerRepository.GetCustomerByCPFAsync(cpf, cancellationToken)
                 ?? throw new ObjectNotFoundException("No customer found for this CPF");
 
