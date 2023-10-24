@@ -12,8 +12,6 @@ namespace FastFoodTotem.Infra.SqlServer.Database
         {
         }
 
-        public DbSet<CategoryEntity> Categories { get; set; }
-
         public DbSet<OrderEntity> Orders { get; set; }
 
         public DbSet<ProductEntity> Products { get; set; }
@@ -30,7 +28,6 @@ namespace FastFoodTotem.Infra.SqlServer.Database
 
         private void MapEntities(ModelBuilder modelBuilder)
         {
-            CategoryEntityMapper.ConfigureEntity(modelBuilder);
             CustomerEntityMapper.ConfigureEntity(modelBuilder);
             OrderedItemEntityMapper.ConfigureEntity(modelBuilder);
             OrderEntityMapper.ConfigureEntity(modelBuilder);

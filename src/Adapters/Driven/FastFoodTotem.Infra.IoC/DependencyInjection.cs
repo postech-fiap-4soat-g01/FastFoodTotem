@@ -44,7 +44,6 @@ public static class DependencyInjection
 
     private static void ConfigureRepositories(IServiceCollection services)
     {
-        services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<ICustomerRepository, CustomerRepository>();
@@ -53,7 +52,6 @@ public static class DependencyInjection
     private static void ConfigureServices(IServiceCollection services)
     {
         services.AddScoped<IOrderService, OrderService>();
-        services.AddScoped<ICategoryService, CategoryService>();
         services.AddScoped<IProductService, ProductService>();
         services.AddTransient<ICustomerService, CustomerService>();
     }
@@ -61,7 +59,6 @@ public static class DependencyInjection
     private static void ConfigureApplicationServices(IServiceCollection services)
     {
         services.AddScoped<ICustomerApplicationService, CustomerApplicationService>();
-        services.AddScoped<ICategoryApplicationService, CategoryApplicationService>();
         services.AddScoped<IOrderApplicationService, OrderApplicationService>();
         services.AddScoped<IProductApplicationService, ProductApplicationService>();
     }
