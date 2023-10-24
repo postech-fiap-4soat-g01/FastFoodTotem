@@ -8,9 +8,9 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["src/Adapters/Driver/FastFoodTotem.Api/FastFoodTotem.Api.csproj", "src/Adapters/Driver/FastFoodTotem.Api/"]
-COPY ["src/Core/FastFoodTotem.Application/FastFoodTotem.Application.csproj", "src/Core/FastFoodTotem.Application/"]
 COPY ["src/Core/FastFoodTotem.Domain/FastFoodTotem.Domain.csproj", "src/Core/FastFoodTotem.Domain/"]
 COPY ["src/Adapters/Driven/FastFoodTotem.Infra.IoC/FastFoodTotem.Infra.IoC.csproj", "src/Adapters/Driven/FastFoodTotem.Infra.IoC/"]
+COPY ["src/Adapters/Driver/FastFoodTotem.Application/FastFoodTotem.Application.csproj", "src/Adapters/Driver/FastFoodTotem.Application/"]
 COPY ["src/Adapters/Driven/FastFoodTotem.Infra.SqlServer/FastFoodTotem.Infra.SqlServer.csproj", "src/Adapters/Driven/FastFoodTotem.Infra.SqlServer/"]
 COPY ["src/Adapters/Driven/FastFoodTotem.MercadoPago/FastFoodTotem.MercadoPago.csproj", "src/Adapters/Driven/FastFoodTotem.MercadoPago/"]
 RUN dotnet restore "src/Adapters/Driver/FastFoodTotem.Api/FastFoodTotem.Api.csproj"
