@@ -14,9 +14,15 @@ public class ProductCreateRequestDtoValidator : AbstractValidator<ProductCreateR
             .NotEmpty()
             .WithMessage("O nome deve estar preenchido.");
 
-        RuleFor(dto => dto.CategoryId)
+        RuleFor(dto => dto.Type)
             .NotEmpty()
-            .WithMessage("O id da categoria deve estar preenchido.");
+            .WithMessage("O tipo do produto deve estar preenchido.")
+            .IsInEnum()
+            .WithMessage("O tipo do produto especificado não é válido.");
+
+        RuleFor(dto => dto.Price)
+            .NotEmpty()
+            .WithMessage("O preço do produto deve estar especificado.");
     }
 }
 

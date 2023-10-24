@@ -1,13 +1,22 @@
-﻿using FastFoodTotem.Domain.Contracts.Services;
+﻿using FastFoodTotem.Domain.Contracts.Repositories;
+using FastFoodTotem.Domain.Contracts.Services;
 using FastFoodTotem.Domain.Entities;
 
 namespace FastFoodTotem.Domain.Services
 {
     public class ProductService : IProductService
     {
-        public Task<ProductEntity> CreateAsync(ProductEntity productCreateRequestDto, CancellationToken cancellationToken)
+        private readonly IProductRepository _productRepository;
+
+        public ProductService(IProductRepository productRepository) 
         {
-            throw new NotImplementedException();
+            _productRepository = productRepository;
+        }
+
+        public async Task<ProductEntity> CreateAsync(ProductEntity product, CancellationToken cancellationToken)
+        {
+            await _productRepository.CreateProductAsync(product, cancellationToken);
+            return product;
         }
 
         public Task DeleteAsync(int productId, CancellationToken cancellationToken)
