@@ -1,12 +1,16 @@
-﻿using FastFoodTotem.Application.Dtos.Requests.Order;
-using FastFoodTotem.Application.Dtos.Responses;
-using FastFoodTotem.Domain.Contracts.Services;
+﻿using FastFoodTotem.Domain.Contracts.Services;
+using FastFoodTotem.Domain.Entities;
 
 namespace FastFoodTotem.Domain.Services
 {
-    internal class OrderService : IOrderService
+    public class OrderService : IOrderService
     {
-        public Task<OrderCreateResponseDto> CreateAsync(OrderCreateRequestDto orderCreateRequestDto, CancellationToken cancellationToken)
-        => Task.FromResult(new OrderCreateResponseDto(Guid.NewGuid()));
+        public OrderService()
+        {
+
+        }
+
+        public Task<OrderEntity> CreateAsync(OrderEntity orderCreateRequestDto, CancellationToken cancellationToken)
+        => Task.FromResult(new OrderEntity());
     }
 }

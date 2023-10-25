@@ -1,34 +1,59 @@
-﻿using FastFoodTotem.Application.Dtos.Requests.Product;
-using FastFoodTotem.Application.Dtos.Responses.Product;
+﻿using FastFoodTotem.Domain.Contracts.Repositories;
 using FastFoodTotem.Domain.Contracts.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FastFoodTotem.Domain.Entities;
+using FastFoodTotem.Domain.Enums;
+using FastFoodTotem.Domain.Exceptions;
+using FastFoodTotem.Domain.Validations;
 
 namespace FastFoodTotem.Domain.Services
 {
-    internal class ProductService : IProductService
+    public class ProductService : IProductService
     {
-        public Task<ProductCreateResponseDto> CreateAsync(ProductCreateRequestDto productCreateRequestDto, CancellationToken cancellationToken)
+        private readonly IProductRepository _productRepository;
+        private readonly IValidationNotifications _validationNotifications;
+
+        public ProductService(IProductRepository productRepository, IValidationNotifications validationNotifications) 
         {
-            throw new NotImplementedException();
+            _productRepository = productRepository;
+            _validationNotifications = validationNotifications;
         }
 
-        public Task<ProductDeleteResponseDto> DeleteAsync(ProductDeleteRequestDto productCreateRequestDto, CancellationToken cancellationToken)
+        public async Task<ProductEntity> CreateAsync(ProductEntity product, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            await _productRepository.CreateProduct(product, cancellationToken);
+            return product;
         }
 
-        public Task<ProductEditResponseDto> EditAsync(ProductEditRequestDto productCreateRequestDto, CancellationToken cancellationToken)
+        public async Task<ProductEntity> EditAsync(ProductEntity product, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var existentProduct = await _productRepository.GetProduct(product.Id, cancellationToken);
+
+            if (existentProduct == null)
+                throw new ObjectNotFoundException();
+
+            existentProduct.Price = product.Price;
+            existentProduct.Name = product.Name;
+            existentProduct.Type = product.Type;
+
+            await _productRepository.EditProduct(existentProduct, cancellationToken);
+            return product;
         }
 
-        public Task<ProductGetByCategoryResponseDto> GetByCategoryAsync(ProductGetByCategoryRequestDto productGetByCategoryRequestDto, CancellationToken cancellationToken)
+        public async Task DeleteAsync(int productId, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var product = await _productRepository.GetProduct(productId, cancellationToken);
+
+            if(product == null)
+                throw new ObjectNotFoundException();
+
+            await _productRepository.DeleteProduct(product, cancellationToken);
+        }
+
+        public async Task<IEnumerable<ProductEntity>> GetByCategoryAsync(CategoryType type, CancellationToken cancellationToken)
+        {
+            var products = await _productRepository.GetProductsByCategory(type, cancellationToken);
+
+            return products;
         }
     }
 }

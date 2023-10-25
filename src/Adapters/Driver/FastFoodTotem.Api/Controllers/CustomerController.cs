@@ -1,9 +1,8 @@
 ﻿using FastFoodTotem.Api.Controllers.Base;
+using FastFoodTotem.Application.ApplicationServicesInterfaces;
 using FastFoodTotem.Application.Dtos.Requests.Customer;
-using FastFoodTotem.Application.Dtos.Requests.Product;
 using FastFoodTotem.Application.Dtos.Responses.Customer;
-using FastFoodTotem.Domain.Contracts.Services;
-using FastFoodTotem.Domain.Exceptions;
+using FastFoodTotem.Domain.Validations;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FastFoodTotem.Api.Controllers
@@ -14,108 +13,45 @@ namespace FastFoodTotem.Api.Controllers
     [Produces("application/json")]
     public class CustomerController : BaseController
     {
-        private readonly ICustomerService _customerService;
+        private readonly ICustomerApplicationService _customerApplicationService;
 
-        public CustomerController(ICustomerService customerService)
+        public CustomerController(ICustomerApplicationService customerApplicationService, IValidationNotifications validationNotifications)
+            : base(validationNotifications)
         {
-            _customerService = customerService;
+            _customerApplicationService = customerApplicationService;
         }
 
         /// <summary>
         /// Create a new customer.
         /// </summary>
-        /// <remarks>
-        /// Sample request:
-        ///
-        ///     POST
-        ///     {
-        ///         "customerName": "Fulano de Tal",
-        ///         "customerEmail": "fulano@tal.com",
-        ///         "customerIdentification": "12345678909"
-        ///     }
-        ///
-        /// </remarks>
         /// <returns>Id of customer created</returns>
-        /// <response code="201">Request was processed sucessfully</response>
-        /// <response code="400">Body in the request was wrong.</response>
-        /// <response code="500">Internal server error</response>
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Create(CustomerCreateRequestDto customerCreateRequestDto, CancellationToken cancellationToken)
         {
-            try
-            {
-                await _customerService.AddCustomerAsync(customerCreateRequestDto, cancellationToken);
-
-                return StatusCode(StatusCodes.Status201Created);
-            }
-            catch (Exception ex) when (ex is DomainException)
-            {
-                return BadRequest(ex.Message);
-            }
-            catch
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while adding customer");
-            }
+            var customerCreateResponseDto = await _customerApplicationService.AddCustomerAsync(customerCreateRequestDto, cancellationToken);
+            return await Return(customerCreateResponseDto);
         }
 
         /// <summary>
         /// Retrieve a customer by cpf.
         /// </summary>
         /// <returns>Customer</returns>
-        /// <response code="200">Request was processed sucessfully</response>
-        /// <response code="400">Body in the request was wrong.</response>
-        /// <response code="500">Internal server error</response>
         [HttpGet("{cpf}")]
-        [ProducesResponseType(statusCode: StatusCodes.Status200OK, type: typeof(CustomerGetByCPFResponseDto))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetCustomerByCpf(string cpf, CancellationToken cancellationToken)
         {
-            try
-            {
-                return Ok(await _customerService.GetCustomerByCPFAsync(cpf, cancellationToken));
-            }
-            catch (Exception ex) when (ex is DomainException)
-            {
-                return BadRequest(ex.Message);
-            }
-            catch
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while adding customer");
-            }
+            var customerGetByCPFResponseDto = await _customerApplicationService.GetCustomerByCPFAsync(cpf, cancellationToken);
+            return await Return(customerGetByCPFResponseDto);
         }
 
         /// <summary>
         /// Retrieve a list of all customers.
         /// </summary>
         /// <returns>List of customers</returns>
-        /// <response code="200">Request was processed sucessfully</response>
-        /// <response code="400">Body in the request was wrong.</response>
-        /// <response code="500">Internal server error</response>
         [HttpGet()]
-        [ProducesResponseType(statusCode: StatusCodes.Status200OK, type: typeof(IEnumerable<CustomerGetResponseDto>))]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetCustomers(CancellationToken cancellationToken)
         {
-            try
-            {
-                var customers = await _customerService.GetCustomersAsync(cancellationToken);
-
-                if (customers is null || !customers.Any())
-                {
-                    return NoContent();
-                }
-
-                return Ok(customers);
-            }
-            catch
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while adding customer");
-            }
+            var customers = await _customerApplicationService.GetCustomersAsync(cancellationToken);
+            return await Return(customers);
         }
     }
 }

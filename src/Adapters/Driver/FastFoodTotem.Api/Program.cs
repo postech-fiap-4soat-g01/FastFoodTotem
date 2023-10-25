@@ -1,8 +1,8 @@
-using FastFoodTotem.Domain;
-using FastFoodTotem.Domain.Contracts.Repositories;
-using FastFoodTotem.Infra.SqlServer.Repositories;
+using FastFoodTotem.Api.Middlewares;
+using FastFoodTotem.Infra.IoC;
+using FastFoodTotem.Infra.SqlServer.Database;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using FastFoodTotem.Infra.SqlServer.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,11 +56,16 @@ builder.Services
     })
     .AddHealthChecks();
 
-builder.Services.AddDomain();
-builder.Services.AddConfigureDatabase(builder.Configuration);
-builder.Services.AddConfigureServices();
+builder.Services.ConfigureServices(builder.Configuration);
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<FastFoodContext>();
+    db.Database.Migrate();
+}
 
 if (app.Environment.IsDevelopment())
     app.UseSwagger().UseSwaggerUI();
@@ -68,6 +73,8 @@ if (app.Environment.IsDevelopment())
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseEndpoints(endpoints =>
 {

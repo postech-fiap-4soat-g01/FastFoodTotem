@@ -5,13 +5,12 @@ namespace FastFoodTotem.Domain.Entities
 {
     public class OrderEntity
     {
-        protected OrderEntity() { }
-
         [Key]
-        public Guid Id { get; private set; }
+        public int Id { get; set; }
+        public int? CustomerId { get; set; }
+        public OrderStatus Status { get; set; }
+
+        public IEnumerable<OrderedItemEntity> OrderedItems { get; set; } = Enumerable.Empty<OrderedItemEntity>();
         public CustomerEntity Customer { get; set; }
-        public Guid CustomerId { get; private set; }
-        public OrderStatus Status { get; private set; }
-        public IEnumerable<OrderedItemEntity> OrderedItems { get; private set; } = Enumerable.Empty<OrderedItemEntity>();
     }
 }

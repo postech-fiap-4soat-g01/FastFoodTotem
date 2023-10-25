@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace FastFoodTotem.Infra.SqlServer.Repositories
 {
-    internal abstract class BaseRepository<TId, TEntity> : IBaseRepository<TId, TEntity> where TEntity : class
+    public abstract class BaseRepository<TId, TEntity> : IBaseRepository<TId, TEntity> where TEntity : class
     {
         protected DbSet<TEntity> Data { get; }
         protected FastFoodContext _context;

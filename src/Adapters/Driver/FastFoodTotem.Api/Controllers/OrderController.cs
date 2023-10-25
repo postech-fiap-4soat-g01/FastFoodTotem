@@ -1,6 +1,8 @@
 ﻿using FastFoodTotem.Api.Controllers.Base;
+using FastFoodTotem.Application.ApplicationServicesInterfaces;
 using FastFoodTotem.Application.Dtos.Requests.Order;
 using FastFoodTotem.Domain.Contracts.Services;
+using FastFoodTotem.Domain.Validations;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FastFoodTotem.Api.Controllers
@@ -11,11 +13,12 @@ namespace FastFoodTotem.Api.Controllers
     [Produces("application/json")]
     public class OrderController : BaseController
     {
-        private readonly IOrderService _orderService;
+        private readonly IOrderApplicationService _orderApplicationService;
 
-        public OrderController(IOrderService orderService)
+        public OrderController(IOrderApplicationService orderApplicationService, IValidationNotifications validationNotifications)
+            : base(validationNotifications)
         {
-            _orderService = orderService;
+            _orderApplicationService = orderApplicationService;
         }
 
         /// <summary>
@@ -23,29 +26,12 @@ namespace FastFoodTotem.Api.Controllers
         /// </summary>
         /// <param name="orderCreateRequestDto"></param>
         /// <param name="cancellationToken"></param>
-        /// <remarks>
-        /// Sample request:
-        ///
-        ///     POST
-        ///     {
-        ///        "customerId": "8322d708-507a-41d2-901d-620fe97948f6",
-        ///        "items": [
-        ///             {
-        ///                 "id": "f2f73569-6760-4c25-a8f4-96effc5419f5"
-        ///             }
-        ///        ]
-        ///     }
-        ///
-        /// </remarks>
         /// <returns>Id of the new order created</returns>
-        /// <response code="200">Request was processed sucessfully</response>
-        /// <response code="400">Body in the request was wrong.</response>
-        /// <response code="500">Internal server error</response>
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> CreateOrder([FromBody] OrderCreateRequestDto orderCreateRequestDto, CancellationToken cancellationToken)
-        => Ok(await _orderService.CreateAsync(orderCreateRequestDto, cancellationToken));
+        {
+            return await Return(await _orderApplicationService.CreateAsync(orderCreateRequestDto, cancellationToken));
+        }
+        
     }
 }

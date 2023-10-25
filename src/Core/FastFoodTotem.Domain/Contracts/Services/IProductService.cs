@@ -1,13 +1,13 @@
-﻿using FastFoodTotem.Application.Dtos.Requests.Product;
-using FastFoodTotem.Application.Dtos.Responses.Product;
+﻿using FastFoodTotem.Domain.Entities;
+using FastFoodTotem.Domain.Enums;
 
 namespace FastFoodTotem.Domain.Contracts.Services
 {
     public interface IProductService
     {
-        public Task<ProductCreateResponseDto> CreateAsync(ProductCreateRequestDto productCreateRequestDto, CancellationToken cancellationToken);
-        public Task<ProductEditResponseDto> EditAsync(ProductEditRequestDto productCreateRequestDto, CancellationToken cancellationToken);
-        public Task<ProductDeleteResponseDto> DeleteAsync(ProductDeleteRequestDto productCreateRequestDto, CancellationToken cancellationToken);
-        public Task<ProductGetByCategoryResponseDto> GetByCategoryAsync(ProductGetByCategoryRequestDto productGetByCategoryRequestDto, CancellationToken cancellationToken);
+        public Task<ProductEntity> CreateAsync(ProductEntity product, CancellationToken cancellationToken);
+        public Task<ProductEntity> EditAsync(ProductEntity product, CancellationToken cancellationToken);
+        public Task DeleteAsync(int productId, CancellationToken cancellationToken);
+        public Task<IEnumerable<ProductEntity>> GetByCategoryAsync(CategoryType type, CancellationToken cancellationToken);
     }
 }
