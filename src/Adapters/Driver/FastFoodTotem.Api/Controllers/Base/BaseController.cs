@@ -1,5 +1,4 @@
 ﻿using FastFoodTotem.Application.Dtos.Responses;
-using FastFoodTotem.Application.Dtos.Responses.Customer;
 using FastFoodTotem.Domain.Validations;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FastFoodTotem.Application.Dtos.Responses.Order
+﻿namespace FastFoodTotem.Application.Dtos.Responses.Order
 {
     public class OrderItemGetByIdResponseDto
     {

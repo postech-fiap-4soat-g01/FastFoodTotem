@@ -1,7 +1,6 @@
 ﻿using FastFoodTotem.Api.Controllers.Base;
 using FastFoodTotem.Application.ApplicationServicesInterfaces;
 using FastFoodTotem.Application.Dtos.Requests.Product;
-using FastFoodTotem.Domain.Contracts.Services;
 using FastFoodTotem.Domain.Enums;
 using FastFoodTotem.Domain.Validations;
 using Microsoft.AspNetCore.Mvc;

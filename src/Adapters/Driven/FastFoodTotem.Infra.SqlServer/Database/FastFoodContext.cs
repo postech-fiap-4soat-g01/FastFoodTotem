@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FastFoodTotem.Infra.SqlServer.Database
 {
-    public class FastFoodContext: DbContext, IUnitOfWorkContext
+    public class FastFoodContext : DbContext, IUnitOfWorkContext
     {
         public FastFoodContext(DbContextOptions<FastFoodContext> options)
            : base(options)

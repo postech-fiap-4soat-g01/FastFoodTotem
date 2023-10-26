@@ -1,6 +1,4 @@
-﻿using Azure;
-using FastFoodTotem.Application.Dtos.Requests;
-using FastFoodTotem.Domain.Validations;
+﻿using FastFoodTotem.Domain.Validations;
 using FluentValidation;
 
 namespace FastFoodTotem.Application.ApplicationServices;

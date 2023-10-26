@@ -2,7 +2,6 @@
 using FastFoodTotem.Domain.Entities;
 using FastFoodTotem.Domain.Enums;
 using FastFoodTotem.Infra.SqlServer.Database;
-using System.Threading;
 
 namespace FastFoodTotem.Infra.SqlServer.Repositories
 {

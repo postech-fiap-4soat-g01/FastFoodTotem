@@ -1,5 +1,4 @@
-﻿using FastFoodTotem.Application.Dtos.Requests.Customer;
-using FastFoodTotem.Application.Dtos.Requests.Product;
+﻿using FastFoodTotem.Application.Dtos.Requests.Product;
 using FluentValidation;
 
 namespace FastFoodTotem.Application.Dtos.Validators.Product;

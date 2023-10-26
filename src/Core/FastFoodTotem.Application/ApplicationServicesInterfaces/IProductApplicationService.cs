@@ -1,7 +1,6 @@
 ﻿using FastFoodTotem.Application.Dtos.Requests.Product;
 using FastFoodTotem.Application.Dtos.Responses;
 using FastFoodTotem.Application.Dtos.Responses.Product;
-using FastFoodTotem.Domain.Entities;
 using FastFoodTotem.Domain.Enums;
 
 namespace FastFoodTotem.Application.ApplicationServicesInterfaces;
