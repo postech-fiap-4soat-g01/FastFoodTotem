@@ -57,7 +57,7 @@ public class OrderApplicationService : BaseApplicationService, IOrderApplication
                 Name = item.Product.Name,
                 Price = item.Product.Price,
                 ProductId = item.ProductId,
-                Quantity = item.Amount
+                Amount = item.Amount
             }));
 
         return response;

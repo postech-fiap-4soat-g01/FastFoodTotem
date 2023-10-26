@@ -76,6 +76,7 @@ public static class DependencyInjection
         services.AddScoped<IValidator<ProductEditRequestDto>, ProductEditRequestDtoValidator>();
         services.AddScoped<IValidator<OrderCreateRequestDto>, OrderCreateRequestDtoValidator>();
         services.AddScoped<IValidator<OrderItemAddRequestDto>, OrderItemAddRequestDtoValidator>();
+        services.AddScoped<IValidator<OrderUpdateRequestDto>, OrderUpdateRequestDtoValidator>();
     }
 
     private static void ConfigureOrderPaymentServices(IServiceCollection services)

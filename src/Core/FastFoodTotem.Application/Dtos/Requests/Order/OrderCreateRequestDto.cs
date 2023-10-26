@@ -5,7 +5,7 @@ namespace FastFoodTotem.Application.Dtos.Requests.Order
 {
     public class OrderCreateRequestDto : ApiBaseRequest
     {
-        public CustomerEntity Customer { get; set; }
-        public IList<OrderItemAddRequestDto> Items { get; set; }
+        public int? CustomerId { get; set; }
+        public IList<OrderItemAddRequestDto> OrderedItems { get; set; }
     }
 }
