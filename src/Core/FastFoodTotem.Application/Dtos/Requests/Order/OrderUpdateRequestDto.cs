@@ -1,8 +1,8 @@
 ﻿using FastFoodTotem.Domain.Enums;
 
-namespace FastFoodTotem.Application.Dtos.Responses.Order
+namespace FastFoodTotem.Application.Dtos.Requests.Order
 {
-    public class OrderCreateResponseDto
+    public class OrderUpdateRequestDto
     {
         public int Id { get; set; }
         public OrderStatus Status { get; set; }

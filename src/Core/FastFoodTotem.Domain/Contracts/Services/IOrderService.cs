@@ -4,6 +4,8 @@ namespace FastFoodTotem.Domain.Contracts.Services
 {
     public interface IOrderService
     {
-        public Task<OrderEntity> CreateAsync(OrderEntity orderCreateRequestDto, CancellationToken cancellationToken);
+        public Task<OrderEntity> CreateAsync(OrderEntity orderEntity, CancellationToken cancellationToken);
+        public Task UpdateAsync(OrderEntity orderEntity, CancellationToken cancellationToken);
+        public Task<OrderEntity> GetById(int orderId, CancellationToken cancellationToken);
     }
 }

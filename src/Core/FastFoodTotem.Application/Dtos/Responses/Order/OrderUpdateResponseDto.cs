@@ -2,7 +2,7 @@
 
 namespace FastFoodTotem.Application.Dtos.Responses.Order
 {
-    public class OrderCreateResponseDto
+    public class OrderUpdateResponseDto
     {
         public int Id { get; set; }
         public OrderStatus Status { get; set; }

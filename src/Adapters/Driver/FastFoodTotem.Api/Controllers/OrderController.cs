@@ -32,6 +32,29 @@ namespace FastFoodTotem.Api.Controllers
         {
             return await Return(await _orderApplicationService.CreateAsync(orderCreateRequestDto, cancellationToken));
         }
-        
+
+        /// <summary>
+        /// Update order status.
+        /// </summary>
+        /// <param name="orderUpdateRequestDto"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>Id and new status of the updated order</returns>
+        [HttpPatch]
+        public async Task<IActionResult> UpdateOrder([FromBody] OrderUpdateRequestDto orderUpdateRequestDto, CancellationToken cancellationToken)
+        {
+            return await Return(await _orderApplicationService.UpdateAsync(orderUpdateRequestDto, cancellationToken));
+        }
+
+        /// <summary>
+        /// Get order by id.
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>The order requested</returns>
+        [HttpGet("{orderId}")]
+        public async Task<IActionResult> GetOrderById([FromRoute] int orderId, CancellationToken cancellationToken)
+        {
+            return await Return(await _orderApplicationService.GetByIdAsync(orderId, cancellationToken));
+        }
     }
 }

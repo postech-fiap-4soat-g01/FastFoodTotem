@@ -12,5 +12,20 @@ namespace FastFoodTotem.Domain.Entities
 
         public IEnumerable<OrderedItemEntity> OrderedItems { get; set; } = Enumerable.Empty<OrderedItemEntity>();
         public CustomerEntity Customer { get; set; }
+
+        public bool ValidStatus(OrderStatus orderStatus)
+        {
+            if (NewStatusIsLowerOrEqualCurrentStatus()) return false;
+
+            if (NewStatusIsSkippingSteps()) return false;
+
+            return true;
+
+            bool NewStatusIsLowerOrEqualCurrentStatus()
+            => orderStatus <= Status;
+
+            bool NewStatusIsSkippingSteps()
+            => Status + 1 != orderStatus;
+        }
     }
 }

@@ -9,5 +9,20 @@ namespace FastFoodTotem.Infra.SqlServer.Repositories
         public OrderRepository(FastFoodContext fastFoodContext) : base(fastFoodContext)
         {
         }
+
+        public async Task AddOrderAsync(OrderEntity order, CancellationToken cancellationToken)
+        {
+            await CreateAsync(order);
+            await SaveChangesAsync(cancellationToken);
+        }
+
+        public async Task EditOrderAsync(OrderEntity order, CancellationToken cancellationToken)
+        {
+            Update(order);
+            await SaveChangesAsync(cancellationToken);
+        }
+
+        public async Task<OrderEntity?> GetOrderAsync(int orderId, CancellationToken cancellationToken)
+        => await Data.FindAsync(orderId, cancellationToken);
     }
 }

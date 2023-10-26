@@ -7,16 +7,10 @@ public class OrderCreateRequestDtoValidator : AbstractValidator<OrderCreateReque
 {
     public OrderCreateRequestDtoValidator()
     {
-        RuleFor(dto => dto.Status)
-            .NotEmpty()
-            .WithMessage("O status inicial do pedido deve estar preenchido.")
-            .IsInEnum()
-            .WithMessage("O status especificado não é válido.");
-
         RuleFor(dto => dto.Items)
             .NotEmpty()
             .WithMessage("O pedido precisa ter pelo menos um produto para ser criado.")
-            .ForEach(item => item.SetValidator(new OrderItemAddRequestDtoValidator())); ;
+            .ForEach(item => item.SetValidator(new OrderItemAddRequestDtoValidator()));
     }
 }
 
@@ -24,9 +18,13 @@ public class OrderItemAddRequestDtoValidator : AbstractValidator<OrderItemAddReq
 {
     public OrderItemAddRequestDtoValidator()
     {
-        RuleFor(dto => dto.OrderItemId)
+        RuleFor(dto => dto.ProductId)
             .NotEmpty()
             .WithMessage("O id do pedido precisa estar preenchido.");
+
+        RuleFor(dto => dto.Quantity)
+            .GreaterThan(0)
+            .WithMessage("A quantidade do produto precisa ser maior que zero.");
     }
 }
 
