@@ -1,0 +1,36 @@
+version: "3.9"
+
+networks:
+  fast-food-totem-network:
+    driver: bridge
+
+services:
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      MSSQL_SA_PASSWORD: Fernando9+
+      ACCEPT_EULA: Y
+    container_name: sql-server
+    networks:
+      - fast-food-totem-network
+    ports: 
+      - 1433:1433
+
+  fast-food-totem-api:
+    build:
+      context: .
+      dockerfile: ./src/Adapters/Driver/FastFoodTotem.Api/Dockerfile
+    environment:
+      - ConnectionStrings__SqlServerConnection=Server=sql-server;Database=FastFoodTotem;User=sa;Password=Fernando9+;MultipleActiveResultSets=true;TrustServerCertificate=true;
+      - MercadoPago__AccessToken=TEST-752265790074534-101215-0e58729d07c56d6fdacd92a515cdadad-68960270
+      - MercadoPago__BaseUrl=https://api.mercadopago.com
+      - MercadoPago__UserId=68960270
+      - MercadoPago__ExternalPosId=12
+    ports:
+      - "8080:80"
+      - "8081:443"
+    container_name: fast-food-totem-api
+    depends_on:
+      - sql-server
+    networks:
+      - fast-food-totem-network

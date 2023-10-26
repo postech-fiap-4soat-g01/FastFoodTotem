@@ -67,7 +67,7 @@ using (var scope = app.Services.CreateScope())
     db.Database.Migrate();
 }
 
-if (app.Environment.IsDevelopment())
+//if (app.Environment.IsDevelopment())
     app.UseSwagger().UseSwaggerUI();
 
 app.UseRouting();
