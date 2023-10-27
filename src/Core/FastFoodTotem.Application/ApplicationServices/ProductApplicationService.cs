@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Azure;
 using FastFoodTotem.Application.ApplicationServicesInterfaces;
 using FastFoodTotem.Application.Dtos.Requests.Product;
 using FastFoodTotem.Application.Dtos.Responses;

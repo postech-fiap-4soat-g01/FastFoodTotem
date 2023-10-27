@@ -12,7 +12,7 @@ namespace FastFoodTotem.Domain.Services
         private readonly IProductRepository _productRepository;
         private readonly IValidationNotifications _validationNotifications;
 
-        public ProductService(IProductRepository productRepository, IValidationNotifications validationNotifications) 
+        public ProductService(IProductRepository productRepository, IValidationNotifications validationNotifications)
         {
             _productRepository = productRepository;
             _validationNotifications = validationNotifications;
@@ -43,7 +43,7 @@ namespace FastFoodTotem.Domain.Services
         {
             var product = await _productRepository.GetProduct(productId, cancellationToken);
 
-            if(product == null)
+            if (product == null)
                 throw new ObjectNotFoundException();
 
             await _productRepository.DeleteProduct(product, cancellationToken);

@@ -8,7 +8,8 @@ public class OrderMapper : Profile
 {
     public OrderMapper()
     {
-        CreateMap<OrderCreateRequestDto, OrderEntity> ();
+        CreateMap<OrderCreateRequestDto, OrderEntity>();
+        CreateMap<OrderUpdateRequestDto, OrderEntity>();
     }
 }
 

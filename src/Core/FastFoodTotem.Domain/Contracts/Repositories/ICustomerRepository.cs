@@ -1,5 +1,4 @@
-﻿using FastFoodTotem.Domain.Contracts.Repositories.Base;
-using FastFoodTotem.Domain.Entities;
+﻿using FastFoodTotem.Domain.Entities;
 
 namespace FastFoodTotem.Domain.Contracts.Repositories
 {

@@ -36,7 +36,7 @@ namespace FastFoodTotem.Infra.SqlServer.Repositories
             return await Data.Where(expression).ToListAsync(cancellationToken);
         }
 
-        public TEntity FindById(TId id)
+        public TEntity? FindById(TId id)
         {
             return Data.Find(id);
         }

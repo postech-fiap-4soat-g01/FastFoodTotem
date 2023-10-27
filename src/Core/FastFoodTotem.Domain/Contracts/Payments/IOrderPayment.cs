@@ -1,7 +1,9 @@
-﻿namespace FastFoodTotem.Domain.Contracts.Payments
+﻿using FastFoodTotem.Domain.Entities;
+
+namespace FastFoodTotem.Domain.Contracts.Payments
 {
     public interface IOrderPayment
     {
-        Task<string> GerarQRCodeParaPagamentoDePedido();
+        Task<string> GerarQRCodeParaPagamentoDePedido(OrderEntity orderEntity);
     }
 }

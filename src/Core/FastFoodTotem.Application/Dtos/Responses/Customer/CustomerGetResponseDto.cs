@@ -1,6 +1,4 @@
-﻿using FastFoodTotem.Domain.Entities;
-
-namespace FastFoodTotem.Application.Dtos.Responses.Customer;
+﻿namespace FastFoodTotem.Application.Dtos.Responses.Customer;
 
 public class CustomerGetResponseDto
 {

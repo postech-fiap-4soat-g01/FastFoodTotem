@@ -1,7 +1,6 @@
 ﻿using FastFoodTotem.Api.Controllers.Base;
 using FastFoodTotem.Application.ApplicationServicesInterfaces;
 using FastFoodTotem.Application.Dtos.Requests.Order;
-using FastFoodTotem.Domain.Contracts.Services;
 using FastFoodTotem.Domain.Validations;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,6 +31,40 @@ namespace FastFoodTotem.Api.Controllers
         {
             return await Return(await _orderApplicationService.CreateAsync(orderCreateRequestDto, cancellationToken));
         }
-        
+
+        /// <summary>
+        /// Update order status.
+        /// </summary>
+        /// <param name="orderUpdateRequestDto"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>Id and new status of the updated order</returns>
+        [HttpPatch]
+        public async Task<IActionResult> UpdateOrder([FromBody] OrderUpdateRequestDto orderUpdateRequestDto, CancellationToken cancellationToken)
+        {
+            return await Return(await _orderApplicationService.UpdateAsync(orderUpdateRequestDto, cancellationToken));
+        }
+
+        /// <summary>
+        /// Get order by id.
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>The order requested</returns>
+        [HttpGet("{orderId}")]
+        public async Task<IActionResult> GetOrderById([FromRoute] int orderId, CancellationToken cancellationToken)
+        {
+            return await Return(await _orderApplicationService.GetByIdAsync(orderId, cancellationToken));
+        }
+
+        /// <summary>
+        /// Get all orders.
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns>The order requested</returns>
+        [HttpGet("{orderId}")]
+        public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
+        {
+            return await Return(await _orderApplicationService.GetAllAsync(cancellationToken));
+        }
     }
 }
