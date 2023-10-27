@@ -9,5 +9,6 @@ namespace FastFoodTotem.Application.ApplicationServicesInterfaces
         Task<ApiBaseResponse<OrderCreateResponseDto>> CreateAsync(OrderCreateRequestDto orderCreateRequestDto, CancellationToken cancellationToken);
         Task<ApiBaseResponse<OrderUpdateResponseDto>> UpdateAsync(OrderUpdateRequestDto orderUpdateRequestDto, CancellationToken cancellationToken);
         Task<ApiBaseResponse<OrderGetByIdResponseDto>> GetByIdAsync(int orderId, CancellationToken cancellationToken);
+        Task<ApiBaseResponse<OrderGetAllResponseDto>> GetAllAsync(CancellationToken cancellationToken);
     }
 }

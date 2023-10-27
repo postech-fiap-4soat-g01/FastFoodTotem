@@ -3,6 +3,7 @@ using FastFoodTotem.Domain.Contracts.Services;
 using FastFoodTotem.Domain.Entities;
 using FastFoodTotem.Domain.Exceptions;
 using FastFoodTotem.Domain.Validations;
+using System.Threading;
 
 namespace FastFoodTotem.Domain.Services
 {
@@ -40,7 +41,7 @@ namespace FastFoodTotem.Domain.Services
             await _orderRepository.EditOrderAsync(existentOrder, cancellationToken);
         }
 
-        public async Task<OrderEntity> GetById(int orderId, CancellationToken cancellationToken)
+        public async Task<OrderEntity> GetByIdAsync(int orderId, CancellationToken cancellationToken)
         {
             var existentOrder = await _orderRepository.GetOrderAsync(orderId, cancellationToken);
 
@@ -50,5 +51,7 @@ namespace FastFoodTotem.Domain.Services
             return existentOrder;
         }
 
+        public async Task<IEnumerable<OrderEntity>> GetAllAsync(CancellationToken cancellationToken)
+        => await _orderRepository.GetAllAsync(cancellationToken);
     }
 }

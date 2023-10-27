@@ -4,7 +4,7 @@ namespace FastFoodTotem.Application.Dtos.Responses.Order
 {
     public class OrderGetByIdResponseDto
     {
-        public OrderGetByIdResponseDto(int id, OrderStatus status, IEnumerable<OrderItemGetByIdResponseDto> items)
+        public OrderGetByIdResponseDto(int id, OrderStatus status, IEnumerable<OrderItemResponseDto> items)
         {
             Id = id;
             Status = status;
@@ -13,6 +13,6 @@ namespace FastFoodTotem.Application.Dtos.Responses.Order
 
         public int Id { get; set; }
         public OrderStatus Status { get; set; }
-        public IEnumerable<OrderItemGetByIdResponseDto> Items { get; set; }
+        public IEnumerable<OrderItemResponseDto> Items { get; set; }
     }
 }

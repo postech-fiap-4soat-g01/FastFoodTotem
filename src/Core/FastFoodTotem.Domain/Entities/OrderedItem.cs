@@ -13,5 +13,8 @@ namespace FastFoodTotem.Domain.Entities
 
         public ProductEntity Product { get; set; }
         public OrderEntity Order { get; set; }
+
+        public decimal GetTotal()
+        => Amount * Product.Price;
     }
 }

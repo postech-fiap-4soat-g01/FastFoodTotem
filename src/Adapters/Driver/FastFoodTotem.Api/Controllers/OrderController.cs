@@ -55,5 +55,16 @@ namespace FastFoodTotem.Api.Controllers
         {
             return await Return(await _orderApplicationService.GetByIdAsync(orderId, cancellationToken));
         }
+
+        /// <summary>
+        /// Get all orders.
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns>The order requested</returns>
+        [HttpGet("{orderId}")]
+        public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
+        {
+            return await Return(await _orderApplicationService.GetAllAsync(cancellationToken));
+        }
     }
 }

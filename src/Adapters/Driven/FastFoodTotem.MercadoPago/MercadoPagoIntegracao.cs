@@ -1,4 +1,5 @@
 ﻿using FastFoodTotem.Domain.Contracts.Payments;
+using FastFoodTotem.Domain.Entities;
 using FastFoodTotem.MercadoPago.Dtos.Request;
 using FastFoodTotem.MercadoPago.Dtos.Response;
 using Microsoft.Extensions.Configuration;
@@ -22,25 +23,22 @@ public class MercadoPagoPayment : IOrderPayment
         _externalPosId = config.GetSection("MercadoPago:ExternalPosId").Value ?? throw new ArgumentNullException("Null External Pos Id");
     }
 
-    public async Task<string> GerarQRCodeParaPagamentoDePedido()
+    public async Task<string> GerarQRCodeParaPagamentoDePedido(OrderEntity orderEntity)
     {
         var request = new GerarQRCodeRequest()
         {
-            TotalAmount = 12,
-            ExternalReference = "pedido1",
+            TotalAmount = orderEntity.GetTotal(),
+            ExternalReference = orderEntity.Id.ToString(),
             Title = "Pedido1",
             Description = "Pedido1",
-            Items = new List<Item>()
+            Items = orderEntity.OrderedItems.Select(item => new Item()
             {
-                new Item()
-                {
-                    Title = "Hamburguer",
-                    UnitMeasure = "unit",
-                    Quantity = 1,
-                    UnitPrice = 12,
-                    TotalAmount = 12,
-                }
-            }
+                Title = item.Product.Name,
+                UnitMeasure = "unit",
+                Quantity = item.Amount,
+                UnitPrice = item.Product.Price,
+                TotalAmount = item.GetTotal(),
+            }).ToList()
         };
 
         using (var httpRequest = new HttpClient())

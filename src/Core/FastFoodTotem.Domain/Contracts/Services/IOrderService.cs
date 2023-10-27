@@ -6,6 +6,7 @@ namespace FastFoodTotem.Domain.Contracts.Services
     {
         public Task<OrderEntity> CreateAsync(OrderEntity orderEntity, CancellationToken cancellationToken);
         public Task UpdateAsync(OrderEntity orderEntity, CancellationToken cancellationToken);
-        public Task<OrderEntity> GetById(int orderId, CancellationToken cancellationToken);
+        public Task<OrderEntity> GetByIdAsync(int orderId, CancellationToken cancellationToken);
+        public Task<IEnumerable<OrderEntity>> GetAllAsync(CancellationToken cancellationToken);
     }
 }
