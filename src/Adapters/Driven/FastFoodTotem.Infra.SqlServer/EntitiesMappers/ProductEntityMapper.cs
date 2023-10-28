@@ -16,7 +16,7 @@ public class ProductEntityMapper
             x.Property(c => c.Id).HasColumnName("Id").ValueGeneratedOnAdd();
             x.Property(c => c.Name).HasColumnName("Name").HasMaxLength(255);
             x.Property(c => c.Type).HasColumnName("Type");
-            x.Property(c => c.Price).HasColumnName("Price");
+            x.Property(c => c.Price).HasColumnName("Price").HasPrecision(18,2);
 
             x.HasMany(y => y.OrderedItems)
             .WithOne(y => y.Product);
