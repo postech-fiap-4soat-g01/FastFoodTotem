@@ -14,11 +14,6 @@ public class BaseController : ControllerBase
         _validationNotifications = validationNotifications ?? throw new ArgumentNullException(nameof(validationNotifications));
     }
 
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(StatusCodes.Status422UnprocessableEntity)]
-    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     protected async virtual Task<IActionResult> Return<T>(ApiBaseResponse<T> apiBaseResponse, int? statusCode = null)
     {
         if (!_validationNotifications.HasErrors())
