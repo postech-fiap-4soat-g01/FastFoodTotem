@@ -30,7 +30,6 @@ namespace FastFoodTotem.Api.Controllers
         /// <param name="productCreateRequestDto"></param>
         /// <param name="cancellationToken"></param>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiBaseResponse<ProductCreateResponseDto>))]
-        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(ApiBaseResponse<ProductCreateResponseDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ApiBaseResponse<ProductCreateResponseDto>))]
@@ -48,7 +47,6 @@ namespace FastFoodTotem.Api.Controllers
         /// <param name="productEditRequestDto"></param>
         /// <param name="cancellationToken"></param>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiBaseResponse<ProductEditResponseDto>))]
-        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(ApiBaseResponse<ProductEditResponseDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ApiBaseResponse<ProductEditResponseDto>))]
@@ -66,7 +64,6 @@ namespace FastFoodTotem.Api.Controllers
         /// <param name="productId"></param>
         /// <param name="cancellationToken"></param>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiBaseResponse<ProductDeleteResponseDto>))]
-        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(ApiBaseResponse<ProductDeleteResponseDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ApiBaseResponse<ProductDeleteResponseDto>))]
@@ -84,7 +81,6 @@ namespace FastFoodTotem.Api.Controllers
         /// <param name="type"></param>
         /// <param name="cancellationToken"></param>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiBaseResponse<ProductGetByCategoryResponseDto>))]
-        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(ApiBaseResponse<ProductGetByCategoryResponseDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ApiBaseResponse<ProductGetByCategoryResponseDto>))]

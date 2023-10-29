@@ -28,7 +28,6 @@ namespace FastFoodTotem.Api.Controllers
         /// </summary>
         /// <returns>Id of customer created</returns>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiBaseResponse<CustomerCreateResponseDto>))]
-        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(ApiBaseResponse<CustomerCreateResponseDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ApiBaseResponse<CustomerCreateResponseDto>))]
@@ -45,7 +44,6 @@ namespace FastFoodTotem.Api.Controllers
         /// </summary>
         /// <returns>Customer</returns>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiBaseResponse<CustomerGetByCPFResponseDto>))]
-        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(ApiBaseResponse<CustomerGetByCPFResponseDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ApiBaseResponse<CustomerGetByCPFResponseDto>))]
@@ -62,7 +60,6 @@ namespace FastFoodTotem.Api.Controllers
         /// </summary>
         /// <returns>List of customers</returns>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiBaseResponse<CustomerGetResponseDto>))]
-        [ProducesResponseType(StatusCodes.Status204NoContent, Type = typeof(ApiBaseResponse<CustomerGetResponseDto>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ApiBaseResponse<CustomerGetResponseDto>))]
