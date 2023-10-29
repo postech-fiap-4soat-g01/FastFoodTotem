@@ -26,7 +26,7 @@ Funcionalidades:
 ## Como rodar localmente
 Para rodar o projeto localmente é abrir um terminal na pasta base do projeto e executar o seguinte comando:
 
-docker-compose up -d
+```docker-compose up -d```
 
 Sendo executado normalmente, irá subir um banco SQL Server e também a API do projeto, sendo possível utilizar o [swagger](http://localhost:8080/swagger/index.html) para fazer requisições.
 Caso prefira, é possível realizar o download da [collection](https://github.com/postech-fiap-4soat-g01/FastFoodTotem/blob/main/FastFoodTotem%20-%20Jornada%20dos%20Usu%C3%A1rios.postman_collection.json) e utilizar no postman.
