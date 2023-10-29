@@ -22,6 +22,9 @@ namespace FastFoodTotem.Domain.Services
 
         public async Task<OrderEntity> CreateAsync(OrderEntity orderEntity, CancellationToken cancellationToken)
         {
+            if (orderEntity.CustomerId == 0)
+                orderEntity.CustomerId = null;
+
             await _orderRepository.AddOrderAsync(orderEntity, cancellationToken);
             return orderEntity;
         }

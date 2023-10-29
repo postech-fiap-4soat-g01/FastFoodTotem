@@ -49,7 +49,8 @@ public class OrderApplicationService : BaseApplicationService, IOrderApplication
         { 
             Id = result.Id,
             PaymentQrCode = await _orderPayment.GerarQRCodeParaPagamentoDePedido(result),
-            Status = result.Status
+            Status = result.Status,
+            TotalPrice = result.GetTotal()
         };
 
         return response;
