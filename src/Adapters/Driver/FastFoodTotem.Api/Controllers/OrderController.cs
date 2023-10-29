@@ -1,8 +1,10 @@
 ﻿using FastFoodTotem.Api.Controllers.Base;
 using FastFoodTotem.Application.ApplicationServicesInterfaces;
 using FastFoodTotem.Application.Dtos.Requests.Order;
+using FastFoodTotem.Domain.Enums;
 using FastFoodTotem.Domain.Validations;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading;
 
 namespace FastFoodTotem.Api.Controllers
 {
@@ -65,6 +67,18 @@ namespace FastFoodTotem.Api.Controllers
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
             return await Return(await _orderApplicationService.GetAllAsync(cancellationToken));
+        }
+
+        /// <summary>
+        /// Get all orders in a specific status
+        /// </summary>
+        /// <param name="status"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        [HttpGet("filterByStatus/{status}")]
+        public async Task<IActionResult> GetOrderByStatus([FromRoute] OrderStatus status, CancellationToken cancellationToken)
+        {
+            return await Return(await _orderApplicationService.GetOrderByStatus(status, cancellationToken));
         }
     }
 }

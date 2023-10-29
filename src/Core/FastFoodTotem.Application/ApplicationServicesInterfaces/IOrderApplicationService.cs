@@ -1,6 +1,7 @@
 ﻿using FastFoodTotem.Application.Dtos.Requests.Order;
 using FastFoodTotem.Application.Dtos.Responses;
 using FastFoodTotem.Application.Dtos.Responses.Order;
+using FastFoodTotem.Domain.Enums;
 
 namespace FastFoodTotem.Application.ApplicationServicesInterfaces
 {
@@ -10,5 +11,6 @@ namespace FastFoodTotem.Application.ApplicationServicesInterfaces
         Task<ApiBaseResponse<OrderUpdateResponseDto>> UpdateAsync(OrderUpdateRequestDto orderUpdateRequestDto, CancellationToken cancellationToken);
         Task<ApiBaseResponse<OrderGetByIdResponseDto>> GetByIdAsync(int orderId, CancellationToken cancellationToken);
         Task<ApiBaseResponse<OrderGetAllResponseDto>> GetAllAsync(CancellationToken cancellationToken);
+        Task<ApiBaseResponse<OrderGetAllResponseDto>> GetOrderByStatus(OrderStatus status, CancellationToken cancellationToken);
     }
 }

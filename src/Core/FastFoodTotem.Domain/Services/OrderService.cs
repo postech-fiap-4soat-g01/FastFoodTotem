@@ -1,6 +1,7 @@
 ﻿using FastFoodTotem.Domain.Contracts.Repositories;
 using FastFoodTotem.Domain.Contracts.Services;
 using FastFoodTotem.Domain.Entities;
+using FastFoodTotem.Domain.Enums;
 using FastFoodTotem.Domain.Exceptions;
 using FastFoodTotem.Domain.Validations;
 using System.Threading;
@@ -52,6 +53,9 @@ namespace FastFoodTotem.Domain.Services
         }
 
         public async Task<IEnumerable<OrderEntity>> GetAllAsync(CancellationToken cancellationToken)
-        => await _orderRepository.GetAllAsync(cancellationToken);
+            => await _orderRepository.GetAllAsync(cancellationToken);
+
+        public async Task<IEnumerable<OrderEntity>> GetOrderByStatus(OrderStatus status, CancellationToken cancellationToken)
+            => await _orderRepository.GetOrderByStatus(status, cancellationToken);
     }
 }

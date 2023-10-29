@@ -104,4 +104,20 @@ public class OrderApplicationService : BaseApplicationService, IOrderApplication
 
         return response;
     }
+
+    public async Task<ApiBaseResponse<OrderGetAllResponseDto>> GetOrderByStatus(OrderStatus status, CancellationToken cancellationToken)
+    {
+        var response = new ApiBaseResponse<OrderGetAllResponseDto>();
+
+        if (!Enum.IsDefined(typeof(OrderStatus), status))
+        {
+            _validationNotifications.AddError("Status", "Status do pedido inválido.");
+            return response;
+        }
+
+        var result = await _orderService.GetOrderByStatus(status, cancellationToken);
+        response.Data = new OrderGetAllResponseDto(result.Select(order => CreateOrderIdResponse(order)));
+
+        return response;
+    }
 }

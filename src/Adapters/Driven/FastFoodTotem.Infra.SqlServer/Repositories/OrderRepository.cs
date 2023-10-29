@@ -1,5 +1,6 @@
 ﻿using FastFoodTotem.Domain.Contracts.Repositories;
 using FastFoodTotem.Domain.Entities;
+using FastFoodTotem.Domain.Enums;
 using FastFoodTotem.Infra.SqlServer.Database;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,5 +32,15 @@ namespace FastFoodTotem.Infra.SqlServer.Repositories
         public async Task<OrderEntity?> GetOrderAsync(int orderId, CancellationToken cancellationToken)
             => await Data.Include(x => x.OrderedItems).ThenInclude(x => x.Product).Include(x => x.Customer).FirstOrDefaultAsync(x => x.Id == orderId);
 
+        public async Task<IEnumerable<OrderEntity>> GetOrderByStatus(OrderStatus status, CancellationToken cancellationToken)
+        {
+            return await
+                    Data
+                    .Include(x => x.OrderedItems)
+                    .ThenInclude(x => x.Product)
+                    .Include(x => x.Customer)
+                    .Where(x => x.Status == status)
+                    .ToListAsync();
+        }  
     }
 }
