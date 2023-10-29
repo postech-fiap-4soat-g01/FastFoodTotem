@@ -15,6 +15,8 @@ services:
       - fast-food-totem-network
     ports: 
       - 1433:1433
+    healthcheck:
+      test: sqlcmd -S localhost:1433 -U sa -P 'Fernando9+' -Q 'select 1'
 
   fast-food-totem-api:
     build:

@@ -67,8 +67,32 @@ using (var scope = app.Services.CreateScope())
     db.Database.Migrate();
 }
 
+//using (var scope = app.Services.CreateScope())
+//{
+//    var db = scope.ServiceProvider.GetRequiredService<FastFoodContext>();
+//    var connected = false;
+
+//    var retries = 100;
+//    for (var i = 0; i < retries; i++)
+//    {
+//        try
+//        {
+//            db.Database.Migrate();
+//            connected = true;
+//        }
+//        catch
+//        {
+//            Thread.Sleep(10000);
+//        }
+//    }
+
+//    if (!connected)
+//        throw new Exception("Falha ao se conectar ao banco de dados.");
+
+//}
+
 //if (app.Environment.IsDevelopment())
-    app.UseSwagger().UseSwaggerUI();
+app.UseSwagger().UseSwaggerUI();
 
 app.UseRouting();
 
