@@ -10,6 +10,6 @@ namespace FastFoodTotem.Domain.Entities
         public string Email { get; set; }
         public string Identification { get; set; }
 
-        public IEnumerable<OrderEntity> Orders { get; set; } = Enumerable.Empty<OrderEntity>();
+        public IEnumerable<OrderEntity> Orders { get; set; }
     }
 }

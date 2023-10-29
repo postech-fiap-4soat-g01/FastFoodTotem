@@ -18,7 +18,8 @@ public class OrderEntityMapper
             x.Property(c => c.Status).HasColumnName("Status");
 
             x.HasMany(c => c.OrderedItems)
-            .WithOne(u => u.Order);
+            .WithOne(u => u.Order)
+            .HasForeignKey(y => y.OrderId);
 
             x.HasOne(c => c.Customer)
             .WithMany(u => u.Orders)

@@ -17,6 +17,10 @@ public class CustomerEntityMapper
             x.Property(c => c.Name).HasColumnName("Name").HasMaxLength(255);
             x.Property(c => c.Email).HasColumnName("Email").HasMaxLength(255);
             x.Property(c => c.Identification).HasColumnName("Identification");
+
+            x.HasMany(y => y.Orders)
+            .WithOne(y => y.Customer)
+            .HasForeignKey(y => y.CustomerId);
         });
     }
 }

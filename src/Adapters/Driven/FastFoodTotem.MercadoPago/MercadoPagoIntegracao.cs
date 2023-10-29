@@ -29,8 +29,8 @@ public class MercadoPagoPayment : IOrderPayment
         {
             TotalAmount = orderEntity.GetTotal(),
             ExternalReference = orderEntity.Id.ToString(),
-            Title = "Pedido1",
-            Description = "Pedido1",
+            Title = "Pedido Lanchonete",
+            Description = "Pedido Lanchonete",
             Items = orderEntity.OrderedItems.Select(item => new Item()
             {
                 Title = item.Product.Name,

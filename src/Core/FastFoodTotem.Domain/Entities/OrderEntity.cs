@@ -8,9 +8,9 @@ namespace FastFoodTotem.Domain.Entities
         [Key]
         public int Id { get; set; }
         public int? CustomerId { get; set; }
-        public OrderStatus Status { get; set; } = OrderStatus.Received;
+        public OrderStatus Status { get; set; } = OrderStatus.AwaitingPayment;
 
-        public IEnumerable<OrderedItemEntity> OrderedItems { get; set; } = Enumerable.Empty<OrderedItemEntity>();
+        public IEnumerable<OrderedItemEntity> OrderedItems { get; set; }
         public CustomerEntity Customer { get; set; }
 
         public bool ValidStatus(OrderStatus orderStatus)

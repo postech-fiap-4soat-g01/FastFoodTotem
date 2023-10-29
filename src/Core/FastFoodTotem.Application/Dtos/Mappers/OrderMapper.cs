@@ -9,6 +9,7 @@ public class OrderMapper : Profile
     public OrderMapper()
     {
         CreateMap<OrderCreateRequestDto, OrderEntity>();
+        CreateMap<OrderItemAddRequestDto, OrderedItemEntity>();
         CreateMap<OrderUpdateRequestDto, OrderEntity>();
     }
 }

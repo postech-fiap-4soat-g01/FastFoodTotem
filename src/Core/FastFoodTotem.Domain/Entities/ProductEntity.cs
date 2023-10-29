@@ -9,6 +9,6 @@ namespace FastFoodTotem.Domain.Entities
         public CategoryType Type { get; set; }
         public decimal Price { get; set; }
 
-        public IEnumerable<OrderedItemEntity> OrderedItems { get; set; } = Enumerable.Empty<OrderedItemEntity>();
+        public IEnumerable<OrderedItemEntity> OrderedItems { get; set; }
     }
 }

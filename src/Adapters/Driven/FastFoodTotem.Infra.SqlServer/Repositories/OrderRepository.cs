@@ -15,6 +15,8 @@ namespace FastFoodTotem.Infra.SqlServer.Repositories
         {
             await CreateAsync(order);
             await SaveChangesAsync(cancellationToken);
+
+            order = await Data.Include(x => x.OrderedItems).ThenInclude(x => x.Product).Include(x => x.Customer).FirstAsync(x => x.Id == order.Id);
         }
 
         public async Task EditOrderAsync(OrderEntity order, CancellationToken cancellationToken)
@@ -24,9 +26,10 @@ namespace FastFoodTotem.Infra.SqlServer.Repositories
         }
 
         public async Task<IEnumerable<OrderEntity>> GetAllAsync(CancellationToken cancellationToken)
-         => await Data.ToListAsync(cancellationToken);
+         => await Data.Include(x => x.OrderedItems).ThenInclude(x => x.Product).Include(x => x.Customer).ToListAsync(cancellationToken);
 
         public async Task<OrderEntity?> GetOrderAsync(int orderId, CancellationToken cancellationToken)
-        => await Data.FindAsync(orderId, cancellationToken);
+            => await Data.Include(x => x.OrderedItems).ThenInclude(x => x.Product).Include(x => x.Customer).FirstOrDefaultAsync(x => x.Id == orderId);
+
     }
 }

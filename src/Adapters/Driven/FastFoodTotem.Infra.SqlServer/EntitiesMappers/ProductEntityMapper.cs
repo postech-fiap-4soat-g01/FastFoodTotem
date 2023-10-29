@@ -19,7 +19,8 @@ public class ProductEntityMapper
             x.Property(c => c.Price).HasColumnName("Price").HasPrecision(18,2);
 
             x.HasMany(y => y.OrderedItems)
-            .WithOne(y => y.Product);
+            .WithOne(y => y.Product)
+            .HasForeignKey(y => y.ProductId);
         });
     }
 }
