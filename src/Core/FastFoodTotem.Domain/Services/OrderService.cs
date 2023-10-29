@@ -4,7 +4,6 @@ using FastFoodTotem.Domain.Entities;
 using FastFoodTotem.Domain.Enums;
 using FastFoodTotem.Domain.Exceptions;
 using FastFoodTotem.Domain.Validations;
-using System.Threading;
 
 namespace FastFoodTotem.Domain.Services
 {
@@ -12,18 +11,44 @@ namespace FastFoodTotem.Domain.Services
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IValidationNotifications _validationNotifications;
+        private readonly ICustomerRepository _customerRepository;
+        private readonly IProductRepository _productRepository;
 
         public OrderService(IOrderRepository orderRepository,
-            IValidationNotifications validationNotifications)
+            IValidationNotifications validationNotifications,
+            ICustomerRepository customerRepository,
+            IProductRepository productRepository
+            )
         {
             _orderRepository = orderRepository;
             _validationNotifications = validationNotifications;
+            _customerRepository = customerRepository;
+            _productRepository = productRepository;
         }
 
         public async Task<OrderEntity> CreateAsync(OrderEntity orderEntity, CancellationToken cancellationToken)
         {
-            if (orderEntity.CustomerId == 0)
+            if (orderEntity.CustomerId == 0 || !orderEntity.CustomerId.HasValue)
                 orderEntity.CustomerId = null;
+            else
+            {
+                var customer = await _customerRepository.GetCustomerByIdAsync(orderEntity.CustomerId.Value, cancellationToken);
+
+                if (customer == null)
+                    throw new ObjectNotFoundException($"Usuário com id {orderEntity.CustomerId} não foi encontrado.");
+            }
+
+            var productIds = orderEntity.OrderedItems.Select(x => x.ProductId);
+            var productsNotFound = string.Empty;
+            foreach (var productId in productIds)
+            {
+                var product = await _productRepository.GetProduct(productId, cancellationToken);
+                if (product == null)
+                    productsNotFound += $"{productId} - ";
+            }
+
+            if (!string.IsNullOrWhiteSpace(productsNotFound))
+                throw new ObjectNotFoundException($"Os produtos {productsNotFound} não foram encontrados na base de dados.");
 
             await _orderRepository.AddOrderAsync(orderEntity, cancellationToken);
             return orderEntity;
