@@ -2,9 +2,10 @@
 {
     public enum OrderStatus
     {
-        Received = 1,
-        InPreparation = 2,
-        Ready = 3,
-        Finished = 4
+        AwaitingPayment = 1,
+        Received = 2,
+        InPreparation = 3,
+        Ready = 4,
+        Finished = 5
     }
 }
