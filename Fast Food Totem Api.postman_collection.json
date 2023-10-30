@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f5dbcd53-b214-44da-9885-65b0d41dd544",
+		"_postman_id": "44f9e72f-7600-44ca-940a-7ea45c7443db",
 		"name": "Fast Food Totem Api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "13125005"
@@ -38,7 +38,7 @@
 											"variable": [
 												{
 													"key": "cpf",
-													"value": "",
+													"value": "<string>",
 													"description": "(Required) "
 												}
 											]
@@ -82,7 +82,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\"\n  }\n}"
+											"body": "{\n  \"statusCode\": 501,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\"\n  }\n}"
 										},
 										{
 											"name": "Bad Request",
@@ -121,7 +121,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+											"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 										},
 										{
 											"name": "Not Found",
@@ -160,7 +160,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+											"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 										},
 										{
 											"name": "Client Error",
@@ -199,7 +199,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\"\n  }\n}"
+											"body": "{\n  \"statusCode\": 501,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\"\n  }\n}"
 										},
 										{
 											"name": "Server Error",
@@ -238,7 +238,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+											"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 										}
 									]
 								}
@@ -325,7 +325,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 504,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {}\n}"
+									"body": "{\n  \"statusCode\": 308,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {}\n}"
 								},
 								{
 									"name": "Bad Request",
@@ -372,7 +372,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								},
 								{
 									"name": "Not Found",
@@ -419,7 +419,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								},
 								{
 									"name": "Client Error",
@@ -466,7 +466,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 504,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {}\n}"
+									"body": "{\n  \"statusCode\": 308,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {}\n}"
 								},
 								{
 									"name": "Server Error",
@@ -513,7 +513,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								}
 							]
 						},
@@ -570,7 +570,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 500,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"customers\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"identification\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"identification\": \"<string>\"\n      }\n    ]\n  }\n}"
+									"body": "{\n  \"statusCode\": 208,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"customers\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"identification\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"identification\": \"<string>\"\n      }\n    ]\n  }\n}"
 								},
 								{
 									"name": "Bad Request",
@@ -603,7 +603,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								},
 								{
 									"name": "Not Found",
@@ -636,7 +636,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								},
 								{
 									"name": "Client Error",
@@ -669,7 +669,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 500,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"customers\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"identification\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"identification\": \"<string>\"\n      }\n    ]\n  }\n}"
+									"body": "{\n  \"statusCode\": 208,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"customers\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"identification\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"identification\": \"<string>\"\n      }\n    ]\n  }\n}"
 								},
 								{
 									"name": "Server Error",
@@ -702,7 +702,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								}
 							]
 						}
@@ -781,7 +781,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"statusCode\": 206,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"status\": 4,\n    \"items\": [\n      {\n        \"productId\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"amount\": \"<integer>\",\n        \"price\": \"<double>\"\n      },\n      {\n        \"productId\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"amount\": \"<integer>\",\n        \"price\": \"<double>\"\n      }\n    ]\n  }\n}"
+											"body": "{\n  \"statusCode\": 417,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"status\": 3,\n    \"items\": [\n      {\n        \"productId\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"amount\": \"<integer>\",\n        \"price\": \"<double>\"\n      },\n      {\n        \"productId\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"amount\": \"<integer>\",\n        \"price\": \"<double>\"\n      }\n    ]\n  }\n}"
 										},
 										{
 											"name": "Bad Request",
@@ -820,7 +820,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+											"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 										},
 										{
 											"name": "Not Found",
@@ -859,7 +859,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+											"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 										},
 										{
 											"name": "Client Error",
@@ -898,7 +898,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"statusCode\": 206,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"status\": 4,\n    \"items\": [\n      {\n        \"productId\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"amount\": \"<integer>\",\n        \"price\": \"<double>\"\n      },\n      {\n        \"productId\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"amount\": \"<integer>\",\n        \"price\": \"<double>\"\n      }\n    ]\n  }\n}"
+											"body": "{\n  \"statusCode\": 417,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"status\": 3,\n    \"items\": [\n      {\n        \"productId\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"amount\": \"<integer>\",\n        \"price\": \"<double>\"\n      },\n      {\n        \"productId\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"amount\": \"<integer>\",\n        \"price\": \"<double>\"\n      }\n    ]\n  }\n}"
 										},
 										{
 											"name": "Server Error",
@@ -937,7 +937,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+											"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 										}
 									]
 								}
@@ -1018,7 +1018,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"statusCode\": 308,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"status\": 1,\n        \"items\": [\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          },\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"status\": 3,\n        \"items\": [\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          },\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+													"body": "{\n  \"statusCode\": 304,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"status\": 2,\n        \"items\": [\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          },\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"status\": 1,\n        \"items\": [\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          },\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          }\n        ]\n      }\n    ]\n  }\n}"
 												},
 												{
 													"name": "Bad Request",
@@ -1058,7 +1058,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+													"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 												},
 												{
 													"name": "Not Found",
@@ -1098,7 +1098,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+													"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 												},
 												{
 													"name": "Client Error",
@@ -1138,7 +1138,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"statusCode\": 308,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"status\": 1,\n        \"items\": [\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          },\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"status\": 3,\n        \"items\": [\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          },\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+													"body": "{\n  \"statusCode\": 304,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"status\": 2,\n        \"items\": [\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          },\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"status\": 1,\n        \"items\": [\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          },\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          }\n        ]\n      }\n    ]\n  }\n}"
 												},
 												{
 													"name": "Server Error",
@@ -1178,9 +1178,209 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+													"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 												}
 											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "getPendingOrders",
+							"item": [
+								{
+									"name": "/v{{ver}}/order/getPendingOrders",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v{{ver}}/order/getPendingOrders",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v{{ver}}",
+												"order",
+												"getPendingOrders"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v{{ver}}/order/getPendingOrders",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v{{ver}}",
+														"order",
+														"getPendingOrders"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"statusCode\": 304,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"status\": 2,\n        \"items\": [\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          },\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"status\": 1,\n        \"items\": [\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          },\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v{{ver}}/order/getPendingOrders",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v{{ver}}",
+														"order",
+														"getPendingOrders"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v{{ver}}/order/getPendingOrders",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v{{ver}}",
+														"order",
+														"getPendingOrders"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+										},
+										{
+											"name": "Client Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v{{ver}}/order/getPendingOrders",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v{{ver}}",
+														"order",
+														"getPendingOrders"
+													]
+												}
+											},
+											"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+											"code": 422,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"statusCode\": 304,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"orders\": [\n      {\n        \"id\": \"<integer>\",\n        \"status\": 2,\n        \"items\": [\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          },\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<integer>\",\n        \"status\": 1,\n        \"items\": [\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          },\n          {\n            \"productId\": \"<integer>\",\n            \"name\": \"<string>\",\n            \"amount\": \"<integer>\",\n            \"price\": \"<double>\"\n          }\n        ]\n      }\n    ]\n  }\n}"
+										},
+										{
+											"name": "Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v{{ver}}/order/getPendingOrders",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v{{ver}}",
+														"order",
+														"getPendingOrders"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 										}
 									]
 								}
@@ -1267,7 +1467,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 510,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"paymentQrCode\": \"<string>\",\n    \"status\": 5\n  }\n}"
+									"body": "{\n  \"statusCode\": 203,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"paymentQrCode\": \"<string>\",\n    \"status\": 5,\n    \"totalPrice\": \"<double>\"\n  }\n}"
 								},
 								{
 									"name": "Bad Request",
@@ -1314,7 +1514,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								},
 								{
 									"name": "Not Found",
@@ -1361,7 +1561,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								},
 								{
 									"name": "Client Error",
@@ -1408,7 +1608,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 510,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"paymentQrCode\": \"<string>\",\n    \"status\": 5\n  }\n}"
+									"body": "{\n  \"statusCode\": 203,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"paymentQrCode\": \"<string>\",\n    \"status\": 5,\n    \"totalPrice\": \"<double>\"\n  }\n}"
 								},
 								{
 									"name": "Server Error",
@@ -1455,7 +1655,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								}
 							]
 						},
@@ -1540,7 +1740,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 505,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"status\": 3\n  }\n}"
+									"body": "{\n  \"statusCode\": 202,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"status\": 1\n  }\n}"
 								},
 								{
 									"name": "Bad Request",
@@ -1587,7 +1787,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								},
 								{
 									"name": "Not Found",
@@ -1634,7 +1834,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								},
 								{
 									"name": "Client Error",
@@ -1681,7 +1881,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 505,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"status\": 3\n  }\n}"
+									"body": "{\n  \"statusCode\": 202,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"status\": 1\n  }\n}"
 								},
 								{
 									"name": "Server Error",
@@ -1728,7 +1928,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								}
 							]
 						},
@@ -1849,7 +2049,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"statusCode\": 504,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {}\n}"
+											"body": "{\n  \"statusCode\": 308,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {}\n}"
 										},
 										{
 											"name": "Bad Request",
@@ -1888,7 +2088,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+											"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 										},
 										{
 											"name": "Not Found",
@@ -1927,7 +2127,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+											"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 										},
 										{
 											"name": "Client Error",
@@ -1966,7 +2166,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"statusCode\": 504,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {}\n}"
+											"body": "{\n  \"statusCode\": 308,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {}\n}"
 										},
 										{
 											"name": "Server Error",
@@ -2005,7 +2205,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+											"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 										}
 									]
 								}
@@ -2041,7 +2241,7 @@
 													"variable": [
 														{
 															"key": "type",
-															"value": "3",
+															"value": "1",
 															"description": "(Required) "
 														}
 													]
@@ -2086,7 +2286,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"statusCode\": 503,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"products\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"type\": 2,\n        \"price\": \"<double>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"type\": 4,\n        \"price\": \"<double>\"\n      }\n    ]\n  }\n}"
+													"body": "{\n  \"statusCode\": 306,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"products\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"type\": 1,\n        \"price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"productImageUrl\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"type\": 2,\n        \"price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"productImageUrl\": \"<string>\"\n      }\n    ]\n  }\n}"
 												},
 												{
 													"name": "Bad Request",
@@ -2126,7 +2326,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+													"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 												},
 												{
 													"name": "Not Found",
@@ -2166,7 +2366,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+													"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 												},
 												{
 													"name": "Client Error",
@@ -2206,7 +2406,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"statusCode\": 503,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"products\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"type\": 2,\n        \"price\": \"<double>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"type\": 4,\n        \"price\": \"<double>\"\n      }\n    ]\n  }\n}"
+													"body": "{\n  \"statusCode\": 306,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"products\": [\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"type\": 1,\n        \"price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"productImageUrl\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"name\": \"<string>\",\n        \"type\": 2,\n        \"price\": \"<double>\",\n        \"description\": \"<string>\",\n        \"productImageUrl\": \"<string>\"\n      }\n    ]\n  }\n}"
 												},
 												{
 													"name": "Server Error",
@@ -2246,7 +2446,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+													"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 												}
 											]
 										}
@@ -2270,7 +2470,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\"\n}",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\",\n  \"description\": \"<string>\",\n  \"productImageUrl\": \"<string>\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -2306,7 +2506,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\"\n}",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\",\n  \"description\": \"<string>\",\n  \"productImageUrl\": \"<string>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -2335,7 +2535,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 412,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"type\": 4,\n    \"price\": \"<double>\"\n  }\n}"
+									"body": "{\n  \"statusCode\": 226,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"type\": 2,\n    \"price\": \"<double>\",\n    \"description\": \"<string>\",\n    \"productImageUrl\": \"<string>\"\n  }\n}"
 								},
 								{
 									"name": "Bad Request",
@@ -2353,7 +2553,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\"\n}",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\",\n  \"description\": \"<string>\",\n  \"productImageUrl\": \"<string>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -2382,7 +2582,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								},
 								{
 									"name": "Not Found",
@@ -2400,7 +2600,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\"\n}",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\",\n  \"description\": \"<string>\",\n  \"productImageUrl\": \"<string>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -2429,7 +2629,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								},
 								{
 									"name": "Client Error",
@@ -2447,7 +2647,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\"\n}",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\",\n  \"description\": \"<string>\",\n  \"productImageUrl\": \"<string>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -2476,7 +2676,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 412,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"type\": 4,\n    \"price\": \"<double>\"\n  }\n}"
+									"body": "{\n  \"statusCode\": 226,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"type\": 2,\n    \"price\": \"<double>\",\n    \"description\": \"<string>\",\n    \"productImageUrl\": \"<string>\"\n  }\n}"
 								},
 								{
 									"name": "Server Error",
@@ -2494,7 +2694,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\"\n}",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\",\n  \"description\": \"<string>\",\n  \"productImageUrl\": \"<string>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -2523,7 +2723,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								}
 							]
 						},
@@ -2543,7 +2743,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": 4,\n  \"price\": \"<double>\"\n}",
+									"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\",\n  \"description\": \"<string>\",\n  \"productImageUrl\": \"<string>\"\n}",
 									"options": {
 										"raw": {
 											"headerFamily": "json",
@@ -2579,7 +2779,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": 4,\n  \"price\": \"<double>\"\n}",
+											"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\",\n  \"description\": \"<string>\",\n  \"productImageUrl\": \"<string>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -2608,7 +2808,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 412,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"type\": 4,\n    \"price\": \"<double>\"\n  }\n}"
+									"body": "{\n  \"statusCode\": 226,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"type\": 2,\n    \"price\": \"<double>\",\n    \"description\": \"<string>\",\n    \"productImageUrl\": \"<string>\"\n  }\n}"
 								},
 								{
 									"name": "Bad Request",
@@ -2626,7 +2826,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": 4,\n  \"price\": \"<double>\"\n}",
+											"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\",\n  \"description\": \"<string>\",\n  \"productImageUrl\": \"<string>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -2655,7 +2855,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								},
 								{
 									"name": "Not Found",
@@ -2673,7 +2873,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": 4,\n  \"price\": \"<double>\"\n}",
+											"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\",\n  \"description\": \"<string>\",\n  \"productImageUrl\": \"<string>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -2702,7 +2902,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								},
 								{
 									"name": "Client Error",
@@ -2720,7 +2920,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": 4,\n  \"price\": \"<double>\"\n}",
+											"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\",\n  \"description\": \"<string>\",\n  \"productImageUrl\": \"<string>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -2749,7 +2949,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 412,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"type\": 4,\n    \"price\": \"<double>\"\n  }\n}"
+									"body": "{\n  \"statusCode\": 226,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"type\": 2,\n    \"price\": \"<double>\",\n    \"description\": \"<string>\",\n    \"productImageUrl\": \"<string>\"\n  }\n}"
 								},
 								{
 									"name": "Server Error",
@@ -2767,7 +2967,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": 4,\n  \"price\": \"<double>\"\n}",
+											"raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": 3,\n  \"price\": \"<double>\",\n  \"description\": \"<string>\",\n  \"productImageUrl\": \"<string>\"\n}",
 											"options": {
 												"raw": {
 													"headerFamily": "json",
@@ -2796,7 +2996,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"statusCode\": 204,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+									"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
 								}
 							]
 						}

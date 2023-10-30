@@ -10,7 +10,7 @@
 			"name": "Jornada do cliente",
 			"item": [
 				{
-					"name": "1 - Cadastro",
+					"name": "0 - Cadastro",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -33,6 +33,27 @@
 							"path": [
 								"v1",
 								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1 - Login com CPF",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/customer/42983175014",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"customer",
+								"42983175014"
 							]
 						}
 					},
@@ -161,6 +182,27 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "7 - Visualizar pedidos pendentes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/order/getPendingOrders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"order",
+								"getPendingOrders"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -168,7 +210,7 @@
 			"name": "Jornada da lanchonete",
 			"item": [
 				{
-					"name": "7 - Obter pedidos pagos pendentes de preparo",
+					"name": "8 - Obter pedidos pagos pendentes de preparo",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -190,7 +232,7 @@
 					"response": []
 				},
 				{
-					"name": "8 - Visualizar dados do pedido escolhido",
+					"name": "9 - Visualizar dados do pedido escolhido",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -211,13 +253,13 @@
 					"response": []
 				},
 				{
-					"name": "9 - Mudando status do pedido para \"Em preparação\"",
+					"name": "10 - Mudando status do pedido para \"Em preparação\"",
 					"request": {
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": 2,\r\n  \"status\": 3\r\n}",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"status\": 3\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -240,13 +282,13 @@
 					"response": []
 				},
 				{
-					"name": "10 - Mudando status do pedido para \"Pronto\"",
+					"name": "11 - Mudando status do pedido para \"Pronto\"",
 					"request": {
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": 2,\r\n  \"status\": 4\r\n}",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"status\": 4\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -269,13 +311,13 @@
 					"response": []
 				},
 				{
-					"name": "11 - Mudando status do pedido para \"Finalizado\"",
+					"name": "12 - Mudando status do pedido para \"Finalizado\"",
 					"request": {
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": 2,\r\n  \"status\": 5\r\n}",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"status\": 5\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
