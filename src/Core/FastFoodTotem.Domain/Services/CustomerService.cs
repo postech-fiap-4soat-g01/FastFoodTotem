@@ -36,7 +36,7 @@ namespace FastFoodTotem.Domain.Services
             cpf = cpf.Replace(".", string.Empty).Replace("-", string.Empty);
 
             var customerByCpf = await _customerRepository.GetCustomerByCPFAsync(cpf, cancellationToken)
-                ?? throw new ObjectNotFoundException("No customer found for this CPF");
+                ?? throw new ObjectNotFoundException("NUsuário não encontrado para esse CPF");
 
             return customerByCpf;
         }
