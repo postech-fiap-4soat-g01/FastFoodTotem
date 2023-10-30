@@ -41,6 +41,19 @@ namespace FastFoodTotem.Infra.SqlServer.Repositories
                     .Include(x => x.Customer)
                     .Where(x => x.Status == status)
                     .ToListAsync();
-        }  
+        }
+
+        public async Task<IEnumerable<OrderEntity>> GetPendingOrders(CancellationToken cancellationToken)
+        {
+            return await Data
+                .Where(x => x.Status == OrderStatus.Received
+                         || x.Status == OrderStatus.InPreparation
+                         || x.Status == OrderStatus.Ready)
+                .Include(x => x.OrderedItems)
+                .ThenInclude(x => x.Product) 
+                .Include(x => x.Customer)
+                .ToListAsync();
+
+        }
     }
 }

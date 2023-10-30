@@ -85,5 +85,8 @@ namespace FastFoodTotem.Domain.Services
 
         public async Task<IEnumerable<OrderEntity>> GetOrderByStatus(OrderStatus status, CancellationToken cancellationToken)
             => await _orderRepository.GetOrderByStatus(status, cancellationToken);
+
+        public async Task<IEnumerable<OrderEntity>> GetPendingOrders(CancellationToken cancellationToken)
+            => await _orderRepository.GetPendingOrders(cancellationToken);
     }
 }

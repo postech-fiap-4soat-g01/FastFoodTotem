@@ -121,4 +121,14 @@ public class OrderApplicationService : BaseApplicationService, IOrderApplication
 
         return response;
     }
+
+    public async Task<ApiBaseResponse<OrderGetAllResponseDto>> GetPendingOrders(CancellationToken cancellationToken)
+    {
+        var response = new ApiBaseResponse<OrderGetAllResponseDto>();
+
+        var result = await _orderService.GetPendingOrders(cancellationToken);
+        response.Data = new OrderGetAllResponseDto(result.Select(order => CreateOrderIdResponse(order)));
+
+        return response;
+    }
 }

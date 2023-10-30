@@ -101,5 +101,16 @@ namespace FastFoodTotem.Api.Controllers
         {
             return await Return(await _orderApplicationService.GetOrderByStatus(status, cancellationToken));
         }
+
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiBaseResponse<OrderGetAllResponseDto>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiBaseResponse))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiBaseResponse))]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ApiBaseResponse<OrderGetAllResponseDto>))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ApiBaseResponse))]
+        [HttpGet("getPendingOrders")]
+        public async Task<IActionResult> GetPendingOrders(CancellationToken cancellationToken)
+        {
+            return await Return(await _orderApplicationService.GetPendingOrders(cancellationToken));
+        }
     }
 }

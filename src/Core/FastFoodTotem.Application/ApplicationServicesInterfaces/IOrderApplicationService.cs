@@ -12,5 +12,6 @@ namespace FastFoodTotem.Application.ApplicationServicesInterfaces
         Task<ApiBaseResponse<OrderGetByIdResponseDto>> GetByIdAsync(int orderId, CancellationToken cancellationToken);
         Task<ApiBaseResponse<OrderGetAllResponseDto>> GetAllAsync(CancellationToken cancellationToken);
         Task<ApiBaseResponse<OrderGetAllResponseDto>> GetOrderByStatus(OrderStatus status, CancellationToken cancellationToken);
+        Task<ApiBaseResponse<OrderGetAllResponseDto>> GetPendingOrders(CancellationToken cancellationToken);
     }
 }
