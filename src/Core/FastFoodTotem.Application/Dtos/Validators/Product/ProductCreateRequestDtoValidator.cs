@@ -22,6 +22,16 @@ public class ProductCreateRequestDtoValidator : AbstractValidator<ProductCreateR
         RuleFor(dto => dto.Price)
             .NotEmpty()
             .WithMessage("O preço do produto deve estar especificado.");
+
+        RuleFor(dto => dto.Description)
+            .Length(3, 255)
+            .WithMessage("A descrição do produto deve ter no minimo 3 e no máximo 255 caracteres.")
+            .NotEmpty()
+            .WithMessage("O descrição do produto deve estar preenchido.");
+
+        RuleFor(dto => dto.ProductImageUrl)
+            .NotEmpty()
+            .WithMessage("A imagem do produto deve estar preenchida.");
     }
 }
 
