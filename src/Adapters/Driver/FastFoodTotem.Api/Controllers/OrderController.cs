@@ -17,10 +17,12 @@ namespace FastFoodTotem.Api.Controllers
     {
         private readonly IOrderApplicationService _orderApplicationService;
 
-        public OrderController(IOrderApplicationService orderApplicationService, IValidationNotifications validationNotifications)
+        public OrderController(
+            IOrderApplicationService orderApplicationService, 
+            IValidationNotifications validationNotifications)
             : base(validationNotifications)
         {
-            _orderApplicationService = orderApplicationService;
+            _orderApplicationService = orderApplicationService ?? throw new ArgumentNullException(nameof(orderApplicationService));
         }
 
         /// <summary>
@@ -111,6 +113,23 @@ namespace FastFoodTotem.Api.Controllers
         public async Task<IActionResult> GetPendingOrders(CancellationToken cancellationToken)
         {
             return await Return(await _orderApplicationService.GetPendingOrders(cancellationToken));
+        }
+
+        /// <summary>
+        /// Get payment status by orderId
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiBaseResponse<OrderGetAllResponseDto>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiBaseResponse))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiBaseResponse))]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ApiBaseResponse<OrderGetAllResponseDto>))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ApiBaseResponse))]
+        [HttpGet("paymentStatus/{orderId}")]
+        public async Task<IActionResult> GetOrderPaymentStatus([FromRoute] int orderId, CancellationToken cancellationToken)
+        {
+            return await Return(await _orderApplicationService.GetOrderPaymentAsync(orderId, cancellationToken));
         }
     }
 }

@@ -87,6 +87,17 @@ public class OrderApplicationService : BaseApplicationService, IOrderApplication
             Amount = item.Amount
         }));
 
+    private static OrderPaymentStatusResponseDto CreateOrderPaymentResponse(OrderEntity result)
+    => new OrderPaymentStatusResponseDto(result.Id,
+        result.Status,
+        result.OrderedItems.Select(item => new OrderItemResponseDto()
+        {
+            Name = item.Product.Name,
+            Price = item.Product.Price,
+            ProductId = item.ProductId,
+            Amount = item.Amount
+        }));
+
     public async Task<ApiBaseResponse<OrderUpdateResponseDto>> UpdateAsync(OrderUpdateRequestDto orderUpdateRequestDto, CancellationToken cancellationToken)
     {
         var response = new ApiBaseResponse<OrderUpdateResponseDto>();
@@ -128,6 +139,16 @@ public class OrderApplicationService : BaseApplicationService, IOrderApplication
 
         var result = await _orderService.GetPendingOrders(cancellationToken);
         response.Data = new OrderGetAllResponseDto(result.Select(order => CreateOrderIdResponse(order)));
+
+        return response;
+    }
+
+    public async Task<ApiBaseResponse<OrderPaymentStatusResponseDto>> GetOrderPaymentAsync(int orderId, CancellationToken cancellationToken)
+    {
+        var response = new ApiBaseResponse<OrderPaymentStatusResponseDto>();
+
+        var result = await _orderService.GetByIdAsync(orderId, cancellationToken);
+        response.Data = CreateOrderPaymentResponse(result);
 
         return response;
     }
