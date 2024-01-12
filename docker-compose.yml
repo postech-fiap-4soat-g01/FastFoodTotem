@@ -25,7 +25,7 @@ services:
   fast-food-totem-api:
     build:
       context: .
-      dockerfile: ./src/Adapters/Driver/FastFoodTotem.Api/Dockerfile
+      dockerfile: ./src/Presentation/FastFoodTotem.Api/Dockerfile
     environment:
       - ConnectionStrings__SqlServerConnection=Server=sqlserver;Database=FastFoodTotem;User=sa;Password=Fernando9+;MultipleActiveResultSets=true;TrustServerCertificate=true;
       - MercadoPago__AccessToken=TEST-752265790074534-101215-0e58729d07c56d6fdacd92a515cdadad-68960270
