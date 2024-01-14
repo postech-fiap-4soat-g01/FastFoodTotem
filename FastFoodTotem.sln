@@ -33,9 +33,29 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFoodTotem.Application",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9B9B9EFF-3BC2-4E4A-9E22-2F9CE9C9C239}"
 	ProjectSection(SolutionItems) = preProject
-		docker-compose.yml = docker-compose.yml
+		.gitignore = .gitignore
+		CHANGELOG.md = CHANGELOG.md
+		Dockerfile = Dockerfile
+		Fast Food Totem Api.postman_collection.json = Fast Food Totem Api.postman_collection.json
+		FastFoodTotem - Jornada dos Usuários.postman_collection.json = FastFoodTotem - Jornada dos Usuários.postman_collection.json
 		LICENSE.md = LICENSE.md
 		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{C91A998B-C5CE-42EA-847B-E2F1442F5C7C}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\api-deployment.yaml = k8s\api-deployment.yaml
+		k8s\api-hpa.yaml = k8s\api-hpa.yaml
+		k8s\api-secret.yaml = k8s\api-secret.yaml
+		k8s\api-service.yaml = k8s\api-service.yaml
+		k8s\db-deployment.yaml = k8s\db-deployment.yaml
+		k8s\db-secret.yaml = k8s\db-secret.yaml
+		k8s\db-service.yaml = k8s\db-service.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stress", "stress", "{42AAE90A-0E28-46C7-AA45-37F72AF64B34}"
+	ProjectSection(SolutionItems) = preProject
+		stress\index.js = stress\index.js
 	EndProjectSection
 EndProject
 Global
@@ -90,6 +110,8 @@ Global
 		{F5FC397E-787F-4845-BA0F-9E7BF90FCEF1} = {3CD775B4-2A89-497F-940D-7F532A6AF272}
 		{C98EB58B-62D1-4E14-BA32-A6B0207651BF} = {597BF64B-4771-4FF8-96CC-9D035D450304}
 		{F4D54797-35CB-4CD2-A653-39152AE3365D} = {A52D1D10-32F0-4F17-BA2B-E3F137E79743}
+		{C91A998B-C5CE-42EA-847B-E2F1442F5C7C} = {9B9B9EFF-3BC2-4E4A-9E22-2F9CE9C9C239}
+		{42AAE90A-0E28-46C7-AA45-37F72AF64B34} = {9B9B9EFF-3BC2-4E4A-9E22-2F9CE9C9C239}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1C58FD1C-5110-476B-88E7-DDD8B08DCE17}
