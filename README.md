@@ -3,13 +3,13 @@
 ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
 ![MicrosoftSQLServer](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoft%20sql%20server&logoColor=white)
 
-# FIAP: Pós Tech - Software Architecture
+# FIAP: Pï¿½s Tech - Software Architecture
 
-[![FIAP Pós Tech](https://postech.fiap.com.br/imgs/imgshare.png)](https://postech.fiap.com.br/?gad_source=1&gclid=Cj0KCQjwhfipBhCqARIsAH9msbmkyFZTmYIBomPCo-sGkBPLiiZYAkvTmM1Kx-QjwmYs3_NhyPKvP44aAtdZEALw_wcB)
+[![FIAP Pï¿½s Tech](https://postech.fiap.com.br/imgs/imgshare.png)](https://postech.fiap.com.br/?gad_source=1&gclid=Cj0KCQjwhfipBhCqARIsAH9msbmkyFZTmYIBomPCo-sGkBPLiiZYAkvTmM1Kx-QjwmYs3_NhyPKvP44aAtdZEALw_wcB)
 
 ## Objetivo do projeto
-Este projeto foi realizado como parte de um entregável para o curso 'Pós Tech - Software Architecture'.
-O desafio proposto da fase 1 é realizar um projeto (MVP) monolito utilizando a arquitetura hexagonal para atender as necessidades de um autoatendimento de um fast food.
+Este projeto foi realizado como parte de um entregï¿½vel para o curso 'Pï¿½s Tech - Software Architecture'.
+O desafio proposto da fase 1 ï¿½ realizar um projeto (MVP) monolito utilizando a arquitetura hexagonal para atender as necessidades de um autoatendimento de um fast food.
 
 
 Funcionalidades:
@@ -18,17 +18,26 @@ Funcionalidades:
 * Realizar um pedido e acompanhar.
 * Pagamento via QRCode do Mercado Pago.
 
-## Pré-requisitos
+## Prï¿½-requisitos
 * Docker							
-	* O Docker é obrigatório ter instalado na máquina para subir as dependências e rodar o projeto corretamente, caso tenha dúvidas do procedimento consultar a [documentação](https://docs.docker.com/desktop/).
-* [Postman](https://www.postman.com/downloads/) (não obrigatório)
+	* O Docker ï¿½ obrigatï¿½rio ter instalado na mï¿½quina para subir as dependï¿½ncias e rodar o projeto corretamente, caso tenha dï¿½vidas do procedimento consultar a [documentaï¿½ï¿½o](https://docs.docker.com/desktop/).
+* [Postman](https://www.postman.com/downloads/) (nï¿½o obrigatï¿½rio)
 
 ## Como rodar localmente
-Para rodar o projeto localmente é abrir um terminal na pasta base do projeto e executar o seguinte comando:
+Para rodar o projeto localmente ï¿½ abrir um terminal na pasta base do projeto e executar o seguinte comando:
 
 ```docker-compose up -d```
 
-Sendo executado normalmente, irá subir um banco SQL Server e também a API do projeto, sendo possível utilizar o [swagger](http://localhost:8080/swagger/index.html) para fazer requisições.
-Caso prefira, é possível realizar o download da [collection](https://github.com/postech-fiap-4soat-g01/FastFoodTotem/blob/main/FastFoodTotem%20-%20Jornada%20dos%20Usu%C3%A1rios.postman_collection.json) e utilizar no postman.
+Sendo executado normalmente, irï¿½ subir um banco SQL Server e tambï¿½m a API do projeto, sendo possï¿½vel utilizar o [swagger](http://localhost:8080/swagger/index.html) para fazer requisiï¿½ï¿½es.
+Caso prefira, ï¿½ possï¿½vel realizar o download da [collection](https://github.com/postech-fiap-4soat-g01/FastFoodTotem/blob/main/FastFoodTotem%20-%20Jornada%20dos%20Usu%C3%A1rios.postman_collection.json) e utilizar no postman.
 
-Link para documentação detalhada [aqui](https://docs.google.com/document/d/1YhRbWbEMPwUHi4J2lIz5dQMwZ6KrRzot/edit?usp=sharing&ouid=109865710704677504404&rtpof=true&sd=true).
+Link para documentaï¿½ï¿½o detalhada [aqui](https://docs.google.com/document/d/1YhRbWbEMPwUHi4J2lIz5dQMwZ6KrRzot/edit?usp=sharing&ouid=109865710704677504404&rtpof=true&sd=true).
+
+## Subindo uma tag nova a imagem
+Caso seja necessÃ¡rio entrar no root do projeto e rodar os seguintes comandos:
+
+NecessÃ¡rio para realizar o build da imagem:
+```docker build -t {user_docker_hub}/fast-food-totem:{tag} .```
+
+NecessÃ¡rio para subir as alteraÃ§Ãµes:
+```docker push {user_docker_hub}/fast-food-totem:{tag}```
