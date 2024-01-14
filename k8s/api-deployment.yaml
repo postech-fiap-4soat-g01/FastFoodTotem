@@ -13,13 +13,9 @@ spec:
     spec:
       containers:
         - name: fast-food-totem-api
-          image: ttozatto/fast-food-totem
+          image: ttozatto/fast-food-totem:1.0
           ports:
             - containerPort: 80
-          volumeMounts:
-            - name: secrets
-              mountPath: /app/secrets
-              readOnly: true 
           livenessProbe:
             httpGet:
               path: /
@@ -41,10 +37,32 @@ spec:
             requests:
               cpu: 0.2
               memory: 128Mi
-      volumes:
-      - name: secrets
-        secret:
-          secretName: fast-food-totem-api-secret
+          env:
+          - name: ConnectionStrings__SqlServerConnection
+            valueFrom:
+              secretKeyRef:
+                name: fast-food-totem-api-secret
+                key: ConnectionStrings__SqlServerConnection
+          - name: MercadoPago__AccessToken
+            valueFrom:
+              secretKeyRef:
+                name: fast-food-totem-api-secret
+                key: MercadoPago__AccessToken
+          - name: MercadoPago__BaseUrl
+            valueFrom:
+              secretKeyRef:
+                name: fast-food-totem-api-secret
+                key: MercadoPago__BaseUrl
+          - name: MercadoPago__UserId
+            valueFrom:
+              secretKeyRef:
+                name: fast-food-totem-api-secret
+                key: MercadoPago__UserId
+          - name: MercadoPago__ExternalPosId
+            valueFrom:
+              secretKeyRef:
+                name: fast-food-totem-api-secret
+                key: MercadoPago__ExternalPosId
   replicas: 1
   selector:
     matchLabels:
