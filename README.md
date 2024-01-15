@@ -20,10 +20,13 @@ Funcionalidades:
 * Pagamento via QRCode do Mercado Pago.
 
 ## Pré-requisitos
-* K8s							
+* [K8s](https://kubernetes.io/pt-br/docs/home/)							
 	* O K8s é obrigatório ter instalado na máquina para subir o projeto e possíveis serviços adjacentes, para isso é recomendado utilizar o docker e habilitar o Kubernets nele, porém para isso ter várias outras maneiras de chegar no mesmo resultado, caso prefira consultar a [documentação](https://docs.docker.com/desktop/kubernetes/).
 	* Recomendado criar um namespace próprio para o projeto.
-* [Postman](https://www.postman.com/downloads/) (não obrigatório)
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+	* Para criar o node do kubernets de forma mais fácil e rápida, ajudando também a subir a imagem.
+* [K9s](https://k9scli.io/) - Não obrigatório porém aconselhado por ser mais intuitivo.
+* [Postman](https://www.postman.com/downloads/) - Não obrigatório.
 
 ## Como rodar localmente
 Para rodar o projeto localmente necessita abrir um terminal na pasta base, ***entrar na pasta k8s*** executar os seguintes comando:
