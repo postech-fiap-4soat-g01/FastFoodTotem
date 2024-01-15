@@ -6,6 +6,7 @@ using FastFoodTotem.Application.Dtos.Requests.Product;
 using FastFoodTotem.Application.Dtos.Validators.Customer;
 using FastFoodTotem.Application.Dtos.Validators.Order;
 using FastFoodTotem.Application.Dtos.Validators.Product;
+using FastFoodTotem.Domain;
 using FastFoodTotem.Domain.Contracts.Payments;
 using FastFoodTotem.Domain.Contracts.Repositories;
 using FastFoodTotem.Domain.Contracts.Services;
@@ -38,7 +39,7 @@ public static class DependencyInjection
 
     private static void ConfigureDatabase(IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<FastFoodContext>(options => options.UseSqlServer(configuration.GetConnectionString("SqlServerConnection"),
+        services.AddDbContext<FastFoodContext>(options => options.UseSqlServer(configuration.GetConnectionString(ConstantsEnv.CONNECTION_STRING),
                                                      b => b.MigrationsAssembly("FastFoodTotem.Infra.SqlServer")));
     }
 
