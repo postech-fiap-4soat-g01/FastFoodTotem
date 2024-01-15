@@ -45,6 +45,16 @@ Por fim para subir a API, juntamente com seu secret, deployment, service para co
 ```kubectl create -f ./api-secret.yaml```
 ```kubectl create -f ./api-deployment.yaml```
 ```kubectl create -f ./api-service.yaml```
+
+Para subir o HPA é necessário primeiro habilitar um metric server, para isso consultar a documentação do [k8s](https://github.com/kubernetes-sigs/metrics-server)
+O comando utilizado para criar foi
+
+```kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml```
+
+Caso necessário desabilitar a validação de certificado, para isso é ncessário editar o deployment do metrics-server no namespace kube-system passando o seguinte comando no containers args:
+```--kubelet-insecure-tls```
+
+Após o metric server estar funcionando, só subir o HPA da aplicação.
 ```kubectl create -f ./api-hpa.yaml```
 
 Sendo executado normalmente, irá subir um banco SQL Server e também a API do projeto, sendo possível utilizar o [swagger](http://localhost:8080/swagger/index.html) para fazer requisições.
@@ -56,7 +66,15 @@ Link para documentação detalhada [aqui](https://docs.google.com/document/d/1Yh
 Caso seja necessário entrar no root do projeto e rodar os seguintes comandos:
 
 Necessário para realizar o build da imagem:
-```docker build -t {user_docker_hub}/fast-food-totem:{tag} .```
+```docker build -t {user_docker_hub}/fast-food-totem:latest -t {user_docker_hub}/fast-food-totem:{tag} .```
 
 Necessário para subir as alterações:
 ```docker push {user_docker_hub}/fast-food-totem:{tag}```
+```docker push {user_docker_hub}/fast-food-totem:latest```
+
+OBS: Subir a tag latest também
+
+## K6 para validação do HPA
+É possível rodar o k6 para realizar um load test e validar se o HPA está funcional, para isso entrar na pasta stress e rodar o seguinte comando:
+
+```k6 run index.js```

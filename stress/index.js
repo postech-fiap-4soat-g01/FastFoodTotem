@@ -5,12 +5,11 @@ import { sleep } from 'k6';
 //30 duration segundos de duração
 
 export const options = {
-   vus: 100,
+   vus: 1000,
    duration: '30s',
 };
 
 
 export default function() {
-   http.get('http://localhost:8080/v1/product/category/1');
-   sleep(1);
+   http.get('http://localhost:80/v1/product/category/1');
 }

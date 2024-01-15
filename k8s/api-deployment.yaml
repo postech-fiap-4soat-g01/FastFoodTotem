@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: fast-food-totem-api
-          image: ttozatto/fast-food-totem:1.0
+          image: ttozatto/fast-food-totem:latest
           ports:
             - containerPort: 80
           livenessProbe:
