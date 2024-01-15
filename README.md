@@ -26,36 +26,50 @@ Funcionalidades:
 * [Postman](https://www.postman.com/downloads/) (não obrigatório)
 
 ## Como rodar localmente
-Para rodar o projeto localmente necessita abrir um terminal na pasta base, entrar na pasta k8s executar os seguintes comando:
+Para rodar o projeto localmente necessita abrir um terminal na pasta base, ***entrar na pasta k8s*** executar os seguintes comando:
 
 Caso tenha seguido pela instalação do k8s junto com o docker desktop é possível utilizar o contexto dele da seguinte forma:
-```kubectl config get-contexts```
-```kubectl config use-context docker-desktop```
+```yaml
+kubectl config get-contexts
+kubectl config use-context docker-desktop
+```
 
-Para criar um namespace para o projeto e configurar como default:
-```kubectl create -f ./namespace.yaml```
-```kubectl config set-context --current --namespace fast-food-totem```
+> Para criar um namespace para o projeto e configurar como default:
+```yaml
+kubectl create -f ./namespace.yaml
+kubectl config set-context --current --namespace fast-food-totem
+```
 
-Para criar a secret do banco, seu deployment e o service para disponibilizar a porta somente dentro do cluster:
-```kubectl create -f ./db-secret.yaml```
-```kubectl create -f ./db-deployment.yaml```
-```kubectl create -f ./db-service.yaml```
+> Para criar a secret do banco, seu deployment e o service para disponibilizar a porta somente dentro do cluster:
+```yaml
+kubectl create -f ./db-secret.yaml
+kubectl create -f ./db-deployment.yaml
+kubectl create -f ./db-service.yaml
+```
 
-Por fim para subir a API, juntamente com seu secret, deployment, service para conectar externo e seu HPA, para escalar:
-```kubectl create -f ./api-secret.yaml```
-```kubectl create -f ./api-deployment.yaml```
-```kubectl create -f ./api-service.yaml```
+> Por fim para subir a API, juntamente com seu secret, deployment, service para conectar externo e seu HPA, para escalar:
+```yaml
+kubectl create -f ./api-secret.yaml
+
+kubectl create -f ./api-deployment.yaml
+kubectl create -f ./api-service.yaml
+```
 
 Para subir o HPA é necessário primeiro habilitar um metric server, para isso consultar a documentação do [k8s](https://github.com/kubernetes-sigs/metrics-server)
-O comando utilizado para criar foi
-
-```kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml```
+> O comando utilizado para criar foi:
+```yaml
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+```
 
 Caso necessário desabilitar a validação de certificado, para isso é ncessário editar o deployment do metrics-server no namespace kube-system passando o seguinte comando no containers args:
-```--kubelet-insecure-tls```
+```yaml
+--kubelet-insecure-tls
+```
 
-Após o metric server estar funcionando, só subir o HPA da aplicação.
-```kubectl create -f ./api-hpa.yaml```
+> ***Após*** o metric server estar funcionando, só subir o HPA da aplicação.
+```yaml
+kubectl create -f ./api-hpa.yaml
+```
 
 Sendo executado normalmente, irá subir um banco SQL Server e também a API do projeto, sendo possível utilizar o [swagger](http://localhost:8080/swagger/index.html) para fazer requisições.
 Caso prefira, é possível realizar o download da [collection](https://github.com/postech-fiap-4soat-g01/FastFoodTotem/blob/main/FastFoodTotem%20-%20Jornada%20dos%20Usu%C3%A1rios.postman_collection.json) e utilizar no postman.
@@ -65,16 +79,21 @@ Link para documentação detalhada [aqui](https://docs.google.com/document/d/1Yh
 ## Subindo uma tag nova a imagem
 Caso seja necessário entrar no root do projeto e rodar os seguintes comandos:
 
-Necessário para realizar o build da imagem:
-```docker build -t {user_docker_hub}/fast-food-totem:latest -t {user_docker_hub}/fast-food-totem:{tag} .```
+> Necessário para realizar o build da imagem:
+```Batchfile
+docker build -t {user_docker_hub}/fast-food-totem:latest -t {user_docker_hub}/fast-food-totem:{tag} .
+```
 
-Necessário para subir as alterações:
-```docker push {user_docker_hub}/fast-food-totem:{tag}```
-```docker push {user_docker_hub}/fast-food-totem:latest```
+> Necessário para subir as alterações:
+```Batchfile
+docker push {user_docker_hub}/fast-food-totem:{tag}
+docker push {user_docker_hub}/fast-food-totem:latest
+```
 
-OBS: Subir a tag latest também
+***OBS: Subir a tag latest também***
 
 ## K6 para validação do HPA
-É possível rodar o k6 para realizar um load test e validar se o HPA está funcional, para isso entrar na pasta stress e rodar o seguinte comando:
-
-```k6 run index.js```
+É possível rodar o k6 para realizar um load test e validar se o HPA está funcional, para isso ***entrar na pasta stress*** e rodar o seguinte comando:
+```Batchfile
+k6 run index.js
+```
