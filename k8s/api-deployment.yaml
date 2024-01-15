@@ -18,14 +18,14 @@ spec:
             - containerPort: 80
           livenessProbe:
             httpGet:
-              path: /
+              path: /health/liveness
               port: 80
             periodSeconds: 10
             failureThreshold: 3
             initialDelaySeconds: 20
           readinessProbe:
             httpGet:
-              path: /
+              path: /health/readiness
               port: 80
             periodSeconds: 30
             failureThreshold: 5
