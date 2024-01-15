@@ -45,8 +45,8 @@ public class OrderApplicationService : BaseApplicationService, IOrderApplication
 
         var result = await _orderService.CreateAsync(_mapper.Map<OrderEntity>(orderCreateRequestDto), cancellationToken);
 
-        response.Data = new OrderCreateResponseDto() 
-        { 
+        response.Data = new OrderCreateResponseDto()
+        {
             Id = result.Id,
             PaymentQrCode = await _orderPayment.GerarQRCodeParaPagamentoDePedido(result),
             Status = result.Status,

@@ -5,8 +5,6 @@ using FastFoodTotem.Infra.IoC;
 using FastFoodTotem.Infra.SqlServer.Database;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,7 +32,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 });
 
 var conStr = builder.Configuration.GetConnectionString(ConstantsEnv.CONNECTION_STRING);
-if(string.IsNullOrWhiteSpace(conStr)) 
+if (string.IsNullOrWhiteSpace(conStr))
     throw new InvalidOperationException(
         $"Could not find a connection string named '{ConstantsEnv.CONNECTION_STRING}'.");
 
