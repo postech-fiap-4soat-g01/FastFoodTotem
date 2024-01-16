@@ -50,7 +50,7 @@ namespace FastFoodTotem.Infra.SqlServer.Repositories
                          || x.Status == OrderStatus.InPreparation
                          || x.Status == OrderStatus.Ready)
                 .Include(x => x.OrderedItems)
-                .ThenInclude(x => x.Product) 
+                .ThenInclude(x => x.Product)
                 .Include(x => x.Customer)
                 .ToListAsync();
 

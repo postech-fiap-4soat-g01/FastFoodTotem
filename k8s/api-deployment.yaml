@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fast-food-totem-api
+  labels:
+    app: fast-food-totem-api
+spec:
+  template:
+    metadata:
+      name: fast-food-totem-api
+      labels:
+        app: fast-food-totem-api
+    spec:
+      containers:
+        - name: fast-food-totem-api
+          image: ttozatto/fast-food-totem:latest
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /health/liveness
+              port: 80
+            periodSeconds: 10
+            failureThreshold: 3
+            initialDelaySeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /health/readiness
+              port: 80
+            periodSeconds: 30
+            failureThreshold: 5
+            initialDelaySeconds: 30
+          resources:
+            limits:
+              cpu: 0.5
+              memory: 400Mi
+            requests:
+              cpu: 0.2
+              memory: 128Mi
+          env:
+          - name: ConnectionStrings__SqlServerConnection
+            valueFrom:
+              secretKeyRef:
+                name: fast-food-totem-api-secret
+                key: ConnectionStrings__SqlServerConnection
+          - name: MercadoPago__AccessToken
+            valueFrom:
+              secretKeyRef:
+                name: fast-food-totem-api-secret
+                key: MercadoPago__AccessToken
+          - name: MercadoPago__BaseUrl
+            valueFrom:
+              secretKeyRef:
+                name: fast-food-totem-api-secret
+                key: MercadoPago__BaseUrl
+          - name: MercadoPago__UserId
+            valueFrom:
+              secretKeyRef:
+                name: fast-food-totem-api-secret
+                key: MercadoPago__UserId
+          - name: MercadoPago__ExternalPosId
+            valueFrom:
+              secretKeyRef:
+                name: fast-food-totem-api-secret
+                key: MercadoPago__ExternalPosId
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fast-food-totem-api

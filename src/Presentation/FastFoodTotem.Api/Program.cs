@@ -1,7 +1,10 @@
+using FastFoodTotem.Api.HealthCheck;
 using FastFoodTotem.Api.Middlewares;
+using FastFoodTotem.Domain;
 using FastFoodTotem.Domain.Validations;
 using FastFoodTotem.Infra.IoC;
 using FastFoodTotem.Infra.SqlServer.Database;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -29,6 +32,11 @@ builder.Services.AddControllers().AddJsonOptions(options =>
     options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
 });
 
+var conStr = builder.Configuration.GetConnectionString(ConstantsEnv.CONNECTION_STRING);
+if (string.IsNullOrWhiteSpace(conStr))
+    throw new InvalidOperationException(
+        $"Could not find a connection string named '{ConstantsEnv.CONNECTION_STRING}'.");
+
 builder.Services
     .AddEndpointsApiExplorer()
     .AddSwaggerGen(setup =>
@@ -55,7 +63,11 @@ builder.Services
         options.AssumeDefaultVersionWhenUnspecified = true;
         options.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
     })
-    .AddHealthChecks();
+    .AddHealthChecks()
+    .AddCheck<SimpleHealthCheck>(
+        "HealthCheck",
+        tags: new[] { "HealthCheck" })
+    .AddSqlServer(conStr);
 
 builder.Services.ConfigureServices(builder.Configuration);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -79,7 +91,15 @@ app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseEndpoints(endpoints =>
 {
-    //TODO healthcheck
+    app.MapHealthChecks("health/readiness", new HealthCheckOptions
+    {
+        Predicate = healthCheck => healthCheck.Tags.Contains("HealthCheck"),
+    });
+
+    app.MapHealthChecks("health/liveness", new HealthCheckOptions
+    {
+        Predicate = healthCheck => healthCheck.Tags.Contains("HealthCheck"),
+    });
 
     endpoints.MapControllers();
 });
