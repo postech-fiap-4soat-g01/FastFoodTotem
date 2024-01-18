@@ -31,6 +31,7 @@ public class MercadoPagoPayment : IOrderPayment
             ExternalReference = orderEntity.Id.ToString(),
             Title = "Pedido Lanchonete",
             Description = "Pedido Lanchonete",
+            NotificationUrl = $"https://webhook.d3fkon1.com/e8ff9837-9920-44c9-a0a1-434d2a02ea7c/order/{orderEntity.Id}?source_news=webhook",
             Items = orderEntity.OrderedItems.Select(item => new Item()
             {
                 Title = item.Product.Name,

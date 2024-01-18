@@ -49,10 +49,12 @@ namespace FastFoodTotem.Infra.SqlServer.Repositories
                 .Where(x => x.Status == OrderStatus.Received
                          || x.Status == OrderStatus.InPreparation
                          || x.Status == OrderStatus.Ready)
+                .OrderByDescending(x => x.Status)
+                .ThenBy(x => x.CreatedAt)
                 .Include(x => x.OrderedItems)
                 .ThenInclude(x => x.Product)
                 .Include(x => x.Customer)
-                .ToListAsync();
+                .ToListAsync(cancellationToken);
 
         }
     }
