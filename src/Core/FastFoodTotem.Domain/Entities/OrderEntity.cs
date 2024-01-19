@@ -9,7 +9,7 @@ namespace FastFoodTotem.Domain.Entities
         public int Id { get; set; }
         public int? CustomerId { get; set; }
         public OrderStatus Status { get; set; } = OrderStatus.AwaitingPayment;
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreationDate { get; set; } = DateTime.UtcNow;
 
         public IEnumerable<OrderedItemEntity> OrderedItems { get; set; }
         public CustomerEntity Customer { get; set; }

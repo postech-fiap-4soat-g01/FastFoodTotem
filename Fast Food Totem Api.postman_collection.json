@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "44f9e72f-7600-44ca-940a-7ea45c7443db",
+		"_postman_id": "5caeceef-7e5c-411a-898a-5f274f4fc71f",
 		"name": "Fast Food Totem Api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "13125005"
+		"_exporter_id": "32318867"
 	},
 	"item": [
 		{
@@ -1381,6 +1381,576 @@
 											],
 											"cookie": [],
 											"body": "{\n  \"statusCode\": 414,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "paymentStatus",
+							"item": [
+								{
+									"name": "{orderId}",
+									"item": [
+										{
+											"name": "Get order payment status",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v{{ver}}/order/paymentStatus/:orderId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v{{ver}}",
+														"order",
+														"paymentStatus",
+														":orderId"
+													],
+													"variable": [
+														{
+															"key": "orderId",
+															"value": "<integer>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Success",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v{{ver}}/order/paymentStatus/:orderId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v{{ver}}",
+																"order",
+																"paymentStatus",
+																":orderId"
+															],
+															"variable": [
+																{
+																	"key": "orderId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 408,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"status\": 3\n  }\n}"
+												},
+												{
+													"name": "Bad Request",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v{{ver}}/order/paymentStatus/:orderId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v{{ver}}",
+																"order",
+																"paymentStatus",
+																":orderId"
+															],
+															"variable": [
+																{
+																	"key": "orderId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 407,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+												},
+												{
+													"name": "Not Found",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v{{ver}}/order/paymentStatus/:orderId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v{{ver}}",
+																"order",
+																"paymentStatus",
+																":orderId"
+															],
+															"variable": [
+																{
+																	"key": "orderId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 407,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+												},
+												{
+													"name": "Client Error",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v{{ver}}/order/paymentStatus/:orderId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v{{ver}}",
+																"order",
+																"paymentStatus",
+																":orderId"
+															],
+															"variable": [
+																{
+																	"key": "orderId"
+																}
+															]
+														}
+													},
+													"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+													"code": 422,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 408,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"status\": 3\n  }\n}"
+												},
+												{
+													"name": "Server Error",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v{{ver}}/order/paymentStatus/:orderId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v{{ver}}",
+																"order",
+																"paymentStatus",
+																":orderId"
+															],
+															"variable": [
+																{
+																	"key": "orderId"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 407,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "payment",
+							"item": [
+								{
+									"name": "{orderId}",
+									"item": [
+										{
+											"name": "Process payment webhook",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"action\": \"<string>\",\n  \"api_version\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\"\n  },\n  \"date_created\": \"<dateTime>\",\n  \"id\": \"<long>\",\n  \"live_mode\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"user_id\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v{{ver}}/order/payment/:orderId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v{{ver}}",
+														"order",
+														"payment",
+														":orderId"
+													],
+													"variable": [
+														{
+															"key": "orderId",
+															"value": "<integer>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Success",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"action\": \"<string>\",\n  \"api_version\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\"\n  },\n  \"date_created\": \"<dateTime>\",\n  \"id\": \"<long>\",\n  \"live_mode\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"user_id\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v{{ver}}/order/payment/:orderId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v{{ver}}",
+																"order",
+																"payment",
+																":orderId"
+															],
+															"variable": [
+																{
+																	"key": "orderId"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 408,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"status\": 3\n  }\n}"
+												},
+												{
+													"name": "Bad Request",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"action\": \"<string>\",\n  \"api_version\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\"\n  },\n  \"date_created\": \"<dateTime>\",\n  \"id\": \"<long>\",\n  \"live_mode\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"user_id\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v{{ver}}/order/payment/:orderId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v{{ver}}",
+																"order",
+																"payment",
+																":orderId"
+															],
+															"variable": [
+																{
+																	"key": "orderId"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 407,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+												},
+												{
+													"name": "Not Found",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"action\": \"<string>\",\n  \"api_version\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\"\n  },\n  \"date_created\": \"<dateTime>\",\n  \"id\": \"<long>\",\n  \"live_mode\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"user_id\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v{{ver}}/order/payment/:orderId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v{{ver}}",
+																"order",
+																"payment",
+																":orderId"
+															],
+															"variable": [
+																{
+																	"key": "orderId"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 407,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+												},
+												{
+													"name": "Client Error",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"action\": \"<string>\",\n  \"api_version\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\"\n  },\n  \"date_created\": \"<dateTime>\",\n  \"id\": \"<long>\",\n  \"live_mode\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"user_id\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v{{ver}}/order/payment/:orderId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v{{ver}}",
+																"order",
+																"payment",
+																":orderId"
+															],
+															"variable": [
+																{
+																	"key": "orderId"
+																}
+															]
+														}
+													},
+													"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+													"code": 422,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 408,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"status\": 3\n  }\n}"
+												},
+												{
+													"name": "Server Error",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"action\": \"<string>\",\n  \"api_version\": \"<string>\",\n  \"data\": {\n    \"id\": \"<string>\"\n  },\n  \"date_created\": \"<dateTime>\",\n  \"id\": \"<long>\",\n  \"live_mode\": \"<boolean>\",\n  \"type\": \"<string>\",\n  \"user_id\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/v{{ver}}/order/payment/:orderId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v{{ver}}",
+																"order",
+																"payment",
+																":orderId"
+															],
+															"variable": [
+																{
+																	"key": "orderId"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"statusCode\": 407,\n  \"errors\": [\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"<string>\",\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+												}
+											]
 										}
 									]
 								}
@@ -3028,7 +3598,7 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "http://localhost:8080"
+			"value": "http://localhost:80"
 		},
 		{
 			"key": "ver",

@@ -125,6 +125,12 @@ namespace FastFoodTotem.Api.Controllers
             return await Return(new ApiBaseResponse<GetPendingOrdersResponse>() { Data = data });
         }
 
+        /// <summary>
+        /// Get order payment status
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiBaseResponse<GetOrderPaymentStatusResponse>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiBaseResponse))]
@@ -138,7 +144,7 @@ namespace FastFoodTotem.Api.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Process payment webhook
         /// </summary>
         /// <param name="orderId"></param>
         /// <param name="orderPayedRequestDto"></param>

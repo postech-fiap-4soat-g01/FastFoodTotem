@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "f0d6927d-c1d2-4c1e-9411-4f043b590319",
+		"_postman_id": "919eed1d-f6d9-4774-ba91-90dc81ef6c2d",
 		"name": "FastFoodTotem - Jornada dos Usuários",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "13125005"
+		"_exporter_id": "32318867"
 	},
 	"item": [
 		{
@@ -24,12 +24,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/v1/customer",
+							"raw": "http://localhost:80/v1/customer",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "80",
 							"path": [
 								"v1",
 								"customer"
@@ -44,12 +44,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/customer/42983175014",
+							"raw": "http://localhost:80/v1/customer/42983175014",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "80",
 							"path": [
 								"v1",
 								"customer",
@@ -65,12 +65,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/product/category/1",
+							"raw": "http://localhost:80/v1/product/category/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "80",
 							"path": [
 								"v1",
 								"product",
@@ -87,12 +87,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/product/category/2",
+							"raw": "http://localhost:80/v1/product/category/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "80",
 							"path": [
 								"v1",
 								"product",
@@ -109,12 +109,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/product/category/3",
+							"raw": "http://localhost:80/v1/product/category/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "80",
 							"path": [
 								"v1",
 								"product",
@@ -140,12 +140,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/v1/order",
+							"raw": "http://localhost:80/v1/order",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "80",
 							"path": [
 								"v1",
 								"order"
@@ -155,13 +155,13 @@
 					"response": []
 				},
 				{
-					"name": "6 - Fake Checkout(simulando pagamento e movendo status do pedido)",
+					"name": "6 - Fake Checkout(simulando pagamento, recebimento webhook mercado pago e movendo status do pedido)",
 					"request": {
-						"method": "PATCH",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": 1,\r\n  \"status\": 2\r\n}",
+							"raw": "{\r\n  \"action\": \"payment.created\",\r\n  \"api_version\": \"v1\",\r\n  \"data\": {\r\n    \"id\": \"123456\"\r\n  },\r\n  \"date_created\": \"2024-01-01T00:00:00Z\",\r\n  \"id\": 123456789,\r\n  \"live_mode\": true,\r\n  \"type\": \"payment\",\r\n  \"user_id\": \"1612954\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -169,15 +169,17 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/v1/order",
+							"raw": "http://localhost:80/v1/order/payment/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "80",
 							"path": [
 								"v1",
-								"order"
+								"order",
+								"payment",
+								"1"
 							]
 						}
 					},
@@ -189,12 +191,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/order/getPendingOrders",
+							"raw": "http://localhost:80/v1/order/getPendingOrders",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "80",
 							"path": [
 								"v1",
 								"order",
@@ -215,12 +217,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/order/filterByStatus/2",
+							"raw": "http://localhost:80/v1/order/filterByStatus/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "80",
 							"path": [
 								"v1",
 								"order",
@@ -237,12 +239,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/v1/order/1",
+							"raw": "http://localhost:80/v1/order/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "80",
 							"path": [
 								"v1",
 								"order",
@@ -267,12 +269,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/v1/order",
+							"raw": "http://localhost:80/v1/order",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "80",
 							"path": [
 								"v1",
 								"order"
@@ -296,12 +298,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/v1/order",
+							"raw": "http://localhost:80/v1/order",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "80",
 							"path": [
 								"v1",
 								"order"
@@ -325,12 +327,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/v1/order",
+							"raw": "http://localhost:80/v1/order",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "80",
 							"path": [
 								"v1",
 								"order"

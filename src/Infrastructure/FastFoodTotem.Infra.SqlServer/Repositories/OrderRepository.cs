@@ -50,7 +50,7 @@ namespace FastFoodTotem.Infra.SqlServer.Repositories
                          || x.Status == OrderStatus.InPreparation
                          || x.Status == OrderStatus.Ready)
                 .OrderByDescending(x => x.Status)
-                .ThenBy(x => x.CreatedAt)
+                .ThenBy(x => x.CreationDate)
                 .Include(x => x.OrderedItems)
                 .ThenInclude(x => x.Product)
                 .Include(x => x.Customer)
