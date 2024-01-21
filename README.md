@@ -19,6 +19,12 @@ Funcionalidades:
 * Realizar um pedido e acompanhar.
 * Pagamento via QRCode do Mercado Pago.
 
+Links úteis:
+* [Documentação detalhada] (https://docs.google.com/document/d/1YhRbWbEMPwUHi4J2lIz5dQMwZ6KrRzot/edit?usp=sharing&ouid=109865710704677504404&rtpof=true&sd=true).
+
+### Diagrama da arquitetura
+![Diagrama de arquitetura](https://github.com/postech-fiap-4soat-g01/FastFoodTotem/blob/main/FIAP%20-%20Fase2%20-%20Arquitetura%20Atual.jpg)
+  
 ## Pré-requisitos
 * [K8s](https://kubernetes.io/pt-br/docs/home/)							
 	* O K8s é obrigatório ter instalado na máquina para subir o projeto e possíveis serviços adjacentes, para isso é recomendado utilizar o docker e habilitar o Kubernets nele, porém para isso ter várias outras maneiras de chegar no mesmo resultado, caso prefira consultar a [documentação](https://docs.docker.com/desktop/kubernetes/).
@@ -74,10 +80,8 @@ Caso necessário desabilitar a validação de certificado, para isso é ncessár
 kubectl create -f ./api-hpa.yaml
 ```
 
-Sendo executado normalmente, irá subir um banco SQL Server e também a API do projeto, sendo possível utilizar o [swagger](http://localhost:8080/swagger/index.html) para fazer requisições.
+Sendo executado normalmente, irá subir um banco SQL Server e também a API do projeto, sendo possível utilizar o [swagger](http://localhost:80/swagger/index.html) para fazer requisições.
 Caso prefira, é possível realizar o download da [collection](https://github.com/postech-fiap-4soat-g01/FastFoodTotem/blob/main/FastFoodTotem%20-%20Jornada%20dos%20Usu%C3%A1rios.postman_collection.json) e utilizar no postman.
-
-Link para documentação detalhada [aqui](https://docs.google.com/document/d/1YhRbWbEMPwUHi4J2lIz5dQMwZ6KrRzot/edit?usp=sharing&ouid=109865710704677504404&rtpof=true&sd=true).
 
 ## Subindo uma tag nova a imagem
 Caso seja necessário entrar no root do projeto e rodar os seguintes comandos:
