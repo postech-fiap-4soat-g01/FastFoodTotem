@@ -20,7 +20,7 @@ Funcionalidades:
 * Pagamento via QRCode do Mercado Pago.
 
 Links úteis:
-* [Documentação detalhada] (https://docs.google.com/document/d/1YhRbWbEMPwUHi4J2lIz5dQMwZ6KrRzot/edit?usp=sharing&ouid=109865710704677504404&rtpof=true&sd=true).
+* [Documentação detalhada](https://docs.google.com/document/d/1YhRbWbEMPwUHi4J2lIz5dQMwZ6KrRzot/edit?usp=sharing&ouid=109865710704677504404&rtpof=true&sd=true).
 
 ### Diagrama da arquitetura
 ![Diagrama de arquitetura](https://github.com/postech-fiap-4soat-g01/FastFoodTotem/blob/main/FIAP%20-%20Fase2%20-%20Arquitetura%20Atual.jpg)
