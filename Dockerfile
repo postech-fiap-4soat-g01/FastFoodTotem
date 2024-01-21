@@ -7,7 +7,7 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY . .
 
-RUN dotnet publish -c Release src/Adapters/Driver/FastFoodTotem.Api/FastFoodTotem.Api.csproj -o /publish
+RUN dotnet publish -c Release src/Presentation/FastFoodTotem.Api/FastFoodTotem.Api.csproj -o /publish
 
 FROM base AS final
 WORKDIR /app
