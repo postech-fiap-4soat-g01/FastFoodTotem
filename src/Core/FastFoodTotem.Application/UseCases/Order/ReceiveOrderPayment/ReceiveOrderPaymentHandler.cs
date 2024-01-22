@@ -7,13 +7,13 @@ using FastFoodTotem.Domain.Validations;
 using MediatR;
 
 namespace FastFoodTotem.Application.UseCases.Order.UpdatePaymentOrder;
-public class UpdatePaymentOrderHandler : IRequestHandler<UpdatePaymentOrderRequest, UpdatePaymentOrderResponse>
+public class ReceiveOrderPaymentHandler : IRequestHandler<ReceiveOrderPaymentRequest, ReceiveOrderPaymentResponse>
 {
     private readonly IOrderRepository _orderRepository;
     private readonly IValidationNotifications _validationNotifications;
     private readonly IMapper _mapper;
 
-    public UpdatePaymentOrderHandler(
+    public ReceiveOrderPaymentHandler(
         IMapper mapper,
         IOrderRepository orderRepository,
         IValidationNotifications validationNotifications
@@ -24,7 +24,7 @@ public class UpdatePaymentOrderHandler : IRequestHandler<UpdatePaymentOrderReque
         _validationNotifications = validationNotifications ?? throw new ArgumentNullException(nameof(validationNotifications));
     }
 
-    public async Task<UpdatePaymentOrderResponse> Handle(UpdatePaymentOrderRequest request, CancellationToken cancellationToken)
+    public async Task<ReceiveOrderPaymentResponse> Handle(ReceiveOrderPaymentRequest request, CancellationToken cancellationToken)
     {
         var orderEntity = _mapper.Map<OrderEntity>(request);
 
@@ -42,6 +42,6 @@ public class UpdatePaymentOrderHandler : IRequestHandler<UpdatePaymentOrderReque
             await _orderRepository.EditOrderAsync(existentOrder, cancellationToken);
         }
 
-        return _mapper.Map<UpdatePaymentOrderResponse>(existentOrder);
+        return _mapper.Map<ReceiveOrderPaymentResponse>(existentOrder);
     }
 }

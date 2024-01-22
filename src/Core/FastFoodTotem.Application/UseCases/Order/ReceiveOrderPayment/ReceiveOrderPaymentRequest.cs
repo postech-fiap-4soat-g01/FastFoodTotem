@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace FastFoodTotem.Application.UseCases.Order.UpdatePaymentOrder;
 
-public sealed record UpdatePaymentOrderRequest : IRequest<UpdatePaymentOrderResponse>
+public sealed record ReceiveOrderPaymentRequest : IRequest<ReceiveOrderPaymentResponse>
 {
     public string Action { get; set; }
 

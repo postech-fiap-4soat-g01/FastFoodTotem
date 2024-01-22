@@ -150,17 +150,17 @@ namespace FastFoodTotem.Api.Controllers
         /// <param name="orderPayedRequestDto"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiBaseResponse<UpdatePaymentOrderResponse>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiBaseResponse<ReceiveOrderPaymentResponse>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiBaseResponse))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiBaseResponse))]
-        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ApiBaseResponse<UpdatePaymentOrderResponse>))]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ApiBaseResponse<ReceiveOrderPaymentResponse>))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ApiBaseResponse))]
         [HttpPost("payment/{orderId}")]
-        public async Task<IActionResult> ReceivePayment([FromRoute] int orderId, [FromBody] UpdatePaymentOrderRequest orderPayedRequestDto, CancellationToken cancellationToken)
+        public async Task<IActionResult> ReceiveOrderPayment([FromRoute] int orderId, [FromBody] ReceiveOrderPaymentRequest orderPayedRequestDto, CancellationToken cancellationToken)
         {
             orderPayedRequestDto.OrderId = orderId;
             var data = await _mediator.Send(orderPayedRequestDto, cancellationToken);
-            return await Return(new ApiBaseResponse<UpdatePaymentOrderResponse>() { Data = data });
+            return await Return(new ApiBaseResponse<ReceiveOrderPaymentResponse>() { Data = data });
         }
     }
 }

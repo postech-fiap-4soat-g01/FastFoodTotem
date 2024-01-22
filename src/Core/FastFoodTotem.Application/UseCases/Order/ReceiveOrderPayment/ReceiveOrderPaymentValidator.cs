@@ -2,9 +2,9 @@
 
 namespace FastFoodTotem.Application.UseCases.Order.UpdatePaymentOrder;
 
-public class UpdatePaymentOrderValidator : AbstractValidator<UpdatePaymentOrderRequest>
+public class ReceiveOrderPaymentValidator : AbstractValidator<ReceiveOrderPaymentRequest>
 {
-    public UpdatePaymentOrderValidator()
+    public ReceiveOrderPaymentValidator()
     {
         RuleFor(dto => dto.Action)
             .NotEmpty()

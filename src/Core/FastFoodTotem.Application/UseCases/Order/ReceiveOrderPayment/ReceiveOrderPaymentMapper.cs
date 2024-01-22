@@ -11,14 +11,14 @@ using System.Threading.Tasks;
 
 namespace FastFoodTotem.Application.UseCases.Order.UpdatePaymentOrder;
 
-public class UpdatePaymentOrderMapper : Profile
+public class ReceiveOrderPaymentMapper : Profile
 {
-    public UpdatePaymentOrderMapper()
+    public ReceiveOrderPaymentMapper()
     {
-        CreateMap<UpdatePaymentOrderRequest, OrderEntity>()
+        CreateMap<ReceiveOrderPaymentRequest, OrderEntity>()
             .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.OrderId))
             .ForMember(dest => dest.Status, opt => opt.MapFrom(src => OrderStatus.Received));
-        CreateMap<OrderEntity, UpdatePaymentOrderResponse>()
+        CreateMap<OrderEntity, ReceiveOrderPaymentResponse>()
             .ForMember(dest => dest.Status, opt => opt.MapFrom(src => MapPaymentStatus(src.Status)));
     }
 
