@@ -1,13 +1,7 @@
 ﻿using AutoMapper;
-using FastFoodTotem.Application.UseCases.Order.GetOrderById;
 using FastFoodTotem.Domain.Contracts.Repositories;
 using FastFoodTotem.Domain.Exceptions;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FastFoodTotem.Application.UseCases.Order.GetOrderPaymentStatus;
 

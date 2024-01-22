@@ -1,10 +1,4 @@
-﻿using FastFoodTotem.Application.UseCases.Order.GetOrderById;
-using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation;
 
 namespace FastFoodTotem.Application.UseCases.Order.GetOrderPaymentStatus;
 

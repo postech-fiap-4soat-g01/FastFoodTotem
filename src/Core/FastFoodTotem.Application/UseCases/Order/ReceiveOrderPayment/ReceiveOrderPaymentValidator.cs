@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace FastFoodTotem.Application.UseCases.Order.UpdatePaymentOrder;
+namespace FastFoodTotem.Application.UseCases.Order.ReceiveOrderPayment;
 
 public class ReceiveOrderPaymentValidator : AbstractValidator<ReceiveOrderPaymentRequest>
 {

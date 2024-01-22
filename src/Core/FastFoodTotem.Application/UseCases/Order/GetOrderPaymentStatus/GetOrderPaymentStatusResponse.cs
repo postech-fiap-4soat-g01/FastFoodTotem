@@ -1,10 +1,4 @@
-﻿using FastFoodTotem.Application.UseCases.Order.GetOrderById;
-using FastFoodTotem.Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FastFoodTotem.Domain.Enums;
 
 namespace FastFoodTotem.Application.UseCases.Order.GetOrderPaymentStatus;
 

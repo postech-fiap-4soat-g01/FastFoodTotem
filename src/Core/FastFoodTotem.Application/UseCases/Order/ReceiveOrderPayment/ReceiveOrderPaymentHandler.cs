@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
-using FastFoodTotem.Application.UseCases.Order.UpdateOrder;
 using FastFoodTotem.Domain.Contracts.Repositories;
 using FastFoodTotem.Domain.Entities;
 using FastFoodTotem.Domain.Exceptions;
 using FastFoodTotem.Domain.Validations;
 using MediatR;
 
-namespace FastFoodTotem.Application.UseCases.Order.UpdatePaymentOrder;
+namespace FastFoodTotem.Application.UseCases.Order.ReceiveOrderPayment;
 public class ReceiveOrderPaymentHandler : IRequestHandler<ReceiveOrderPaymentRequest, ReceiveOrderPaymentResponse>
 {
     private readonly IOrderRepository _orderRepository;

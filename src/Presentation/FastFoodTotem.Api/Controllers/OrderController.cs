@@ -7,7 +7,7 @@ using FastFoodTotem.Application.UseCases.Order.GetOrderByStatus;
 using FastFoodTotem.Application.UseCases.Order.GetOrderPaymentStatus;
 using FastFoodTotem.Application.UseCases.Order.GetPendingOrders;
 using FastFoodTotem.Application.UseCases.Order.UpdateOrder;
-using FastFoodTotem.Application.UseCases.Order.UpdatePaymentOrder;
+using FastFoodTotem.Application.UseCases.Order.ReceiveOrderPayment;
 using FastFoodTotem.Domain.Enums;
 using FastFoodTotem.Domain.Validations;
 using MediatR;

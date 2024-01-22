@@ -1,6 +1,6 @@
 ﻿using FastFoodTotem.Domain.Enums;
 
-namespace FastFoodTotem.Application.UseCases.Order.UpdatePaymentOrder;
+namespace FastFoodTotem.Application.UseCases.Order.ReceiveOrderPayment;
 
 public sealed record ReceiveOrderPaymentResponse
 {

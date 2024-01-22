@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using System.Text.Json.Serialization;
 
-namespace FastFoodTotem.Application.UseCases.Order.UpdatePaymentOrder;
+namespace FastFoodTotem.Application.UseCases.Order.ReceiveOrderPayment;
 
 public sealed record ReceiveOrderPaymentRequest : IRequest<ReceiveOrderPaymentResponse>
 {

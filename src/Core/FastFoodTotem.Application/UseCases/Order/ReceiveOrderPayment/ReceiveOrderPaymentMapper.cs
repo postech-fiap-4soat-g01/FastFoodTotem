@@ -1,15 +1,8 @@
 ﻿using AutoMapper;
-using FastFoodTotem.Application.UseCases.Order.GetAllOrders;
-using FastFoodTotem.Application.UseCases.Order.UpdateOrder;
 using FastFoodTotem.Domain.Entities;
 using FastFoodTotem.Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace FastFoodTotem.Application.UseCases.Order.UpdatePaymentOrder;
+namespace FastFoodTotem.Application.UseCases.Order.ReceiveOrderPayment;
 
 public class ReceiveOrderPaymentMapper : Profile
 {
