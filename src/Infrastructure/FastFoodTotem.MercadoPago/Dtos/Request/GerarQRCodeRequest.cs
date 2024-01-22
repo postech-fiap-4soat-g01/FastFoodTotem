@@ -18,6 +18,9 @@ public class GerarQRCodeRequest
 
     [JsonProperty("items")]
     public List<Item> Items { get; set; }
+
+    [JsonProperty("notification_url")]
+    public string NotificationUrl { get; set; }
 }
 
 public class Item

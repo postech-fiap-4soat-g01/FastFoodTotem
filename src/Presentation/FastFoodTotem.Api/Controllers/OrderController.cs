@@ -4,8 +4,10 @@ using FastFoodTotem.Application.UseCases.Order.CreateOrder;
 using FastFoodTotem.Application.UseCases.Order.GetAllOrders;
 using FastFoodTotem.Application.UseCases.Order.GetOrderById;
 using FastFoodTotem.Application.UseCases.Order.GetOrderByStatus;
+using FastFoodTotem.Application.UseCases.Order.GetOrderPaymentStatus;
 using FastFoodTotem.Application.UseCases.Order.GetPendingOrders;
 using FastFoodTotem.Application.UseCases.Order.UpdateOrder;
+using FastFoodTotem.Application.UseCases.Order.ReceiveOrderPayment;
 using FastFoodTotem.Domain.Enums;
 using FastFoodTotem.Domain.Validations;
 using MediatR;
@@ -121,6 +123,44 @@ namespace FastFoodTotem.Api.Controllers
         {
             var data = await _mediator.Send(new GetPendingOrdersRequest(), cancellationToken);
             return await Return(new ApiBaseResponse<GetPendingOrdersResponse>() { Data = data });
+        }
+
+        /// <summary>
+        /// Get order payment status
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiBaseResponse<GetOrderPaymentStatusResponse>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiBaseResponse))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiBaseResponse))]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ApiBaseResponse<GetOrderPaymentStatusResponse>))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ApiBaseResponse))]
+        [HttpGet("paymentStatus/{orderId}")]
+        public async Task<IActionResult> GetOrderPaymentStatus([FromRoute] int orderId, CancellationToken cancellationToken)
+        {
+            var data = await _mediator.Send(new GetOrderPaymentStatusRequest(orderId), cancellationToken);
+            return await Return(new ApiBaseResponse<GetOrderPaymentStatusResponse>() { Data = data });
+        }
+
+        /// <summary>
+        /// Process payment webhook
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <param name="orderPayedRequestDto"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiBaseResponse<ReceiveOrderPaymentResponse>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiBaseResponse))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiBaseResponse))]
+        [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ApiBaseResponse<ReceiveOrderPaymentResponse>))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ApiBaseResponse))]
+        [HttpPost("payment/{orderId}")]
+        public async Task<IActionResult> ReceiveOrderPayment([FromRoute] int orderId, [FromBody] ReceiveOrderPaymentRequest orderPayedRequestDto, CancellationToken cancellationToken)
+        {
+            orderPayedRequestDto.OrderId = orderId;
+            var data = await _mediator.Send(orderPayedRequestDto, cancellationToken);
+            return await Return(new ApiBaseResponse<ReceiveOrderPaymentResponse>() { Data = data });
         }
     }
 }
