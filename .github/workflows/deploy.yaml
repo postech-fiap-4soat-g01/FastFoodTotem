@@ -3,7 +3,7 @@ name: Deploy to ECR
 on:
  
   push:
-    branches: [ main ]
+    branches: [ main, feat/ci_cd ]
 
 env:
   ECR_REPOSITORY: ecr-fiap_4soat
