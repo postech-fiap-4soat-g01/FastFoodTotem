@@ -7,7 +7,7 @@ on:
 
 env:
   ECR_REPOSITORY: ecr-fiap_4soat
-  EKS_CLUSTER_NAME: fiap_4soat
+  EKS_CLUSTER_NAME: eks-fiap_4soat
   AWS_REGION: us-east-1
 
 jobs:
@@ -42,7 +42,9 @@ jobs:
         IMAGE_TAG: ${{ steps.commit.outputs.short }}
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:latest -f Dockerfile .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
 
     - name: Update kube config
       run: |
