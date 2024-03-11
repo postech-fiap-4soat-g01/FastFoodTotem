@@ -7,7 +7,7 @@ on:
 
 env:
   ECR_REPOSITORY: ecr-fiap_4soat
-  EKS_CLUSTER_NAME: eks-fiap_4soat 
+  EKS_CLUSTER_NAME: fiap_4soat
   AWS_REGION: us-east-1
 
 jobs:
