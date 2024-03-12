@@ -54,7 +54,6 @@ public static class DependencyInjection
     {
         services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
-        services.AddScoped<ICustomerRepository, CustomerRepository>();
     }
 
     private static void ConfigureNotificationServices(IServiceCollection services)

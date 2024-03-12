@@ -16,6 +16,8 @@ public sealed record GetAllOrdersOrder
 {
     public int Id { get; set; }
     public OrderStatus Status { get; set; }
+    public string? UserCpf { get; set; }
+    public string? UserName { get; set; }
     public IEnumerable<GetAllOrdersProductData> Items { get; set; }
 }
 

@@ -4,6 +4,7 @@ using FastFoodTotem.Infra.SqlServer.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FastFoodTotem.Infra.SqlServer.Migrations
 {
     [DbContext(typeof(FastFoodContext))]
-    partial class FastFoodContextModelSnapshot : ModelSnapshot
+    [Migration("20240308030312_RemovendoFuncionalidadeDeUsuariosDoMonolito")]
+    partial class RemovendoFuncionalidadeDeUsuariosDoMonolito
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,12 +42,6 @@ namespace FastFoodTotem.Infra.SqlServer.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int")
                         .HasColumnName("Status");
-
-                    b.Property<string>("UserCpf")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id")
                         .HasName("OrderId");

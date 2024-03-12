@@ -17,7 +17,6 @@ namespace FastFoodTotem.Infra.SqlServer.Database
 
         public DbSet<ProductEntity> Products { get; set; }
         public DbSet<OrderedItemEntity> OrderedItems { get; set; }
-        public DbSet<CustomerEntity> Customers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,7 +29,6 @@ namespace FastFoodTotem.Infra.SqlServer.Database
 
         private void MapEntities(ModelBuilder modelBuilder)
         {
-            CustomerEntityMapper.ConfigureEntity(modelBuilder);
             OrderedItemEntityMapper.ConfigureEntity(modelBuilder);
             OrderEntityMapper.ConfigureEntity(modelBuilder);
             ProductEntityMapper.ConfigureEntity(modelBuilder);
@@ -63,11 +61,6 @@ namespace FastFoodTotem.Infra.SqlServer.Database
                 new ProductEntity() { Id = 19, Name = "Pudim", Type = CategoryType.Dessert, Price = (decimal)7.0, Description = "Pudim", ProductImageUrl = "https://static.itdg.com.br/images/360-240/59e079217cc8af8291a8cb910d1d449f/318825-original.jpg" },
                 new ProductEntity() { Id = 20, Name = "Mousse de Maracujá", Type = CategoryType.Dessert, Price = (decimal)10.50, Description = "Mousse de Maracujá", ProductImageUrl = "https://media.istockphoto.com/id/1426234346/pt/foto/delicious-passion-fruit-mousse-in-a-rustic-setting.jpg?s=612x612&w=0&k=20&c=ZQRv25lKo3RJUGV5Zbxv7heJZLFtNwebN1f7RNCp4oU=" },
                 new ProductEntity() { Id = 21, Name = "Torta de Morango", Type = CategoryType.Dessert, Price = (decimal)13.0, Description = "Torta de Morango", ProductImageUrl = "https://thumbs.dreamstime.com/z/fatia-de-torta-da-morango-22816345.jpg" }
-            );
-
-            modelBuilder.Entity<CustomerEntity>().HasData(
-                new CustomerEntity() { Id = 1, Name = "João José", Email = "joao_joao@joao.com", Identification = "86617589041" },
-                new CustomerEntity() { Id = 2, Name = "Maria José", Email = "maria_maria@maria.com", Identification = "56419341000" }
             );
         }
 

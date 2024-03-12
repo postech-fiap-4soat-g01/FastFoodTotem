@@ -7,12 +7,12 @@ namespace FastFoodTotem.Domain.Entities
     {
         [Key]
         public int Id { get; set; }
-        public int? CustomerId { get; set; }
+        public string? UserCpf { get; set; }
+        public string? UserName { get; set; }
         public OrderStatus Status { get; set; } = OrderStatus.AwaitingPayment;
         public DateTime CreationDate { get; set; } = DateTime.UtcNow;
 
         public IEnumerable<OrderedItemEntity> OrderedItems { get; set; }
-        public CustomerEntity Customer { get; set; }
 
         public bool ValidStatus(OrderStatus orderStatus)
         {

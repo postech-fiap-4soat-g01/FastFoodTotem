@@ -4,8 +4,9 @@ namespace FastFoodTotem.Application.UseCases.Order.CreateOrder;
 
 public class CreateOrderRequest : IRequest<CreateOrderResponse>
 {
-    public int? CustomerId { get; set; }
     public IList<OrderItens> OrderedItems { get; set; }
+    public string? UserCpf { get; set; }
+    public string? UserName { get; set; }
 }
 
 public sealed record OrderItens
