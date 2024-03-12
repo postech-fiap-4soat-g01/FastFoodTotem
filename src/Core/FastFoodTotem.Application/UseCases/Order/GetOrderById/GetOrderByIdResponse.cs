@@ -18,6 +18,8 @@ public sealed record GetOrderByIdResponse
 
     public int Id { get; set; }
     public OrderStatus Status { get; set; }
+    public string? UserCpf { get; set; }
+    public string? UserName { get; set; }
     public IEnumerable<GetOrderByIdProductData> Items { get; set; }
 }
 

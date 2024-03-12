@@ -7,6 +7,8 @@ namespace FastFoodTotem.Domain.Entities
     {
         [Key]
         public int Id { get; set; }
+        public string? UserCpf { get; set; }
+        public string? UserName { get; set; }
         public OrderStatus Status { get; set; } = OrderStatus.AwaitingPayment;
         public DateTime CreationDate { get; set; } = DateTime.UtcNow;
 

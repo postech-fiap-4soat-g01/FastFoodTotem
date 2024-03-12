@@ -15,6 +15,8 @@ public sealed record GetOrderByStatusResponse
 public sealed record GetOrderByStatusOrder
 {
     public int Id { get; set; }
+    public string? UserCpf { get; set; }
+    public string? UserName { get; set; }
     public OrderStatus Status { get; set; }
     public IEnumerable<GetOrderByStatusProductData> Items { get; set; }
 }

@@ -15,6 +15,8 @@ public sealed record GetPendingOrdersResponse
 public sealed record GetPendingOrdersOrder
 {
     public int Id { get; set; }
+    public string? UserCpf { get; set; }
+    public string? UserName { get; set; }
     public OrderStatus Status { get; set; }
     public IEnumerable<GetPendingOrdersProductData> Items { get; set; }
 }
