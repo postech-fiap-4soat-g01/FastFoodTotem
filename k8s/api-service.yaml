@@ -5,10 +5,10 @@ metadata:
   labels:
     app: fast-food-totem
 spec:
-  type: LoadBalancer
-  selector:
-    app: fast-food-totem-api
+  type: ClusterIP
   ports:
     - port: 80
-      targetPort: 80
       protocol: TCP
+      targetPort: 80
+  selector:
+    app: fast-food-totem-api
