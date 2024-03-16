@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: fast-food-totem-ingress
+  annotations:
+    kubernetes.io/ingress.class: "my-nginx-class"
+  labels:
+    app: fast-food-totem
+spec:
+  rules:
+  - host: fast-food-totem.com
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: fast-food-totem
+          servicePort: 80
