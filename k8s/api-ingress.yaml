@@ -6,7 +6,8 @@ metadata:
     app: fast-food-totem
 spec:
   rules:
-  - http:
+  - host: fast-food-totem.com
+    http:
       paths:
       - path: /
         pathType: Prefix
