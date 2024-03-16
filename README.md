@@ -132,15 +132,7 @@ k6 run index.js
 
 ## Swagger
 
-A API é dividida se baseando em 3 entidades básicas: Customer(Usuários clientes), Order(Pedidos) e Product(Produtos). Nos endpoints da aplicação não é diferente. Os 3 contextos principais são:
-
-![swagger1](./images/swagger1.png)
-
-### Contexto Consumer
-
-![swagger2](./images/swagger2.png)
-
-O contexto Customer(usuários clientes) possui 3 endpoints. O Primeiro endpoint utiliza o verbo Http POST, e é responsável por cadastrar um usuário novo. Esse contexto possui 2 GET’s, um utilizado para obter todos os usuários já cadastrados, e outro utilizado para obter um usuário de acordo com seu cpf, que no caso é um endpoint que seria utilizado para realizar a “autenticação” do usuário quando estivesse na tela de login do sistema. Como é uma tela que requisita apenas o cpf, o usuário obtém acesso ao sistema apenas informando os dígitos do cpf.
+A API é dividida se baseando em 2 entidades básicas: Order(Pedidos) e Product(Produtos). Nos endpoints da aplicação não é diferente. Os 2 contextos principais são:
 
 ### Contexto Product
 
@@ -167,20 +159,18 @@ Esse contexto possui 5 GET's distintos. O primeiro GET é utilizado para obter t
 O último POST se refere ao recebimento de webhook do Mercado Pago mediante ao pagamento do QRCode.
 
 ### Collection do postman
-Foram desenvolvidas duas collections para testar a API via postman, ambas se encontram no diretório raiz do repositório. As collection se chamam “Fast Food Totem Api.postman_collection” e “FastFoodTotem - Jornada dos Usuários.postman_collection”.
+Foi desenvolvida uma collection para testar o projeto inteiro via postman, ela se encontra na pasta raiz do repositório. A collection se chama “FastFoodTotem - Jornada dos Usuários.postman_collection”. Lembrando que para usá-la corretamente, será necessário ter a ifnra inteira do produto sendo executada na nuvem, não é uma collection apenas para o projeto deste repositório.
 
-A collection “Fast Food Totem Api.postman_collection” visa disponibilizar todos os endpoints para teste via postman. Os endpoints presentes nela são exatamente os mesmos presentes no swagger.
-
-A collection  “FastFoodTotem - Jornada dos Usuários.postman_collection” tem uma finalidade diferente. Ela visa simular os passos que o cliente e que a lanchonete podem utilizar desde o cadastro do cliente até a finalização do pedido. Nessa collection, nem todos os endpoints são utilizados, e ela será detalhada a seguir.
+A collection  “FastFoodTotem - Jornada dos Usuários.postman_collection” visa simular os passos que o cliente e que a lanchonete podem utilizar desde o cadastro do cliente até a finalização do pedido. Nessa collection, nem todos os endpoints são utilizados, e ela será detalhada a seguir.
 
 Essa collection possui os seguintes passos, subdivididos em dois grupos, jornada do cliente, e jornada da lanchonete:
 
 ![collections](./images/collections.png)
 
 Jornada do cliente:
-1. O primeiro passo feito pelo cliente pode ser o cadastro, o acesso anônimo ou o login. Como o acesso anônimo dispensa endpoint, o primeiro endpoint utilizado nessa etapa é o de realizar cadastro do cliente. O login é feito apenas acessando um endpoint onde o cpf do cliente é informado e o sistema verifica se ele existe ou não.
-2. Após ter o cadastro/login realizado, o cliente começa a montar seu pedido. Para montar seu pedido, ele precisa escolher o burguer, o acompanhamento e a bebida. Para isso, são executados 3 endpoints em ordem para exibir os dados necessários e o cliente selecionar o que deseja. Lembrando que, caso seja acessado anonimamente, o ID do cliente enviado deve ser null.
-3. Após o cliente selecionar cada um dos itens de seu pedido, nada é feito. O pedido só é enviado para a API após o cliente selecionar sua bebida, que é o último item que pode ser escolhido. O pedido é enviado pelo request “5 - Envio pedido”.
+1. O primeiro passo feito pelo cliente pode ser o cadastro, o acesso anônimo ou o login. O primeiro endpoint utilizado nessa etapa é o de realizar cadastro do cliente. O login é feito apenas acessando um endpoint onde o cpf do cliente é informado ou utilizando o endpoint para ser autenticado de forma anônima. É importante que seja autenticado de forma anônima ou com cpf, pois esses endpoints geram um token de acesso aos endpoints posteriores. Após obter esse token, basta apenas colocar como um header chamado "Authorization" no request da requisição, ou utilizar a aba correta do postman para isso.
+2. Após ter o cadastro/login realizado, o cliente começa a montar seu pedido. Para montar seu pedido, ele precisa escolher o burguer, o acompanhamento e a bebida. Para isso, são executados 3 endpoints em ordem para exibir os dados necessários e o cliente selecionar o que deseja. 
+3. Após o cliente selecionar cada um dos itens de seu pedido, nada é feito. O pedido só é enviado para a API após o cliente selecionar sua bebida, que é o último item que pode ser escolhido. O pedido é enviado pelo request “5 - Envio pedido”. Lembrando que, caso seja acessado com usuário, os campos "userCpf" e "userName" devem ser preenchidos, caso seja autenticado de forma anônima, basta apenas enviar o "userName" para identificação do cliente para o mesmo retirar o pedido sendo chamado pelo nome.
 4. Após o pedido ser cadastrado no sistema, a API retorna o Id do pedido, a sequência de caracteres utilizados para montar o QR Code do mercado pago, o status do pedido(que inicialmente é “Aguardando pagamento”) e o preço total. O cliente consegue realizar o pagamento com o QR Code do Mercado Pago. Essa integração está funcionando, a chave pode ser utilizada em algum aplicativo bancário, mas pedimos para que não finalize o pagamento.
 5. Para simular o pagamento realizado, criamos a etapa “6 - Fake Checkout”, que é um endpoint para recebimento do webhook após o pagamento do QRCode, onde é realizada a alteração de status do pedido para o “2 - Recebido”. Dessa forma fica simulado que o pedido foi pago.
 6. O request “7 - Visualizar pedidos pendentes” será utilizado para exibir os pedidos pendentes para os clientes poderem acompanhar os status de seus pedidos.
@@ -192,3 +182,5 @@ Jornada da lanchonete:
 3. Os endpoints restantes são apenas para a lanchonete modificar os status dos pedidos, levando-os até o status final “Finalizado”.
 
 Observe que nessas jornadas básicas não há a utilização dos endpoints do contexto Product, pois não são necessários para o gerenciamento de um pedido desde a sua criação até sua finalização. Os endpoints do contexto Product são necessários para a lanchonete gerenciar os produtos disponíveis e seus preços. Para facilitar a utilização da API, alguns dados de produtos são inseridos na base de dados quando a aplicação é “startada”. Dessa forma não será necessário se preocupar em cadastrar os produtos antes de utilizar os endpoints de criação e gerenciamento de pedidos simulando um cliente da lanchonete.
+
+Além dessa collection, foi desenvolvida uma outra collection que possui todos os endpoints para serem acessados de forma livre, ela se chama "FastFoodTotem - Complete Api".
