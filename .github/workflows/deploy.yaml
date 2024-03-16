@@ -50,7 +50,6 @@ jobs:
       run: |
         aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region $AWS_REGION
         kubectl apply -f https://s3.us-west-2.amazonaws.com/amazon-eks/docs/eks-console-full-access.yaml
-        kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/aws/deploy.yaml
 
     - name: Deploy to EKS
       env:
@@ -60,6 +59,4 @@ jobs:
         sed -i.bak "s|DOCKER_IMAGE|$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG|g" k8s/api-deployment.yaml && \
         kubectl apply -f k8s/api-secret.yaml
         kubectl apply -f k8s/api-deployment.yaml
-        kubectl apply -f k8s/api-service.yaml
         kubectl apply -f k8s/api-hpa.yaml
-        kubectl apply -f k8s/api-ingress.yaml

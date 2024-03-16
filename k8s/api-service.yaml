@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: fast-food-totem
+  name: fast-food-totem-svc
   labels:
     app: fast-food-totem
 spec:
-  type: ClusterIP
-  ports:
-    - port: 80
-      protocol: TCP
-      targetPort: 80
+  type: LoadBalancer
   selector:
     app: fast-food-totem-api
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
