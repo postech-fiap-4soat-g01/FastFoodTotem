@@ -4,8 +4,8 @@ metadata:
   name: fast-food-totem
   labels:
     app: fast-food-totem
- annotations:
-   service.beta.kubernetes.io/aws-load-balancer-name: fast-food-totem
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-name: fast-food-totem
 spec:
   type: LoadBalancer
   loadBalancerClass: service.k8s.aws/nlb
