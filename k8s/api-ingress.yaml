@@ -1,15 +1,17 @@
- apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
- kind: Ingress
- metadata:
-   name: fast-food-totem-ingress
-   annotations:
-     nginx.ingress.kubernetes.io/rewrite-target: /$1
- spec:
-   rules:
-   - host: fast-food-totem.com
-     http:
-       paths:
-       - path: /
-         backend:
-           serviceName: fast-food-totem
-           servicePort: 80
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: fast-food-totem-ingress
+  labels:
+    app: fast-food-totem
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: fast-food-totem
+            port:
+              number: 80
