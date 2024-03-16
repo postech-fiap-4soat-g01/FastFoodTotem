@@ -183,4 +183,6 @@ Jornada da lanchonete:
 
 Observe que nessas jornadas básicas não há a utilização dos endpoints do contexto Product, pois não são necessários para o gerenciamento de um pedido desde a sua criação até sua finalização. Os endpoints do contexto Product são necessários para a lanchonete gerenciar os produtos disponíveis e seus preços. Para facilitar a utilização da API, alguns dados de produtos são inseridos na base de dados quando a aplicação é “startada”. Dessa forma não será necessário se preocupar em cadastrar os produtos antes de utilizar os endpoints de criação e gerenciamento de pedidos simulando um cliente da lanchonete.
 
+Lembrando que, para usar essa collection, é necessário mudar a variável "{{base_url}}" da collection no postman. A url base sempre muda quando subimos um api gateway diferente, pois não especificamos um domínio para ela. Após subir o projeto com terraform e git actions, pegue a url_base no stage do api gateway da aws e substitua nessa variável._
+
 Além dessa collection, foi desenvolvida uma outra collection que possui todos os endpoints para serem acessados de forma livre, ela se chama "FastFoodTotem - Complete Api".
