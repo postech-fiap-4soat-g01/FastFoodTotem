@@ -1,0 +1,527 @@
+{
+	"info": {
+		"_postman_id": "7e8486e4-6924-4e32-80d5-a7e84766f23f",
+		"name": "FastFoodTotem - Complete Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13125005"
+	},
+	"item": [
+		{
+			"name": "Usuários",
+			"item": [
+				{
+					"name": "Cadastro Usuarios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Fernando\",\r\n  \"email\": \"fernando.fernando@fernando.fernando\",\r\n  \"identification\": \"42983175014\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/User/CreateUser",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"User",
+								"CreateUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login com CPF",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/User/42983175014",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"User",
+								"42983175014"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login anônimo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/User/AuthenticateAsGuest",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"User",
+								"AuthenticateAsGuest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter lista com todos os usuários",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/User/GetUsers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"User",
+								"GetUsers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedidos",
+			"item": [
+				{
+					"name": "Criar pedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userCpf\": \"42983175014\",\r\n    \"userName\": \"user_name\",\r\n    \"orderedItems\": [\r\n        {\r\n            \"productId\": 2,\r\n            \"amount\": 3\r\n        },\r\n        {\r\n            \"productId\": 7,\r\n            \"amount\": 3\r\n        },\r\n        {\r\n            \"productId\": 14,\r\n            \"amount\": 3\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/order",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar pedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"status\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/order",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter pedido pelo ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/order/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter todos os pedidos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/order",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter pedido pelo status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/order/filterByStatus/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"filterByStatus",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter pedidos pendentes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/order/getPendingOrders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"getPendingOrders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter status de pagamento do pedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/order/paymentStatus/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"paymentStatus",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Receber pagamento do pedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"action\": \"payment.created\",\r\n  \"api_version\": \"v1\",\r\n  \"data\": {\r\n    \"id\": \"123456\"\r\n  },\r\n  \"date_created\": \"2024-01-01T00:00:00Z\",\r\n  \"id\": 123456789,\r\n  \"live_mode\": true,\r\n  \"type\": \"payment\",\r\n  \"user_id\": \"1612954\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/order/payment/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"payment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produtos",
+			"item": [
+				{
+					"name": "Criar Produto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"name\",\r\n    \"type\": 1,\r\n    \"price\": 10.5,\r\n    \"description\": \"teste\",\r\n    \"productImageUrl\": \"http://teste.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/product",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditarProduto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"name\",\r\n    \"type\": 1,\r\n    \"price\": 10.5,\r\n    \"description\": \"teste\",\r\n    \"productImageUrl\": \"http://teste.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/product",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Produto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/product/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter produto por categoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/product/category/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"product",
+								"category",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost",
+			"type": "string"
+		}
+	]
+}
