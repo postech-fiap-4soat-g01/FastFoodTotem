@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "919eed1d-f6d9-4774-ba91-90dc81ef6c2d",
+		"_postman_id": "443d6881-3739-44fe-9888-4719b727fc45",
 		"name": "FastFoodTotem - Jornada dos Usuários",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "32318867"
+		"_exporter_id": "13125005"
 	},
 	"item": [
 		{
@@ -24,15 +24,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:80/v1/customer",
-							"protocol": "http",
+							"raw": "{{base_url}}/User/CreateUser",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "80",
 							"path": [
-								"v1",
-								"customer"
+								"User",
+								"CreateUser"
 							]
 						}
 					},
@@ -44,16 +42,31 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:80/v1/customer/42983175014",
-							"protocol": "http",
+							"raw": "{{base_url}}/User/42983175014",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "80",
 							"path": [
-								"v1",
-								"customer",
+								"User",
 								"42983175014"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1 - Acesso Anônimo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/User/AuthenticateAsGuest",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"User",
+								"AuthenticateAsGuest"
 							]
 						}
 					},
@@ -62,15 +75,23 @@
 				{
 					"name": "2 - Get Burguers",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:80/v1/product/category/1",
-							"protocol": "http",
+							"raw": "{{base_url}}/v1/product/category/1",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "80",
 							"path": [
 								"v1",
 								"product",
@@ -84,15 +105,23 @@
 				{
 					"name": "3 - Get Acompanhamentos",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:80/v1/product/category/2",
-							"protocol": "http",
+							"raw": "{{base_url}}/v1/product/category/2",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "80",
 							"path": [
 								"v1",
 								"product",
@@ -106,15 +135,23 @@
 				{
 					"name": "4 - Get Bebidas",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:80/v1/product/category/3",
-							"protocol": "http",
+							"raw": "{{base_url}}/v1/product/category/3",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "80",
 							"path": [
 								"v1",
 								"product",
@@ -128,11 +165,21 @@
 				{
 					"name": "5 - Envio Pedido",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"customerId\": 1,\r\n    \"orderedItems\": [\r\n        {\r\n            \"productId\": 2,\r\n            \"amount\": 3\r\n        },\r\n        {\r\n            \"productId\": 7,\r\n            \"amount\": 3\r\n        },\r\n        {\r\n            \"productId\": 14,\r\n            \"amount\": 3\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"userCpf\": \"42983175014\",\r\n    \"userName\": \"user_name\",\r\n    \"orderedItems\": [\r\n        {\r\n            \"productId\": 2,\r\n            \"amount\": 3\r\n        },\r\n        {\r\n            \"productId\": 7,\r\n            \"amount\": 3\r\n        },\r\n        {\r\n            \"productId\": 14,\r\n            \"amount\": 3\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -140,12 +187,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:80/v1/order",
-							"protocol": "http",
+							"raw": "{{base_url}}/v1/order",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "80",
 							"path": [
 								"v1",
 								"order"
@@ -157,6 +202,16 @@
 				{
 					"name": "6 - Fake Checkout(simulando pagamento, recebimento webhook mercado pago e movendo status do pedido)",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -169,12 +224,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:80/v1/order/payment/1",
-							"protocol": "http",
+							"raw": "{{base_url}}/v1/order/payment/1",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "80",
 							"path": [
 								"v1",
 								"order",
@@ -191,12 +244,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:80/v1/order/getPendingOrders",
-							"protocol": "http",
+							"raw": "{{base_url}}/v1/order/getPendingOrders",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "80",
 							"path": [
 								"v1",
 								"order",
@@ -217,12 +268,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:80/v1/order/filterByStatus/2",
-							"protocol": "http",
+							"raw": "{{base_url}}/v1/order/filterByStatus/2",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "80",
 							"path": [
 								"v1",
 								"order",
@@ -239,12 +288,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:80/v1/order/1",
-							"protocol": "http",
+							"raw": "{{base_url}}/v1/order/1",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "80",
 							"path": [
 								"v1",
 								"order",
@@ -269,12 +316,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:80/v1/order",
-							"protocol": "http",
+							"raw": "{{base_url}}/v1/order",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "80",
 							"path": [
 								"v1",
 								"order"
@@ -298,12 +343,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:80/v1/order",
-							"protocol": "http",
+							"raw": "{{base_url}}/v1/order",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "80",
 							"path": [
 								"v1",
 								"order"
@@ -327,12 +370,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:80/v1/order",
-							"protocol": "http",
+							"raw": "{{base_url}}/v1/order",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "80",
 							"path": [
 								"v1",
 								"order"
@@ -342,6 +383,35 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost",
+			"type": "string"
 		}
 	]
 }
