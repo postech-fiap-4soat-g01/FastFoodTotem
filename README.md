@@ -186,3 +186,10 @@ Observe que nessas jornadas básicas não há a utilização dos endpoints do co
 Lembrando que, para usar essa collection, é necessário mudar a variável "{{base_url}}" da collection no postman. A url base sempre muda quando subimos um api gateway diferente, pois não especificamos um domínio para ela. Após subir o projeto com terraform e git actions, pegue a url_base no stage do api gateway da aws e substitua nessa variável._
 
 Além dessa collection, foi desenvolvida uma outra collection que possui todos os endpoints para serem acessados de forma livre, ela se chama "FastFoodTotem - Complete Api".
+
+
+As url's para os outros repositórios do projeto são:
+
+Terraform: https://github.com/postech-fiap-4soat-g01/aws-infrastructure-live
+
+Lambda Function Autenticação usuário: https://github.com/postech-fiap-4soat-g01/FastFoodUserManagement
