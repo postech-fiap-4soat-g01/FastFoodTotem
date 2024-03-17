@@ -53,7 +53,7 @@ A seguinte seção tem por objetivo explicar como arquitetamos a infra do produt
 ## Pré-requisitos
 * [AWS Cloud](https://aws.amazon.com/)							
 	* É necessário ter uma conta na AWS para subir a infraestrutura necessária para o projeto.
-* [Terraform]([https://www.docker.com/products/docker-desktop/](https://www.terraform.io/))
+* [Terraform](https://www.terraform.io/)
 	* Para subir a infraesturura mantida no repositório: [Repositório Terraform](https://github.com/postech-fiap-4soat-g01/aws-infrastructure-live)
 * [K9s](https://k9scli.io/) - Não obrigatório porém aconselhado por ser mais intuitivo.
 * [Postman](https://www.postman.com/downloads/) - Não obrigatório.
