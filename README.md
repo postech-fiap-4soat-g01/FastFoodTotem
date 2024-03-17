@@ -43,7 +43,7 @@ A camada Presentation é responsável por controlar as requisições externas ao
 
 É possível perceber pela imagem da arquitetura utilizada que ela está um pouco diferente da imagem tradicional da Clean Architecture, mas deixamos dessa forma para tentar deixar mais explicito como que ocorrem as comunicações entre as camadas. As dependências entres os projetos foram desenvolvidas de acordo com a Clean Architecture, que é o mais importante.
 
-## Kubernetes
+## Arquitetura Cloud
 A seguinte seção tem por objetivo explicar como arquitetamos a infra do produto.
 
 ### Diagrama da arquitetura
@@ -51,78 +51,17 @@ A seguinte seção tem por objetivo explicar como arquitetamos a infra do produt
 
   
 ## Pré-requisitos
-* [K8s](https://kubernetes.io/pt-br/docs/home/)							
-	* O K8s é obrigatório ter instalado na máquina para subir o projeto e possíveis serviços adjacentes, para isso é recomendado utilizar o docker e habilitar o Kubernets nele, porém para isso ter várias outras maneiras de chegar no mesmo resultado, caso prefira consultar a [documentação](https://docs.docker.com/desktop/kubernetes/).
-	* Recomendado criar um namespace próprio para o projeto.
-* [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-	* Para criar o node do kubernets de forma mais fácil e rápida, ajudando também a subir a imagem.
+* [AWS Cloud](https://aws.amazon.com/)							
+	* É necessário ter uma conta na AWS para subir a infraestrutura necessária para o projeto.
+* [Terraform]([https://www.docker.com/products/docker-desktop/](https://www.terraform.io/))
+	* Para subir a infraesturura mantida no repositório: [Repositório Terraform](https://github.com/postech-fiap-4soat-g01/aws-infrastructure-live)
 * [K9s](https://k9scli.io/) - Não obrigatório porém aconselhado por ser mais intuitivo.
 * [Postman](https://www.postman.com/downloads/) - Não obrigatório.
 
-## Como rodar localmente
-Para rodar o projeto localmente necessita abrir um terminal na pasta base, ***entrar na pasta k8s*** executar os seguintes comando:
+## Github Actions
+Esse projeto tem um workflow preparado para subir a imagem ao ECR e realizar o deploy ao EKS, ambos sendo criados anteriormente no [Repositório Terraform](https://github.com/postech-fiap-4soat-g01/aws-infrastructure-live).
 
-Caso tenha seguido pela instalação do k8s junto com o docker desktop é possível utilizar o contexto dele da seguinte forma:
-```yaml
-kubectl config get-contexts
-kubectl config use-context docker-desktop
-```
-
-> Para criar um namespace para o projeto e configurar como default:
-```yaml
-kubectl create -f ./namespace.yaml
-kubectl config set-context --current --namespace fast-food-totem
-```
-
-> Para criar a secret do banco, seu deployment e o service para disponibilizar a porta somente dentro do cluster:
-```yaml
-kubectl create -f ./db-secret.yaml
-kubectl create -f ./db-deployment.yaml
-kubectl create -f ./db-service.yaml
-```
-
-> Por fim para subir a API, juntamente com seu secret, deployment, service para conectar externo e seu HPA, para escalar:
-```yaml
-kubectl create -f ./api-secret.yaml
-
-kubectl create -f ./api-deployment.yaml
-kubectl create -f ./api-service.yaml
-```
-
-Para subir o HPA é necessário primeiro habilitar um metric server, para isso consultar a documentação do [k8s](https://github.com/kubernetes-sigs/metrics-server)
-> O comando utilizado para criar foi:
-```yaml
-kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
-```
-
-Caso necessário desabilitar a validação de certificado, para isso é ncessário editar o deployment do metrics-server no namespace kube-system passando o seguinte comando no containers args:
-```yaml
---kubelet-insecure-tls
-```
-
-> ***Após*** o metric server estar funcionando, só subir o HPA da aplicação.
-```yaml
-kubectl create -f ./api-hpa.yaml
-```
-
-Sendo executado normalmente, irá subir um banco SQL Server e também a API do projeto, sendo possível utilizar o [swagger](http://localhost:80/swagger/index.html) para fazer requisições.
 Caso prefira, é possível realizar o download da [collection](https://github.com/postech-fiap-4soat-g01/FastFoodTotem/blob/main/FastFoodTotem%20-%20Jornada%20dos%20Usu%C3%A1rios.postman_collection.json) e utilizar no postman.
-
-## Subindo uma tag nova a imagem
-Caso seja necessário entrar no root do projeto e rodar os seguintes comandos:
-
-> Necessário para realizar o build da imagem:
-```Batchfile
-docker build -t {user_docker_hub}/fast-food-totem:latest -t {user_docker_hub}/fast-food-totem:{tag} .
-```
-
-> Necessário para subir as alterações:
-```Batchfile
-docker push {user_docker_hub}/fast-food-totem:{tag}
-docker push {user_docker_hub}/fast-food-totem:latest
-```
-
-***OBS: Subir a tag latest também***
 
 ## K6 para validação do HPA
 É possível rodar o k6 para realizar um load test e validar se o HPA está funcional, para isso ***entrar na pasta stress*** e rodar o seguinte comando:
