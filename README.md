@@ -68,6 +68,11 @@ A seguinte seção tem por objetivo explicar como arquitetamos a infra do produt
 
 Esse projeto tem um workflow ao realizar o merge para a branch main preparado para subir a imagem ao ECR e realizar o deploy ao EKS, ambos sendo criados anteriormente na RUN 1: [Repositório Terraform](https://github.com/postech-fiap-4soat-g01/aws-infrastructure-live).
 
+Fluxo:
+* RUN 1 do terraform
+* Alterar secrets no api-secret.yaml dentro da pasta k8s
+* Workflow para subir a imagem no ECR e deploy no EKS
+
 Caso prefira, é possível realizar o download da [collection](https://github.com/postech-fiap-4soat-g01/FastFoodTotem/blob/main/FastFoodTotem%20-%20Jornada%20dos%20Usu%C3%A1rios.postman_collection.json) e utilizar no postman.
 
 ## K6 para validação do HPA
