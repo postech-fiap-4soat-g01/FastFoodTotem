@@ -59,7 +59,7 @@ A seguinte seção tem por objetivo explicar como arquitetamos a infra do produt
 * [Postman](https://www.postman.com/downloads/) - Não obrigatório.
 
 ## Github Actions
-# Necessário
+### Necessário
 * Configurar no GitHub as *Secrets and variables*, entrando em *Actions* e adicionando na parte *Repository secrets* a seguinte:
   * AWS_ACCESS_KEY_ID 
   * AWS_SECRET_ACCESS_KEY
