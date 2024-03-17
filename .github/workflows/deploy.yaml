@@ -61,4 +61,3 @@ jobs:
         kubectl apply -f k8s/api-deployment.yaml
         kubectl apply -f k8s/api-hpa.yaml
         kubectl apply -f k8s/api-service.yaml
-        kubectl apply -f k8s/api-ingress.yaml
