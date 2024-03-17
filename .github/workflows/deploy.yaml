@@ -1,9 +1,8 @@
 name: Deploy to ECR
 
 on:
- 
   push:
-    branches: [ main, feat/remove-db ]
+    branches: [ main ]
 
 env:
   ECR_REPOSITORY: ecr-fast_food_totem
