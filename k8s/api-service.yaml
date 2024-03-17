@@ -8,7 +8,6 @@ metadata:
     service.beta.kubernetes.io/aws-load-balancer-name: fast-food-totem
 spec:
   type: LoadBalancer
-  loadBalancerClass: service.k8s.aws/nlb
   selector:
     app: fast-food-totem-api
   ports:
