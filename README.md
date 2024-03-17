@@ -27,7 +27,7 @@ O projeto foi desenvolvido utilizando o .NET 6, tendo como SGBD o Sql Server e u
 
 Diagrama de arquitetura do projeto:
 
-![Arquitetura Projeto](./images/CleanArchitetureImage.png)
+![Arquitetura Projeto](.images/Fase3_Arquitetura.png)
 
 Observando o desenho da arquitetura utilizada, é possível diferenciar o projeto em 3 camadas: Presentation, Core e Infrastructure.
 
