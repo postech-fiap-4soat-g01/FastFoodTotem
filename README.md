@@ -47,7 +47,7 @@ A camada Presentation é responsável por controlar as requisições externas ao
 A seguinte seção tem por objetivo explicar como arquitetamos a infra do produto.
 
 ### Diagrama da arquitetura
-![Arquitetura Kubernetes](./images/Fase3_Arquitetura.png)
+![Arquitetura Kubernetes](./images/Fase3_ArquiteturaAtual.png)
 
   
 ## Pré-requisitos
