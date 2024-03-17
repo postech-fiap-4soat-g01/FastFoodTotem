@@ -66,7 +66,7 @@ A seguinte seção tem por objetivo explicar como arquitetamos a infra do produt
 * Rodar a primeira run no [Repositório Terraform](https://github.com/postech-fiap-4soat-g01/aws-infrastructure-live), para criação do ECR e RDS do SQL
 * Após criado, necessário atualizar o arquivo api-secret.yaml dentro da pasta k8s, alterando a *ConnectionStrings__SqlServerConnection* para qual foi criada o RDS.
 
-Esse projeto tem um workflow preparado para subir a imagem ao ECR e realizar o deploy ao EKS, ambos sendo criados anteriormente na RUN 1: [Repositório Terraform](https://github.com/postech-fiap-4soat-g01/aws-infrastructure-live).
+Esse projeto tem um workflow ao realizar o merge para a branch main preparado para subir a imagem ao ECR e realizar o deploy ao EKS, ambos sendo criados anteriormente na RUN 1: [Repositório Terraform](https://github.com/postech-fiap-4soat-g01/aws-infrastructure-live).
 
 Caso prefira, é possível realizar o download da [collection](https://github.com/postech-fiap-4soat-g01/FastFoodTotem/blob/main/FastFoodTotem%20-%20Jornada%20dos%20Usu%C3%A1rios.postman_collection.json) e utilizar no postman.
 
