@@ -19,6 +19,30 @@ Funcionalidades:
 * Realizar um pedido e acompanhar.
 * Pagamento via QRCode do Mercado Pago.
 
+## Pré-requisitos
+* [AWS Cloud](https://aws.amazon.com/)							
+	* É necessário ter uma conta na AWS para subir a infraestrutura necessária para o projeto.
+* [Terraform](https://www.terraform.io/)
+	* Para subir a infraesturura mantida no repositório: [Repositório Terraform](https://github.com/postech-fiap-4soat-g01/aws-infrastructure-live)
+* [K9s](https://k9scli.io/) - Não obrigatório porém aconselhado por ser mais intuitivo.
+* [Postman](https://www.postman.com/downloads/) - Não obrigatório.
+
+## Github Actions
+### Necessário
+* Configurar no GitHub as *Secrets and variables*, entrando em *Actions* e adicionando na parte *Repository secrets* a seguinte:
+  * AWS_ACCESS_KEY_ID 
+  * AWS_SECRET_ACCESS_KEY
+* Rodar a primeira run no [Repositório Terraform](https://github.com/postech-fiap-4soat-g01/aws-infrastructure-live), para criação do ECR e RDS do SQL
+* Após criado, necessário atualizar o arquivo api-secret.yaml dentro da pasta k8s, alterando a *ConnectionStrings__SqlServerConnection* para qual foi criada o RDS.
+
+Esse projeto tem um workflow ao realizar o merge para a branch main preparado para subir a imagem ao ECR e realizar o deploy ao EKS, ambos sendo criados anteriormente na RUN 1: [Repositório Terraform](https://github.com/postech-fiap-4soat-g01/aws-infrastructure-live).
+
+Fluxo:
+* RUN 1 do terraform
+* Alterar *ConnectionStrings__SqlServerConnection* no arquivo [api-secret](https://github.com/postech-fiap-4soat-g01/FastFoodTotem/blob/main/k8s/api-secret.yaml) de acordo com o RDS criado pelo Terraform
+* Alterar o endereço do ECR no arquivo [api-deployment](https://github.com/postech-fiap-4soat-g01/FastFoodTotem/blob/main/k8s/api-deployment.yaml) de acordo com o *ecr-fast_food_totem* criado pelo Terraform
+* Workflow para subir a imagem no ECR e deploy no EKS
+
 Links úteis:
 * [Documentação detalhada](https://docs.google.com/document/d/1YhRbWbEMPwUHi4J2lIz5dQMwZ6KrRzot/edit?usp=sharing&ouid=109865710704677504404&rtpof=true&sd=true).
 
@@ -48,30 +72,6 @@ A seguinte seção tem por objetivo explicar como arquitetamos a infra do produt
 
 ### Diagrama da arquitetura
 ![Arquitetura Kubernetes](./images/Fase3_ArquiteturaAtual.png)
-
-  
-## Pré-requisitos
-* [AWS Cloud](https://aws.amazon.com/)							
-	* É necessário ter uma conta na AWS para subir a infraestrutura necessária para o projeto.
-* [Terraform](https://www.terraform.io/)
-	* Para subir a infraesturura mantida no repositório: [Repositório Terraform](https://github.com/postech-fiap-4soat-g01/aws-infrastructure-live)
-* [K9s](https://k9scli.io/) - Não obrigatório porém aconselhado por ser mais intuitivo.
-* [Postman](https://www.postman.com/downloads/) - Não obrigatório.
-
-## Github Actions
-### Necessário
-* Configurar no GitHub as *Secrets and variables*, entrando em *Actions* e adicionando na parte *Repository secrets* a seguinte:
-  * AWS_ACCESS_KEY_ID 
-  * AWS_SECRET_ACCESS_KEY
-* Rodar a primeira run no [Repositório Terraform](https://github.com/postech-fiap-4soat-g01/aws-infrastructure-live), para criação do ECR e RDS do SQL
-* Após criado, necessário atualizar o arquivo api-secret.yaml dentro da pasta k8s, alterando a *ConnectionStrings__SqlServerConnection* para qual foi criada o RDS.
-
-Esse projeto tem um workflow ao realizar o merge para a branch main preparado para subir a imagem ao ECR e realizar o deploy ao EKS, ambos sendo criados anteriormente na RUN 1: [Repositório Terraform](https://github.com/postech-fiap-4soat-g01/aws-infrastructure-live).
-
-Fluxo:
-* RUN 1 do terraform
-* Alterar secrets no api-secret.yaml dentro da pasta k8s
-* Workflow para subir a imagem no ECR e deploy no EKS
 
 Caso prefira, é possível realizar o download da [collection](https://github.com/postech-fiap-4soat-g01/FastFoodTotem/blob/main/FastFoodTotem%20-%20Jornada%20dos%20Usu%C3%A1rios.postman_collection.json) e utilizar no postman.
 
