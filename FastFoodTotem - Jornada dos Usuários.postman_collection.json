@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Fernando\",\r\n  \"email\": \"fernando.fernando@fernando.fernando\",\r\n  \"identification\": \"42983175014\"\r\n}",
+							"raw": "{\r\n  \"name\": \"Fernando\",\r\n  \"email\": \"fernando.lief@fernando.fernando\",\r\n  \"identification\": \"625.428.240-29\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -42,13 +42,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/User/42983175014",
+							"raw": "{{base_url}}/User/AuthenticateUser/625.428.240-29",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"User",
-								"42983175014"
+								"AuthenticateUser",
+								"625.428.240-29"
 							]
 						}
 					},
@@ -80,7 +81,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -110,7 +111,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -140,7 +141,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -170,7 +171,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -207,7 +208,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -216,7 +217,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"action\": \"payment.created\",\r\n  \"api_version\": \"v1\",\r\n  \"data\": {\r\n    \"id\": \"123456\"\r\n  },\r\n  \"date_created\": \"2024-01-01T00:00:00Z\",\r\n  \"id\": 123456789,\r\n  \"live_mode\": true,\r\n  \"type\": \"payment\",\r\n  \"user_id\": \"1612954\"\r\n}",
+							"raw": "{\r\n  \"action\": \"payment.created\",\r\n  \"api_version\": \"v1\",\r\n  \"data\": {\r\n    \"id\": \"123456\"\r\n  },\r\n  \"date_created\": \"2024-01-01T00:00:00Z\",\r\n  \"id\": 1,\r\n  \"live_mode\": true,\r\n  \"type\": \"payment\",\r\n  \"user_id\": \"1612954\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -246,7 +247,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -280,7 +281,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -310,7 +311,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -339,7 +340,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -376,7 +377,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -413,7 +414,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "",
+									"value": "{{bearer_token}}",
 									"type": "string"
 								}
 							]
@@ -470,7 +471,12 @@
 	"variable": [
 		{
 			"key": "base_url",
-			"value": "localhost",
+			"value": "https://y917cdsvx4.execute-api.us-east-1.amazonaws.com/ApiGatewayStage",
+			"type": "string"
+		},
+		{
+			"key": "bearer_token",
+			"value": "eyJraWQiOiJMZkJwdEVWYTQ1UXNYT1JoMUl1WldHeHNzZFJ4TU00SEdRcVo1VkZkcjJjPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJiY2RjZjBiMC04MTEyLTRlNDktYTdhMS00ZjRjMWVmMzFmM2UiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9xWmtPaDVsUzYiLCJjb2duaXRvOnVzZXJuYW1lIjoiYmNkY2YwYjAtODExMi00ZTQ5LWE3YTEtNGY0YzFlZjMxZjNlIiwib3JpZ2luX2p0aSI6ImYzYzM5OWNhLWUzMjEtNDczNC04ODY3LTM2MDk4OTU3NmI4NSIsImF1ZCI6InUyZzdnMGxvOHYxNmh0dWJoaXRiNnA4b2IiLCJldmVudF9pZCI6ImVlMGIzZTBmLTYyYjUtNDNmMi04Njk4LTFmMWJjMjI0M2U4MSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzEwNzQ3Mzg4LCJleHAiOjE3MTA3NTA5ODgsImlhdCI6MTcxMDc0NzM4OCwianRpIjoiNDhkZDQ0MGMtNzZjZC00OTRlLTgxYjEtOWRiMGMzYjk3OGM0IiwiZW1haWwiOiJmZXJuYW5kby5saWVmQGZlcm5hbmRvLmZlcm5hbmRvIn0.oTL74fFfXWpmkgEYiakuo1fM1gH_kJdxlbQL8-UtCQbFFzf3OvPbZzCJyxXoLeiXN-5zju26l_cuX1B7pGpUvHlQLN4r9QDisxNmb1-3hsWimG08sFPK6RpmgzaQDNHdYKp1fXJKm6zTaWXGZWBF9Ec1sFJmjVcc6CRHQQv3sqd7EC0t11DrBPKuNgWhavU5xouiUF-MhGJvz5ybiNLfOUsiGvT7zeSIhujqErdKhJS1eaC59LSek0OUdNVsQKkeAfkcajsel6kieQlo8jMoUrd2HmjN7Ub1DkTtITvrXz99w01DB9062wHLQzg7aFyWBw6ZcR_dv0jRzNmM36OKmA",
 			"type": "string"
 		}
 	]
