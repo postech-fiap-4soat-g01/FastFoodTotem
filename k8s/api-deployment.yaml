@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: fast-food-totem-api
-          image: 817549174499.dkr.ecr.us-east-1.amazonaws.com/ecr-fast_food_totem
+          image: 653706844093.dkr.ecr.us-east-1.amazonaws.com/ecr-fast_food_totem
           ports:
             - containerPort: 80
           livenessProbe:
